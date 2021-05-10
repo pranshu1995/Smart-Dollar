@@ -1,0 +1,592 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		ECDDF7D226497BD4006F94A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDDF7D126497BD4006F94A1 /* AppDelegate.swift */; };
+		ECDDF7D426497BD4006F94A1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDDF7D326497BD4006F94A1 /* SceneDelegate.swift */; };
+		ECDDF7D626497BD4006F94A1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDDF7D526497BD4006F94A1 /* ViewController.swift */; };
+		ECDDF7D926497BD4006F94A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECDDF7D726497BD4006F94A1 /* Main.storyboard */; };
+		ECDDF7DB26497BD9006F94A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECDDF7DA26497BD9006F94A1 /* Assets.xcassets */; };
+		ECDDF7DE26497BD9006F94A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECDDF7DC26497BD9006F94A1 /* LaunchScreen.storyboard */; };
+		ECDDF7E926497BDA006F94A1 /* Smart_DollarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDDF7E826497BDA006F94A1 /* Smart_DollarTests.swift */; };
+		ECDDF7F426497BDA006F94A1 /* Smart_DollarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDDF7F326497BDA006F94A1 /* Smart_DollarUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		ECDDF7E526497BDA006F94A1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ECDDF7C626497BD4006F94A1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ECDDF7CD26497BD4006F94A1;
+			remoteInfo = "Smart Dollar";
+		};
+		ECDDF7F026497BDA006F94A1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ECDDF7C626497BD4006F94A1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ECDDF7CD26497BD4006F94A1;
+			remoteInfo = "Smart Dollar";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		ECDDF7CE26497BD4006F94A1 /* Smart Dollar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Smart Dollar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECDDF7D126497BD4006F94A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		ECDDF7D326497BD4006F94A1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		ECDDF7D526497BD4006F94A1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		ECDDF7D826497BD4006F94A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		ECDDF7DA26497BD9006F94A1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		ECDDF7DD26497BD9006F94A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		ECDDF7DF26497BD9006F94A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ECDDF7E426497BDA006F94A1 /* Smart DollarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Smart DollarTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECDDF7E826497BDA006F94A1 /* Smart_DollarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Smart_DollarTests.swift; sourceTree = "<group>"; };
+		ECDDF7EA26497BDA006F94A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ECDDF7EF26497BDA006F94A1 /* Smart DollarUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Smart DollarUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECDDF7F326497BDA006F94A1 /* Smart_DollarUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Smart_DollarUITests.swift; sourceTree = "<group>"; };
+		ECDDF7F526497BDA006F94A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		ECDDF7CB26497BD4006F94A1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECDDF7E126497BDA006F94A1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECDDF7EC26497BDA006F94A1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		ECDDF7C526497BD4006F94A1 = {
+			isa = PBXGroup;
+			children = (
+				ECDDF7D026497BD4006F94A1 /* Smart Dollar */,
+				ECDDF7E726497BDA006F94A1 /* Smart DollarTests */,
+				ECDDF7F226497BDA006F94A1 /* Smart DollarUITests */,
+				ECDDF7CF26497BD4006F94A1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		ECDDF7CF26497BD4006F94A1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ECDDF7CE26497BD4006F94A1 /* Smart Dollar.app */,
+				ECDDF7E426497BDA006F94A1 /* Smart DollarTests.xctest */,
+				ECDDF7EF26497BDA006F94A1 /* Smart DollarUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ECDDF7D026497BD4006F94A1 /* Smart Dollar */ = {
+			isa = PBXGroup;
+			children = (
+				ECDDF7D126497BD4006F94A1 /* AppDelegate.swift */,
+				ECDDF7D326497BD4006F94A1 /* SceneDelegate.swift */,
+				ECDDF7D526497BD4006F94A1 /* ViewController.swift */,
+				ECDDF7D726497BD4006F94A1 /* Main.storyboard */,
+				ECDDF7DA26497BD9006F94A1 /* Assets.xcassets */,
+				ECDDF7DC26497BD9006F94A1 /* LaunchScreen.storyboard */,
+				ECDDF7DF26497BD9006F94A1 /* Info.plist */,
+			);
+			path = "Smart Dollar";
+			sourceTree = "<group>";
+		};
+		ECDDF7E726497BDA006F94A1 /* Smart DollarTests */ = {
+			isa = PBXGroup;
+			children = (
+				ECDDF7E826497BDA006F94A1 /* Smart_DollarTests.swift */,
+				ECDDF7EA26497BDA006F94A1 /* Info.plist */,
+			);
+			path = "Smart DollarTests";
+			sourceTree = "<group>";
+		};
+		ECDDF7F226497BDA006F94A1 /* Smart DollarUITests */ = {
+			isa = PBXGroup;
+			children = (
+				ECDDF7F326497BDA006F94A1 /* Smart_DollarUITests.swift */,
+				ECDDF7F526497BDA006F94A1 /* Info.plist */,
+			);
+			path = "Smart DollarUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		ECDDF7CD26497BD4006F94A1 /* Smart Dollar */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ECDDF7F826497BDA006F94A1 /* Build configuration list for PBXNativeTarget "Smart Dollar" */;
+			buildPhases = (
+				ECDDF7CA26497BD4006F94A1 /* Sources */,
+				ECDDF7CB26497BD4006F94A1 /* Frameworks */,
+				ECDDF7CC26497BD4006F94A1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Smart Dollar";
+			productName = "Smart Dollar";
+			productReference = ECDDF7CE26497BD4006F94A1 /* Smart Dollar.app */;
+			productType = "com.apple.product-type.application";
+		};
+		ECDDF7E326497BDA006F94A1 /* Smart DollarTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ECDDF7FB26497BDA006F94A1 /* Build configuration list for PBXNativeTarget "Smart DollarTests" */;
+			buildPhases = (
+				ECDDF7E026497BDA006F94A1 /* Sources */,
+				ECDDF7E126497BDA006F94A1 /* Frameworks */,
+				ECDDF7E226497BDA006F94A1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ECDDF7E626497BDA006F94A1 /* PBXTargetDependency */,
+			);
+			name = "Smart DollarTests";
+			productName = "Smart DollarTests";
+			productReference = ECDDF7E426497BDA006F94A1 /* Smart DollarTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		ECDDF7EE26497BDA006F94A1 /* Smart DollarUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ECDDF7FE26497BDA006F94A1 /* Build configuration list for PBXNativeTarget "Smart DollarUITests" */;
+			buildPhases = (
+				ECDDF7EB26497BDA006F94A1 /* Sources */,
+				ECDDF7EC26497BDA006F94A1 /* Frameworks */,
+				ECDDF7ED26497BDA006F94A1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ECDDF7F126497BDA006F94A1 /* PBXTargetDependency */,
+			);
+			name = "Smart DollarUITests";
+			productName = "Smart DollarUITests";
+			productReference = ECDDF7EF26497BDA006F94A1 /* Smart DollarUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		ECDDF7C626497BD4006F94A1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					ECDDF7CD26497BD4006F94A1 = {
+						CreatedOnToolsVersion = 12.4;
+					};
+					ECDDF7E326497BDA006F94A1 = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = ECDDF7CD26497BD4006F94A1;
+					};
+					ECDDF7EE26497BDA006F94A1 = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = ECDDF7CD26497BD4006F94A1;
+					};
+				};
+			};
+			buildConfigurationList = ECDDF7C926497BD4006F94A1 /* Build configuration list for PBXProject "Smart Dollar" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = ECDDF7C526497BD4006F94A1;
+			productRefGroup = ECDDF7CF26497BD4006F94A1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ECDDF7CD26497BD4006F94A1 /* Smart Dollar */,
+				ECDDF7E326497BDA006F94A1 /* Smart DollarTests */,
+				ECDDF7EE26497BDA006F94A1 /* Smart DollarUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		ECDDF7CC26497BD4006F94A1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECDDF7DE26497BD9006F94A1 /* LaunchScreen.storyboard in Resources */,
+				ECDDF7DB26497BD9006F94A1 /* Assets.xcassets in Resources */,
+				ECDDF7D926497BD4006F94A1 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECDDF7E226497BDA006F94A1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECDDF7ED26497BDA006F94A1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		ECDDF7CA26497BD4006F94A1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECDDF7D626497BD4006F94A1 /* ViewController.swift in Sources */,
+				ECDDF7D226497BD4006F94A1 /* AppDelegate.swift in Sources */,
+				ECDDF7D426497BD4006F94A1 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECDDF7E026497BDA006F94A1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECDDF7E926497BDA006F94A1 /* Smart_DollarTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECDDF7EB26497BDA006F94A1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECDDF7F426497BDA006F94A1 /* Smart_DollarUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		ECDDF7E626497BDA006F94A1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ECDDF7CD26497BD4006F94A1 /* Smart Dollar */;
+			targetProxy = ECDDF7E526497BDA006F94A1 /* PBXContainerItemProxy */;
+		};
+		ECDDF7F126497BDA006F94A1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ECDDF7CD26497BD4006F94A1 /* Smart Dollar */;
+			targetProxy = ECDDF7F026497BDA006F94A1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		ECDDF7D726497BD4006F94A1 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ECDDF7D826497BD4006F94A1 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		ECDDF7DC26497BD9006F94A1 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ECDDF7DD26497BD9006F94A1 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		ECDDF7F626497BDA006F94A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		ECDDF7F726497BDA006F94A1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		ECDDF7F926497BDA006F94A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Smart Dollar/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "uts.edu.au.Smart-Dollar";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		ECDDF7FA26497BDA006F94A1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Smart Dollar/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "uts.edu.au.Smart-Dollar";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		ECDDF7FC26497BDA006F94A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Smart DollarTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "uts.edu.au.Smart-DollarTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Smart Dollar.app/Smart Dollar";
+			};
+			name = Debug;
+		};
+		ECDDF7FD26497BDA006F94A1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Smart DollarTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "uts.edu.au.Smart-DollarTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Smart Dollar.app/Smart Dollar";
+			};
+			name = Release;
+		};
+		ECDDF7FF26497BDA006F94A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Smart DollarUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "uts.edu.au.Smart-DollarUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Smart Dollar";
+			};
+			name = Debug;
+		};
+		ECDDF80026497BDA006F94A1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Smart DollarUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "uts.edu.au.Smart-DollarUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Smart Dollar";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		ECDDF7C926497BD4006F94A1 /* Build configuration list for PBXProject "Smart Dollar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ECDDF7F626497BDA006F94A1 /* Debug */,
+				ECDDF7F726497BDA006F94A1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ECDDF7F826497BDA006F94A1 /* Build configuration list for PBXNativeTarget "Smart Dollar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ECDDF7F926497BDA006F94A1 /* Debug */,
+				ECDDF7FA26497BDA006F94A1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ECDDF7FB26497BDA006F94A1 /* Build configuration list for PBXNativeTarget "Smart DollarTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ECDDF7FC26497BDA006F94A1 /* Debug */,
+				ECDDF7FD26497BDA006F94A1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ECDDF7FE26497BDA006F94A1 /* Build configuration list for PBXNativeTarget "Smart DollarUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ECDDF7FF26497BDA006F94A1 /* Debug */,
+				ECDDF80026497BDA006F94A1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = ECDDF7C626497BD4006F94A1 /* Project object */;
+}
