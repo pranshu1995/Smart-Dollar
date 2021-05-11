@@ -19,6 +19,7 @@
 		ECDDF811264982F8006F94A1 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDDF810264982F8006F94A1 /* SettingsViewController.swift */; };
 		ECDDF816264983DE006F94A1 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDDF815264983DE006F94A1 /* Transaction.swift */; };
 		ECDDF81B26498A1A006F94A1 /* Budget.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDDF81A26498A1A006F94A1 /* Budget.swift */; };
+		ECDDF8202649A12B006F94A1 /* TransactionAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDDF81F2649A12B006F94A1 /* TransactionAddViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		ECDDF810264982F8006F94A1 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		ECDDF815264983DE006F94A1 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		ECDDF81A26498A1A006F94A1 /* Budget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Budget.swift; sourceTree = "<group>"; };
+		ECDDF81F2649A12B006F94A1 /* TransactionAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionAddViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +161,7 @@
 			children = (
 				ECDDF80B264982D1006F94A1 /* StatisticsViewController.swift */,
 				ECDDF7D526497BD4006F94A1 /* HomeViewController.swift */,
+				ECDDF81F2649A12B006F94A1 /* TransactionAddViewController.swift */,
 				ECDDF810264982F8006F94A1 /* SettingsViewController.swift */,
 			);
 			path = Controllers;
@@ -301,6 +304,7 @@
 				ECDDF811264982F8006F94A1 /* SettingsViewController.swift in Sources */,
 				ECDDF81B26498A1A006F94A1 /* Budget.swift in Sources */,
 				ECDDF80C264982D1006F94A1 /* StatisticsViewController.swift in Sources */,
+				ECDDF8202649A12B006F94A1 /* TransactionAddViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
