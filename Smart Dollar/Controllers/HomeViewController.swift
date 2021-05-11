@@ -9,6 +9,7 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
+    @IBOutlet weak var InpExp: UIView!
     override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated);
     self.navigationController?.isNavigationBarHidden = true
@@ -18,6 +19,11 @@ class HomeViewController: UIViewController {
         super.viewDidLoad();
        
         // Do any additional setup after loading the view.
+        
+        InpExp.layer.shadowColor = UIColor.black.cgColor
+        InpExp.layer.shadowOpacity = 1
+        InpExp.layer.shadowOffset = .zero
+        InpExp.layer.shadowRadius = 10
     }
     
    
