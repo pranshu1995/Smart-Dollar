@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zok-zy-spk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zok-zy-spk">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,6 +11,7 @@
         <!--Home-->
         <scene sceneID="tne-QT-ifu">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController id="BYZ-38-t0r" userLabel="Home" customClass="HomeViewController" customModule="Smart_Dollar" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -24,7 +25,7 @@
                                 </constraints>
                                 <state key="normal" title="Add"/>
                                 <connections>
-                                    <segue destination="K8k-me-DwQ" kind="show" id="6Ob-nQ-tvS"/>
+                                    <segue destination="K1U-bc-f16" kind="show" id="UG8-pC-g5M"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hello, user!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7bD-n8-sqs">
@@ -120,39 +121,23 @@
                         <outlet property="InpExp" destination="uGM-2A-2qb" id="A7z-vh-8pY"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1089.8550724637682" y="1029.9107142857142"/>
         </scene>
-        <!--Transaction Add View Controller-->
-        <scene sceneID="WU8-EH-E4T">
+        <!--TransactionAddStoryboard-->
+        <scene sceneID="jTh-aQ-dAm">
             <objects>
-                <viewController id="K8k-me-DwQ" customClass="TransactionAddViewController" customModule="Smart_Dollar" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="FxL-vD-J3W">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Transaction Add" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U0E-pf-uxJ">
-                                <rect key="frame" x="209" y="186" width="124" height="177"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="jzB-6h-CL2"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="vA6-5O-kfh"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Nvc-eq-228" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="TransactionAddStoryboard" id="K1U-bc-f16" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Gmh-WW-dz2"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kQi-S4-zPP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1090" y="1900"/>
+            <point key="canvasLocation" x="-1136" y="1714"/>
         </scene>
         <!--Statistics-->
         <scene sceneID="bcc-yR-PHm">
             <objects>
-                <viewController id="Rpn-cV-sSx" userLabel="Statistics" customClass="StatisticsViewController" customModule="Smart_Dollar" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StatiticsStoryboard" id="Rpn-cV-sSx" userLabel="Statistics" customClass="StatisticsViewController" customModule="Smart_Dollar" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JjC-D0-8oo">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -180,7 +165,7 @@
         <!--Settings-->
         <scene sceneID="kMs-aa-N32">
             <objects>
-                <viewController id="8kv-9P-Iwt" userLabel="Settings" customClass="SettingsViewController" customModule="Smart_Dollar" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SettingsStoryboard" id="8kv-9P-Iwt" userLabel="Settings" customClass="SettingsViewController" customModule="Smart_Dollar" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VmJ-nw-Wha">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -228,7 +213,8 @@
         <!--Home-->
         <scene sceneID="npS-Jd-ggY">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bNk-Jl-CVW" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="16m-ch-n3Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <navigationController storyboardIdentifier="HomeViewStoryboard" automaticallyAdjustsScrollViewInsets="NO" id="bNk-Jl-CVW" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Home" id="DQU-2Y-mVE"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ya1-0a-2jL">
@@ -243,7 +229,6 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="4Sg-fh-ZRZ"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="16m-ch-n3Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2000.0000000000002" y="1029.9107142857142"/>
         </scene>
