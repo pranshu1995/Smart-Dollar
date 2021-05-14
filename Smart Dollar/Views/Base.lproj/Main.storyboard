@@ -11,7 +11,6 @@
         <!--Home-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController id="BYZ-38-t0r" userLabel="Home" customClass="HomeViewController" customModule="Smart_Dollar" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -121,6 +120,7 @@
                         <outlet property="InpExp" destination="uGM-2A-2qb" id="A7z-vh-8pY"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1089.8550724637682" y="1029.9107142857142"/>
         </scene>
@@ -213,7 +213,6 @@
         <!--Home-->
         <scene sceneID="npS-Jd-ggY">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="16m-ch-n3Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="HomeViewStoryboard" automaticallyAdjustsScrollViewInsets="NO" id="bNk-Jl-CVW" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Home" id="DQU-2Y-mVE"/>
                     <toolbarItems/>
@@ -229,6 +228,7 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="4Sg-fh-ZRZ"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="16m-ch-n3Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2000.0000000000002" y="1029.9107142857142"/>
         </scene>

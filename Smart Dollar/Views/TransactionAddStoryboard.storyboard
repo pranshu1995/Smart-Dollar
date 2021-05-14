@@ -30,11 +30,14 @@
                                 <rect key="frame" x="111" y="234" width="204" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="059-or-oh3">
                                 <rect key="frame" x="100" y="291" width="226" height="68"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="dateUpdated:" destination="BEI-VM-vvI" eventType="valueChanged" id="w7T-Wd-eMD"/>
+                                </connections>
                             </datePicker>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Qn-8k-Wbc">
                                 <rect key="frame" x="192" y="649" width="30" height="30"/>
@@ -91,6 +94,8 @@
                     <connections>
                         <outlet property="categoryLabel" destination="JAO-fn-lze" id="9DQ-Pj-cby"/>
                         <outlet property="dropDownView" destination="KeK-uY-dYV" id="c5r-Vg-Zs6"/>
+                        <outlet property="transactionAmount" destination="tda-AT-4KZ" id="rw9-ND-LtQ"/>
+                        <outlet property="transactionDate" destination="059-or-oh3" id="QbV-v7-djR"/>
                         <outlet property="transactionDescription" destination="62g-RT-Pcu" id="c3R-Jt-o7E"/>
                         <outlet property="transactionType" destination="Kmd-MO-UI7" id="TId-Lw-WUb"/>
                     </connections>

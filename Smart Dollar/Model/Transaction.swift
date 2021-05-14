@@ -8,13 +8,10 @@
 import Foundation
 
 struct Transaction: Codable {
+    var id: String;
     var amount: Double;
     var description: String;
-    enum type: String {
-        case income = "Income";
-        case expense = "Expense";
-    }
+    var type: String;
     var category: String;
     var date: Date;
 }
-

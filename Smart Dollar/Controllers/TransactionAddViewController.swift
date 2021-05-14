@@ -14,14 +14,20 @@ class TransactionAddViewController: UIViewController {
     @IBOutlet weak var dropDownView: UIView!;
     @IBOutlet weak var transactionDescription: UITextField!
   
-
+    @IBOutlet weak var transactionDate: UIDatePicker!
+    
+    @IBOutlet weak var transactionAmount: UITextField!
     @IBOutlet weak var categoryLabel: UILabel!
     
     @IBOutlet weak var transactionType: UISegmentedControl!
     
+    var currentDate: Date = Date.init();
+    
     var incomeCategories = ["Car", "Bike", "Cycle"];
     var expenseCategories = ["Bus", "Train", "PLane"];
     let dropDown = DropDown();
+    
+    var fetchedTransactions: [Transaction] = [];
     
    
     
@@ -30,7 +36,8 @@ class TransactionAddViewController: UIViewController {
         
         dropDown.anchorView = dropDownView;
         dropDown.dataSource = incomeCategories;
-        dropDown.selectionAction = { [unowned self] (index: Int, item: String) in print("Selected item: \(item) at index: \(index)");
+        dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
+//            print("Selected item: \(item) at index: \(index)");
             categoryLabel.text = item;
             
         }
@@ -45,7 +52,14 @@ class TransactionAddViewController: UIViewController {
     }
     
     
-
+    @IBAction func dateUpdated(_ sender: Any) {
+//        let dateFormatterGet = DateFormatter();
+//        dateFormatterGet.dateFormat = "MMM dd, yyyy HH:mm";
+//        let xDate = dateFormatterGet.string(from: transactionDate.date)
+//        print(xDate);
+//        currentDate = transactionDate.date;
+    }
+    
     @IBAction func dropDownClick(_ sender: Any) {
 //        print("Andar");
         dropDown.show();
@@ -53,7 +67,7 @@ class TransactionAddViewController: UIViewController {
     
     @IBAction func transactionTypeSelector(_ sender: Any) {
         
-        print(transactionType.selectedSegmentIndex);
+//        print(transactionType.selectedSegmentIndex);
         if(transactionType.selectedSegmentIndex == 0){
             dropDown.dataSource = incomeCategories;
         }
@@ -74,11 +88,39 @@ class TransactionAddViewController: UIViewController {
 //    }
     
         @IBAction func addTransaction(_ sender: Any) {
-//            dropDown.show();
-//            print(transactionTypeSelector.selectedSegmentIndex);
-        dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
-          print("Selected item: \(item) at index: \(index)")
-        }
+            let type: String;
+            let transactionId: String = UUID.init().uuidString;
+            
+            if(transactionType.selectedSegmentIndex == 0){
+                type = "Income";
+            }
+            else{
+                type = "Expense";
+            }
+            
+            let dateFormatterGet = DateFormatter();
+            dateFormatterGet.dateFormat = "MMM dd, yyyy HH:mm";
+            print(dateFormatterGet.string(from: transactionDate.date));
+            print(transactionDate.date);
+//            let xDate = dateFormatterGet.string(from: transactionDate.date)
+            
+            let amount: Double = Double(transactionAmount.text ?? "") ?? 0;
+            
+            print("kitna \(amount)")
+            let newTransaction = Transaction(id: transactionId, amount: amount, description: transactionDescription.text ?? "", type: type, category: categoryLabel.text ?? "", date: transactionDate.date);
+            
+            if let data = UserDefaults.standard.value(forKey: "Transactions") as? Data {
+                fetchedTransactions = try! PropertyListDecoder().decode(Array<Transaction>.self, from: data)
+                print(fetchedTransactions);
+            }
+            
+            
+            fetchedTransactions.append(newTransaction);
+            
+            
+            UserDefaults.standard.set(try? PropertyListEncoder().encode(fetchedTransactions), forKey: "Transactions");
+            fetchedTransactions = [];
+            
     }
 
 }
