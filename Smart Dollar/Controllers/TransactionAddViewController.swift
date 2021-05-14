@@ -107,7 +107,7 @@ class TransactionAddViewController: UIViewController {
             let amount: Double = Double(transactionAmount.text ?? "") ?? 0;
             
             print("kitna \(amount)")
-            let newTransaction = Transaction(id: transactionId, amount: amount, description: transactionDescription.text ?? "", type: type, category: categoryLabel.text ?? "", date: transactionDate.date);
+            let newTransaction = Transaction(id: transactionId, amount: amount, description: transactionDescription.text ?? "", type: type, category: categoryLabel.text ?? "", date: transactionDate.date, currency: "AUD");
             
             if let data = UserDefaults.standard.value(forKey: "Transactions") as? Data {
                 fetchedTransactions = try! PropertyListDecoder().decode(Array<Transaction>.self, from: data)

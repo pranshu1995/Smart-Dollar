@@ -3,13 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		A433913D0368EE9C4C96C720 /* Pods_Smart_DollarTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CAE98BFB516EB2C9DB13AC2 /* Pods_Smart_DollarTests.framework */; };
 		ADB0669A34CBDF04290152B9 /* Pods_Smart_Dollar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E9AFE2461592FF098E3B39B /* Pods_Smart_Dollar.framework */; };
 		BA1077049B5D45D591DF62B6 /* Pods_Smart_Dollar_Smart_DollarUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D924C6D77062C5EE47D8F03 /* Pods_Smart_Dollar_Smart_DollarUITests.framework */; };
+		EC954988264EB3F700DBD176 /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC954987264EB3F700DBD176 /* HelperFunctions.swift */; };
 		ECDDF7D226497BD4006F94A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDDF7D126497BD4006F94A1 /* AppDelegate.swift */; };
 		ECDDF7D426497BD4006F94A1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDDF7D326497BD4006F94A1 /* SceneDelegate.swift */; };
 		ECDDF7D626497BD4006F94A1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDDF7D526497BD4006F94A1 /* HomeViewController.swift */; };
@@ -53,6 +54,7 @@
 		7CAE98BFB516EB2C9DB13AC2 /* Pods_Smart_DollarTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Smart_DollarTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D4BD53083EDC4B82F318F31 /* Pods-Smart DollarTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart DollarTests.debug.xcconfig"; path = "Target Support Files/Pods-Smart DollarTests/Pods-Smart DollarTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CA87756246F4BEEDBB904362 /* Pods-Smart Dollar-Smart DollarUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Dollar-Smart DollarUITests.debug.xcconfig"; path = "Target Support Files/Pods-Smart Dollar-Smart DollarUITests/Pods-Smart Dollar-Smart DollarUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		EC954987264EB3F700DBD176 /* HelperFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperFunctions.swift; sourceTree = "<group>"; };
 		ECDDF7CE26497BD4006F94A1 /* Smart Dollar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Smart Dollar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECDDF7D126497BD4006F94A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ECDDF7D326497BD4006F94A1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -113,7 +115,6 @@
 				9D4BD53083EDC4B82F318F31 /* Pods-Smart DollarTests.debug.xcconfig */,
 				06C31B1D9A5B8441F77C8C16 /* Pods-Smart DollarTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -125,6 +126,14 @@
 				7CAE98BFB516EB2C9DB13AC2 /* Pods_Smart_DollarTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EC954983264EA52A00DBD176 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				EC954987264EB3F700DBD176 /* HelperFunctions.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		ECDDF7C526497BD4006F94A1 = {
@@ -152,6 +161,7 @@
 		ECDDF7D026497BD4006F94A1 /* Smart Dollar */ = {
 			isa = PBXGroup;
 			children = (
+				EC954983264EA52A00DBD176 /* Helper */,
 				ECDDF80726498025006F94A1 /* Controllers */,
 				ECDDF8052649800B006F94A1 /* Views */,
 				ECDDF80426498001006F94A1 /* Model */,
@@ -458,6 +468,7 @@
 				ECDDF81B26498A1A006F94A1 /* Budget.swift in Sources */,
 				ECDDF80C264982D1006F94A1 /* StatisticsViewController.swift in Sources */,
 				ECDDF8202649A12B006F94A1 /* TransactionAddViewController.swift in Sources */,
+				EC954988264EB3F700DBD176 /* HelperFunctions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

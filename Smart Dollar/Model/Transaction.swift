@@ -14,4 +14,5 @@ struct Transaction: Codable {
     var type: String;
     var category: String;
     var date: Date;
+    var currency: String;
 }
