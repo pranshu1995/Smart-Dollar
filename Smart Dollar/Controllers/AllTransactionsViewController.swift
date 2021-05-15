@@ -1,56 +1,62 @@
 //
-//  ViewController.swift
+//  AllTransactionsViewController.swift
 //  Smart Dollar
 //
-//  Created by Pranshu Midha on 10/05/21.
+//  Created by Pranshu Midha on 15/05/21.
 //
 
 import UIKit
 
+class AllTransactionsViewController: UIViewController, UITabBarDelegate {
 
-class HomeViewController: UIViewController {
-
-    @IBOutlet weak var InpExp: UIView!
+    @IBOutlet weak var topTabBar: UITabBar!
     
-    @IBOutlet weak var expenseLabel: UILabel!
-    @IBOutlet weak var incomeLabel: UILabel!
-    @IBOutlet weak var balanceLabel: UILabel!
-    @IBOutlet weak var transactionsTable: UITableView!;
+    @IBOutlet weak var allTransactionsTable: UITableView!
     
     var fetchedTransactions: [Transaction] = [];
-    var income: Double = 0;
-    var expense: Double = 0;
-    var balance: Double = 0;
+    var displayTransactions: [Transaction] = [];
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        fetchData();
+        // Do any additional setup after loading the view.
+    }
     
     override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated);
-        self.navigationController?.isNavigationBarHidden = true;
-        
+        self.navigationController?.isNavigationBarHidden = false;
+        topTabBar.selectedItem = topTabBar.items![1] as UITabBarItem
         fetchData();
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad();
-       
-        // Do any additional setup after loading the view.
-        
-        InpExp.layer.shadowColor = UIColor.black.cgColor
-        InpExp.layer.shadowOpacity = 1
-        InpExp.layer.shadowOffset = .zero
-        InpExp.layer.shadowRadius = 10
-        
-        
-        fetchData();
+    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+            //This method will be called when user changes tab.
+        print("chala \(item.title!)");
+        if(item.title == "All"){
+            displayTransactions = fetchedTransactions;
+        }
+        else if(item.title == "Income"){
+            displayTransactions = filterTransactions(type: "Income");
+        }
+        else if(item.title == "Expense"){
+            displayTransactions = filterTransactions(type: "Expense");
+        }
+        allTransactionsTable.reloadData();
     }
     
+    func filterTransactions(type: String) -> [Transaction]{
+        var arr: [Transaction] = [];
+        arr = fetchedTransactions.filter{ $0.type == type};
+//        print(arr);
+        return arr;
+    }
+
     @objc func fetchData(){
         fetchedTransactions = [];
-        income = 0;
-        expense = 0;
-        balance = 0;
+       
         
         transactionsUpdate();
-        valuesUpdate();
+        displayTransactions = fetchedTransactions;
     }
     
     @objc func transactionsUpdate(){
@@ -61,45 +67,28 @@ class HomeViewController: UIViewController {
             }
             print(fetchedTransactions);
         }
-        transactionsTable.reloadData();
+        allTransactionsTable.reloadData();
     }
-    
-    @objc func valuesUpdate(){
-        for t in fetchedTransactions {
-            if(t.type == "Income"){
-                income = income + t.amount;
-            }
-            else if(t.type == "Expense"){
-                expense = expense + t.amount;
-            }
-        }
-        balance = income - expense;
-        balanceLabel.text = String(balance);
-        incomeLabel.text = String(income);
-        expenseLabel.text = String(expense);
-    }
-    
-   
 
 }
 
-extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
+extension AllTransactionsViewController: UITableViewDelegate, UITableViewDataSource{
     
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return fetchedTransactions.count;
+        return displayTransactions.count;
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
 //        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "CELL");
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TransactionCell", for: indexPath) as! TransactionCell;
+        let cell = tableView.dequeueReusableCell(withIdentifier: "AllTransactionsCell", for: indexPath) as! AllTransactionsCell;
         
         let helper = Helper();
        
         
-        let transaction = fetchedTransactions[indexPath.row];
+        let transaction = displayTransactions[indexPath.row];
 //        print(helper.extractMonth(inDate: transaction.date));
         cell.id = transaction.id;
         cell.date = transaction.date;
@@ -118,27 +107,34 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        let currentCell = tableView.cellForRow(at: indexPath) as! TransactionCell;
+        let currentCell = tableView.cellForRow(at: indexPath) as! AllTransactionsCell;
         print(currentCell.date);
         
-        let name = fetchedTransactions[indexPath.row];
+        let name = displayTransactions[indexPath.row];
         
         print("Selected \(name)")
     }
 }
 
-class TransactionCell : UITableViewCell{
+
+
+class AllTransactionsCell: UITableViewCell{
     var id: String = "";
     var date: Date = Date.init();
     
     @IBOutlet weak var currencyLabel: UILabel!
     
+    @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var typeLabel: UILabel!
+    @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var amountLabel: UILabel!
     
-    @IBOutlet weak var categoryLabel: UILabel!
     
     
-    @IBOutlet weak var typeLabel: UILabel!
-    @IBOutlet weak var dateLabel: UILabel!
+    
+    
 }
+
+
+

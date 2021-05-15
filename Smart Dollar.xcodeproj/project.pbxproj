@@ -11,6 +11,9 @@
 		ADB0669A34CBDF04290152B9 /* Pods_Smart_Dollar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E9AFE2461592FF098E3B39B /* Pods_Smart_Dollar.framework */; };
 		BA1077049B5D45D591DF62B6 /* Pods_Smart_Dollar_Smart_DollarUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D924C6D77062C5EE47D8F03 /* Pods_Smart_Dollar_Smart_DollarUITests.framework */; };
 		EC954988264EB3F700DBD176 /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC954987264EB3F700DBD176 /* HelperFunctions.swift */; };
+		EC954995264FA25C00DBD176 /* BudgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC954994264FA25C00DBD176 /* BudgetViewController.swift */; };
+		EC95499A264FA2D800DBD176 /* AllTransactions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC954999264FA2D800DBD176 /* AllTransactions.storyboard */; };
+		EC95499F264FA3C200DBD176 /* AllTransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC95499E264FA3C200DBD176 /* AllTransactionsViewController.swift */; };
 		ECDDF7D226497BD4006F94A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDDF7D126497BD4006F94A1 /* AppDelegate.swift */; };
 		ECDDF7D426497BD4006F94A1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDDF7D326497BD4006F94A1 /* SceneDelegate.swift */; };
 		ECDDF7D626497BD4006F94A1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDDF7D526497BD4006F94A1 /* HomeViewController.swift */; };
@@ -55,6 +58,9 @@
 		9D4BD53083EDC4B82F318F31 /* Pods-Smart DollarTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart DollarTests.debug.xcconfig"; path = "Target Support Files/Pods-Smart DollarTests/Pods-Smart DollarTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CA87756246F4BEEDBB904362 /* Pods-Smart Dollar-Smart DollarUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Dollar-Smart DollarUITests.debug.xcconfig"; path = "Target Support Files/Pods-Smart Dollar-Smart DollarUITests/Pods-Smart Dollar-Smart DollarUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		EC954987264EB3F700DBD176 /* HelperFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperFunctions.swift; sourceTree = "<group>"; };
+		EC954994264FA25C00DBD176 /* BudgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetViewController.swift; sourceTree = "<group>"; };
+		EC954999264FA2D800DBD176 /* AllTransactions.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AllTransactions.storyboard; sourceTree = "<group>"; };
+		EC95499E264FA3C200DBD176 /* AllTransactionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTransactionsViewController.swift; sourceTree = "<group>"; };
 		ECDDF7CE26497BD4006F94A1 /* Smart Dollar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Smart Dollar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECDDF7D126497BD4006F94A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ECDDF7D326497BD4006F94A1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -206,6 +212,7 @@
 			children = (
 				ECDDF7D726497BD4006F94A1 /* Main.storyboard */,
 				ECDDF829264BB17F006F94A1 /* TransactionAddStoryboard.storyboard */,
+				EC954999264FA2D800DBD176 /* AllTransactions.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -217,6 +224,8 @@
 				ECDDF7D526497BD4006F94A1 /* HomeViewController.swift */,
 				ECDDF81F2649A12B006F94A1 /* TransactionAddViewController.swift */,
 				ECDDF810264982F8006F94A1 /* SettingsViewController.swift */,
+				EC954994264FA25C00DBD176 /* BudgetViewController.swift */,
+				EC95499E264FA3C200DBD176 /* AllTransactionsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -333,6 +342,7 @@
 				ECDDF7DB26497BD9006F94A1 /* Assets.xcassets in Resources */,
 				ECDDF82A264BB17F006F94A1 /* TransactionAddStoryboard.storyboard in Resources */,
 				ECDDF7D926497BD4006F94A1 /* Main.storyboard in Resources */,
+				EC95499A264FA2D800DBD176 /* AllTransactions.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,7 +477,9 @@
 				ECDDF811264982F8006F94A1 /* SettingsViewController.swift in Sources */,
 				ECDDF81B26498A1A006F94A1 /* Budget.swift in Sources */,
 				ECDDF80C264982D1006F94A1 /* StatisticsViewController.swift in Sources */,
+				EC954995264FA25C00DBD176 /* BudgetViewController.swift in Sources */,
 				ECDDF8202649A12B006F94A1 /* TransactionAddViewController.swift in Sources */,
+				EC95499F264FA3C200DBD176 /* AllTransactionsViewController.swift in Sources */,
 				EC954988264EB3F700DBD176 /* HelperFunctions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

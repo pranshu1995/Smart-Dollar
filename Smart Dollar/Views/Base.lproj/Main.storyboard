@@ -180,6 +180,14 @@
                                     <segue destination="K1U-bc-f16" kind="show" id="UG8-pC-g5M"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Swa-hq-e68">
+                                <rect key="frame" x="327" y="493" width="55" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="View All"/>
+                                <connections>
+                                    <segue destination="2cW-zQ-vis" kind="show" id="a0E-Nl-dCE"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemGray5Color"/>
@@ -204,6 +212,16 @@
             </objects>
             <point key="canvasLocation" x="-1089.8550724637682" y="1029.9107142857142"/>
         </scene>
+        <!--AllTransactions-->
+        <scene sceneID="aCs-eN-iaX">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AllTransactions" id="2cW-zQ-vis" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="1Rs-oH-a86"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Buo-hy-NB1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1361" y="1728"/>
+        </scene>
         <!--TransactionAddStoryboard-->
         <scene sceneID="jTh-aQ-dAm">
             <objects>
@@ -212,7 +230,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kQi-S4-zPP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1136" y="1714"/>
+            <point key="canvasLocation" x="-848" y="1728"/>
         </scene>
         <!--Statistics-->
         <scene sceneID="bcc-yR-PHm">
@@ -284,11 +302,28 @@
                         <segue destination="bNk-Jl-CVW" kind="relationship" relationship="viewControllers" id="MwS-OB-aFg"/>
                         <segue destination="8kv-9P-Iwt" kind="relationship" relationship="viewControllers" id="APT-8z-xOC"/>
                         <segue destination="Rpn-cV-sSx" kind="relationship" relationship="viewControllers" id="Miq-Q9-qXr"/>
+                        <segue destination="jFn-Uf-pod" kind="relationship" relationship="viewControllers" id="GaR-Rb-vQE"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="obV-Yt-d5z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="80.357142857142847"/>
+        </scene>
+        <!--Budget-->
+        <scene sceneID="tu8-MK-iaX">
+            <objects>
+                <viewController storyboardIdentifier="BudgetViewController" id="jFn-Uf-pod" customClass="BudgetViewController" customModule="Smart_Dollar" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="L3H-06-Y0m">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Tc5-d3-TGr"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Budget" id="nv7-5e-zem"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="F4F-WU-9Ba" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1337" y="30"/>
         </scene>
         <!--Home-->
         <scene sceneID="npS-Jd-ggY">
