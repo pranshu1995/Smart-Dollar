@@ -23,8 +23,8 @@ class TransactionAddViewController: UIViewController {
     
     var currentDate: Date = Date.init();
     
-    var incomeCategories = ["Car", "Bike", "Cycle"];
-    var expenseCategories = ["Bus", "Train", "PLane"];
+    var incomeCategories = ["Deposits", "Salary", "Savings"];
+    var expenseCategories = ["Eating Out", "Grocery", "Shopping", "Housing", "Transportation", "Vehicle", "Entertainment", "Communication"];
     let dropDown = DropDown();
     
     var fetchedTransactions: [Transaction] = [];

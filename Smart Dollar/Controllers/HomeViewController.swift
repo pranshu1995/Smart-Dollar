@@ -11,6 +11,7 @@ import UIKit
 class HomeViewController: UIViewController {
 
     @IBOutlet weak var InpExp: UIView!
+    @IBOutlet weak var MnthlyBudget: UIView!
     
     @IBOutlet weak var expenseLabel: UILabel!
     @IBOutlet weak var incomeLabel: UILabel!
@@ -34,10 +35,19 @@ class HomeViewController: UIViewController {
        
         // Do any additional setup after loading the view.
         
-        InpExp.layer.shadowColor = UIColor.black.cgColor
+        InpExp.layer.shadowColor = UIColor.gray.cgColor
         InpExp.layer.shadowOpacity = 1
         InpExp.layer.shadowOffset = .zero
         InpExp.layer.shadowRadius = 10
+        InpExp.layer.cornerRadius = 20
+        InpExp.layer.masksToBounds = true
+        
+        MnthlyBudget.layer.shadowColor = UIColor.gray.cgColor
+        MnthlyBudget.layer.shadowOpacity = 1
+        MnthlyBudget.layer.shadowOffset = .zero
+        MnthlyBudget.layer.shadowRadius = 10
+        MnthlyBudget.layer.cornerRadius = 20
+        MnthlyBudget.layer.masksToBounds = true
         
         
         fetchData();
@@ -74,9 +84,9 @@ class HomeViewController: UIViewController {
             }
         }
         balance = income - expense;
-        balanceLabel.text = String(balance);
-        incomeLabel.text = String(income);
-        expenseLabel.text = String(expense);
+        balanceLabel.text = String("$ \(balance)");
+        incomeLabel.text = String("$ \(income)");
+        expenseLabel.text = String("$ \(expense)");
     }
     
    
@@ -103,16 +113,24 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
 //        print(helper.extractMonth(inDate: transaction.date));
         cell.id = transaction.id;
         cell.date = transaction.date;
-        cell.currencyLabel?.text = transaction.currency;
-        cell.amountLabel?.text = String(transaction.amount);
+        //cell.currencyLabel?.text = transaction.currency;
+        cell.amountLabel?.text = String("$ \(transaction.amount)");
         cell.categoryLabel?.text = transaction.category;
-        cell.typeLabel?.text = transaction.type;
+        //cell.typeLabel?.text = transaction.type;
         cell.dateLabel?.text = helper.dateToString(inDate: transaction.date);
-        cell.descriptionLabel?.text = transaction.description;
+        //cell.descriptionLabel?.text = transaction.description;
 //        let name = fetchedTransactions[indexPath.row];
         
 //        cell.textLabel?.text = name;
 //        cell.detailTextLabel?.text = "100";
+        
+        if(transaction.type == "Income"){
+            cell.amountLabel?.textColor = UIColor(red: 33/256, green: 150/256, blue: 30/256, alpha: 1.0)
+
+        }
+        else{
+            cell.amountLabel?.textColor = UIColor(red: 235/256, green: 87/256, blue: 87/256, alpha: 1.0)
+        }
         
         return cell;
     }
