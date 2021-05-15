@@ -18,3 +18,6 @@ struct Transaction: Codable {
 }
 
 // Filter Homepage
+// Transaction last click issue
+// Handle negative balance in budget
+// Budget page what to display
