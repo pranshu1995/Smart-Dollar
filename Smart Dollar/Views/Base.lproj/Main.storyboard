@@ -50,35 +50,35 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Income:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="diy-MY-h5W">
-                                        <rect key="frame" x="67" y="114" width="51" height="17"/>
+                                        <rect key="frame" x="72" y="114" width="51" height="17"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                         <color key="textColor" systemColor="systemGray5Color"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Expenses:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JGC-dP-Si9">
-                                        <rect key="frame" x="271" y="114" width="65" height="17"/>
+                                        <rect key="frame" x="266" y="114" width="65" height="17"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                         <color key="textColor" systemColor="systemGray5Color"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$54,234.22" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FYk-Bb-jgh">
-                                        <rect key="frame" x="67" y="139" width="81" height="20"/>
+                                        <rect key="frame" x="72" y="139" width="81" height="20"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$24,648.32" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HKy-7E-KXg">
-                                        <rect key="frame" x="271" y="139" width="81" height="20"/>
+                                        <rect key="frame" x="266" y="139" width="81" height="20"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Income.png" translatesAutoresizingMaskIntoConstraints="NO" id="mfJ-x8-yy7">
-                                        <rect key="frame" x="27" y="129" width="32" height="32"/>
+                                        <rect key="frame" x="27" y="119" width="32" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Expenses.png" translatesAutoresizingMaskIntoConstraints="NO" id="k6o-90-oSt">
@@ -268,7 +268,7 @@
                             <constraint firstItem="yd1-pe-SxN" firstAttribute="centerY" secondItem="VOD-g5-bPq" secondAttribute="centerY" id="KKR-1f-V83"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Statistics" id="xKf-Dh-qGj"/>
+                    <tabBarItem key="tabBarItem" title="Statistics" image="bar_chart.png" id="xKf-Dh-qGj"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bH5-f4-LyD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -296,7 +296,7 @@
                             <constraint firstItem="bbM-7g-TiO" firstAttribute="centerX" secondItem="ugS-NO-5Kx" secondAttribute="centerX" id="qvD-dj-aCl"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Settings" id="4ur-Tt-OkJ"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="settings.png" id="4ur-Tt-OkJ"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rtB-Ug-t82" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -311,6 +311,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" systemColor="systemIndigoColor"/>
                     </tabBar>
                     <connections>
                         <segue destination="bNk-Jl-CVW" kind="relationship" relationship="viewControllers" id="MwS-OB-aFg"/>
@@ -326,7 +327,7 @@
         <scene sceneID="npS-Jd-ggY">
             <objects>
                 <navigationController storyboardIdentifier="HomeViewStoryboard" automaticallyAdjustsScrollViewInsets="NO" id="bNk-Jl-CVW" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" id="DQU-2Y-mVE"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="home.png" id="DQU-2Y-mVE"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ya1-0a-2jL">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -350,6 +351,9 @@
         <image name="Income.png" width="32" height="32"/>
         <image name="Search.png" width="32" height="32"/>
         <image name="User.png" width="50" height="50"/>
+        <image name="bar_chart.png" width="24" height="24"/>
+        <image name="home.png" width="24" height="24"/>
+        <image name="settings.png" width="24" height="24"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
