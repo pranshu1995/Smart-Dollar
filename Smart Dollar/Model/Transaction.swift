@@ -16,3 +16,5 @@ struct Transaction: Codable {
     var date: Date;
     var currency: String;
 }
+
+// Filter Homepage
