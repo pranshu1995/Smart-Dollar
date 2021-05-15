@@ -12,8 +12,8 @@
 		BA1077049B5D45D591DF62B6 /* Pods_Smart_Dollar_Smart_DollarUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D924C6D77062C5EE47D8F03 /* Pods_Smart_Dollar_Smart_DollarUITests.framework */; };
 		EC954988264EB3F700DBD176 /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC954987264EB3F700DBD176 /* HelperFunctions.swift */; };
 		EC954995264FA25C00DBD176 /* BudgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC954994264FA25C00DBD176 /* BudgetViewController.swift */; };
-		EC95499A264FA2D800DBD176 /* AllTransactions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC954999264FA2D800DBD176 /* AllTransactions.storyboard */; };
 		EC95499F264FA3C200DBD176 /* AllTransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC95499E264FA3C200DBD176 /* AllTransactionsViewController.swift */; };
+		EC9549B0264FDA3000DBD176 /* AllTransactions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC954999264FA2D800DBD176 /* AllTransactions.storyboard */; };
 		ECDDF7D226497BD4006F94A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDDF7D126497BD4006F94A1 /* AppDelegate.swift */; };
 		ECDDF7D426497BD4006F94A1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDDF7D326497BD4006F94A1 /* SceneDelegate.swift */; };
 		ECDDF7D626497BD4006F94A1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDDF7D526497BD4006F94A1 /* HomeViewController.swift */; };
@@ -342,6 +342,7 @@
 				ECDDF7DB26497BD9006F94A1 /* Assets.xcassets in Resources */,
 				ECDDF82A264BB17F006F94A1 /* TransactionAddStoryboard.storyboard in Resources */,
 				ECDDF7D926497BD4006F94A1 /* Main.storyboard in Resources */,
+				EC9549B0264FDA3000DBD176 /* AllTransactions.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

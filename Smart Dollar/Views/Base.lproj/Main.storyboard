@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zok-zy-spk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zok-zy-spk">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -24,7 +24,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="ScY-rm-ehv">
-                                <rect key="frame" x="20" y="69" width="374" height="668"/>
+                                <rect key="frame" x="20" y="69" width="374" height="698"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="193" translatesAutoresizingMaskIntoConstraints="NO" id="CMM-DG-K7e">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="50.5"/>
@@ -166,7 +166,7 @@
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="VPh-gp-7QB">
-                                        <rect key="frame" x="0.0" y="455" width="374" height="213"/>
+                                        <rect key="frame" x="0.0" y="455" width="374" height="243"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transaction List" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u46-Kz-b04">
                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="19"/>
@@ -174,15 +174,22 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="roq-1I-Q32">
+                                                <rect key="frame" x="0.0" y="19" width="374" height="30"/>
+                                                <state key="normal" title="View All"/>
+                                                <connections>
+                                                    <segue destination="nBa-Gn-u2r" kind="show" id="g0Z-yb-JTY"/>
+                                                </connections>
+                                            </button>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="96" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eFt-yC-2dR">
-                                                <rect key="frame" x="0.0" y="19" width="374" height="194"/>
+                                                <rect key="frame" x="0.0" y="49" width="374" height="194"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="194" id="G7n-U0-Y8t"/>
                                                 </constraints>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TransactionCell" rowHeight="96" id="LFM-Bh-8yT" customClass="TransactionCell" customModule="Smart_Dollar" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="24.5" width="374" height="96"/>
+                                                        <rect key="frame" x="0.0" y="28" width="374" height="96"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LFM-Bh-8yT" id="REM-MV-Oaj">
                                                             <rect key="frame" x="0.0" y="0.0" width="374" height="96"/>
@@ -269,6 +276,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1089.8550724637682" y="1029.9107142857142"/>
+        </scene>
+        <!--AllTransactionsStoryboard-->
+        <scene sceneID="BgZ-K5-eaK">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AllTransactions" referencedIdentifier="AllTransactionsStoryboard" id="nBa-Gn-u2r" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="InJ-bs-6wT"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Uy-DD-di2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-444" y="1550"/>
         </scene>
         <!--TransactionAddStoryboard-->
         <scene sceneID="jTh-aQ-dAm">
