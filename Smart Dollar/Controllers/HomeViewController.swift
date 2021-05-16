@@ -6,28 +6,47 @@
 //
 
 import UIKit
+import DropDown
 
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController{
+    
+    
+  
+    
+   
+    let dropDown = DropDown();
 
     @IBOutlet weak var InpExp: UIView!
     @IBOutlet weak var MnthlyBudget: UIView!
-    
+
     @IBOutlet weak var expenseLabel: UILabel!
     @IBOutlet weak var incomeLabel: UILabel!
     @IBOutlet weak var balanceLabel: UILabel!
     @IBOutlet weak var transactionsTable: UITableView!;
     
+    @IBOutlet weak var monthLabel: UILabel!
+    @IBOutlet weak var monthSelector: UIView!
     var fetchedTransactions: [Transaction] = [];
     var income: Double = 0;
     var expense: Double = 0;
     var balance: Double = 0;
+//    var pickerData: [String] = [];
+    
+    let helper = Helper();
+    
+//    let picker = MonthYearPicker(frame: CGRect(origin: CGPoint(x: 0, y: (view.bounds.height - 216) / 2), size: CGSize(width: view.bounds.width, height: 216)))
+//    picker.minimumDate = Date()
+//    picker.maximumDate = Calendar.current.date(byAdding: .year, value: 10, to: Date())
+//    picker.addTarget(self, action: #selector(dateChanged(_:)), for: .valueChanged)
+//    view.addSubview(picker)
     
     override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated);
         self.navigationController?.isNavigationBarHidden = true;
         
         fetchData();
+//        setPickerData();
     }
     
     override func viewDidLoad() {
@@ -49,8 +68,16 @@ class HomeViewController: UIViewController {
         MnthlyBudget.layer.cornerRadius = 20
         MnthlyBudget.layer.masksToBounds = true
         
-        
+        dropDown.anchorView = monthSelector;
+        dropDown.dataSource = helper.getMonths();
+        dropDown.selectRow(4);
+        monthLabel.text = dropDown.dataSource[4];
+        dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
+//            print("Selected item: \(item) at index: \(index)");
+            monthLabel.text = item;
+        }
         fetchData();
+//        setPickerData();
     }
     
     @objc func fetchData(){
@@ -63,9 +90,28 @@ class HomeViewController: UIViewController {
         valuesUpdate();
     }
     
+
+ 
+    @IBAction func dropDownClick(_ sender: Any) {
+        dropDown.show();
+//        dropDown.se
+    }
+    
+    
+//    @objc func setPickerData(){
+//
+//        pickerData = helper.getMonths();
+//        dropDown.selectRow(5);
+//        monthLabel.text = pickerData[5];
+//
+//    }
+    
     @objc func transactionsUpdate(){
         if let data = UserDefaults.standard.value(forKey: "Transactions") as? Data {
             fetchedTransactions = try! PropertyListDecoder().decode(Array<Transaction>.self, from: data)
+            fetchedTransactions.sort{
+                $0.date > $1.date;
+            }
             print(fetchedTransactions);
         }
         transactionsTable.reloadData();
@@ -107,7 +153,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
        
         
         let transaction = fetchedTransactions[indexPath.row];
-        print(helper.extractMonth(inDate: transaction.date));
+//        print(helper.extractMonth(inDate: transaction.date));
         cell.id = transaction.id;
         cell.date = transaction.date;
         //cell.currencyLabel?.text = transaction.currency;

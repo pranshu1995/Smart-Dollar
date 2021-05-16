@@ -16,3 +16,8 @@ struct Transaction: Codable {
     var date: Date;
     var currency: String;
 }
+
+// Filter Homepage
+// Transaction last click issue
+// Handle negative balance in budget
+// Budget page what to display

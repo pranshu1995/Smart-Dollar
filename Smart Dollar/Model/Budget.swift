@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct Budget {
+struct Budget: Codable {
     var budgetValue: Double;
-    var month: Date;
+    var monthYear: String;
+    var currency: String;
 }

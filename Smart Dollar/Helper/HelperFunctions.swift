@@ -18,8 +18,20 @@ struct Helper{
     
     func extractMonth(inDate: Date) -> String{
     let dateFormatterGet = DateFormatter();
-    dateFormatterGet.dateFormat = "MMM";
+    dateFormatterGet.dateFormat = "MMM yyyy";
     let returnDate: String = dateFormatterGet.string(from: inDate);
     return returnDate;
+    }
+    
+    func getMonths() -> [String]{
+        var monthArr: [String] = [];
+        
+        for i in -4...4{
+            let value = extractMonth(inDate: Calendar.current.date(byAdding: .month, value: i, to: Date())!);
+            print(value);
+            monthArr.append(value);
+        }
+        
+        return monthArr;
     }
 }
