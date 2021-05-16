@@ -16,13 +16,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TdM-jl-hfG">
-                                <rect key="frame" x="116" y="728" width="150" height="50"/>
-                                <state key="normal" image="Add_Button.png"/>
-                                <connections>
-                                    <segue destination="K1U-bc-f16" kind="show" id="UG8-pC-g5M"/>
-                                </connections>
-                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="ScY-rm-ehv">
                                 <rect key="frame" x="20" y="69" width="374" height="668"/>
                                 <subviews>
@@ -32,7 +25,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="fgB-oL-GfI">
                                                 <rect key="frame" x="0.0" y="0.0" width="149" height="50.5"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="User.png" translatesAutoresizingMaskIntoConstraints="NO" id="pbj-D8-W60">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="User" translatesAutoresizingMaskIntoConstraints="NO" id="pbj-D8-W60">
                                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50.5"/>
                                                     </imageView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="FTt-8C-epB">
@@ -54,7 +47,7 @@
                                                     </stackView>
                                                 </subviews>
                                             </stackView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Search.png" translatesAutoresizingMaskIntoConstraints="NO" id="E69-xf-I0W">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Search" translatesAutoresizingMaskIntoConstraints="NO" id="E69-xf-I0W">
                                                 <rect key="frame" x="342" y="0.0" width="32" height="50.5"/>
                                             </imageView>
                                         </subviews>
@@ -98,10 +91,10 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Income.png" translatesAutoresizingMaskIntoConstraints="NO" id="mfJ-x8-yy7">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Income" translatesAutoresizingMaskIntoConstraints="NO" id="mfJ-x8-yy7">
                                                 <rect key="frame" x="27" y="119" width="32" height="32"/>
                                             </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Expenses.png" translatesAutoresizingMaskIntoConstraints="NO" id="k6o-90-oSt">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Expenses" translatesAutoresizingMaskIntoConstraints="NO" id="k6o-90-oSt">
                                                 <rect key="frame" x="220.5" y="119" width="32" height="32"/>
                                             </imageView>
                                         </subviews>
@@ -124,7 +117,7 @@
                                             <constraint firstItem="diy-MY-h5W" firstAttribute="leading" secondItem="uGM-2A-2qb" secondAttribute="leading" constant="72" id="fQl-S7-1sn"/>
                                             <constraint firstItem="diy-MY-h5W" firstAttribute="leading" secondItem="mfJ-x8-yy7" secondAttribute="trailing" constant="13" id="ikd-g2-6QR"/>
                                             <constraint firstItem="JGC-dP-Si9" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="k6o-90-oSt" secondAttribute="trailing" constant="8" symbolic="YES" id="m5Q-5w-Rpb"/>
-                                            <constraint firstItem="k6o-90-oSt" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="FYk-Bb-jgh" secondAttribute="trailing" symbolic="YES" id="nyu-Bq-43w"/>
+                                            <constraint firstItem="k6o-90-oSt" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="FYk-Bb-jgh" secondAttribute="trailing" constant="8" symbolic="YES" id="nyu-Bq-43w"/>
                                             <constraint firstItem="LWr-li-rhK" firstAttribute="top" secondItem="uGM-2A-2qb" secondAttribute="top" constant="53" id="p9Y-w1-7xX"/>
                                             <constraint firstItem="k6o-90-oSt" firstAttribute="top" secondItem="mfJ-x8-yy7" secondAttribute="top" id="re1-a0-nd5"/>
                                             <constraint firstItem="diy-MY-h5W" firstAttribute="top" secondItem="LWr-li-rhK" secondAttribute="bottom" constant="22" id="srN-QK-paE"/>
@@ -206,7 +199,7 @@
                                                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="User.png" translatesAutoresizingMaskIntoConstraints="NO" id="Feg-ll-Ni2">
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="User" translatesAutoresizingMaskIntoConstraints="NO" id="Feg-ll-Ni2">
                                                                     <rect key="frame" x="15" y="23" width="50" height="50"/>
                                                                 </imageView>
                                                             </subviews>
@@ -243,6 +236,13 @@
                                     <constraint firstItem="wGt-93-iow" firstAttribute="top" secondItem="ScY-rm-ehv" secondAttribute="top" constant="297" id="rCm-J7-EP1"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TdM-jl-hfG">
+                                <rect key="frame" x="116" y="728" width="150" height="50"/>
+                                <state key="normal" image="Add_Button"/>
+                                <connections>
+                                    <segue destination="K1U-bc-f16" kind="show" id="UG8-pC-g5M"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemGray5Color"/>
@@ -381,11 +381,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Add_Button.png" width="197" height="50"/>
-        <image name="Expenses.png" width="32" height="32"/>
-        <image name="Income.png" width="32" height="32"/>
-        <image name="Search.png" width="32" height="32"/>
-        <image name="User.png" width="50" height="50"/>
+        <image name="Add_Button" width="197" height="50"/>
+        <image name="Expenses" width="32" height="32"/>
+        <image name="Income" width="32" height="32"/>
+        <image name="Search" width="32" height="32"/>
+        <image name="User" width="50" height="50"/>
         <image name="bar_chart.png" width="24" height="24"/>
         <image name="home.png" width="24" height="24"/>
         <image name="settings.png" width="24" height="24"/>
