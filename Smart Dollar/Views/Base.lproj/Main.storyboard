@@ -302,6 +302,8 @@
                         <outlet property="MnthlyBudget" destination="wGt-93-iow" id="KQJ-cF-r3i"/>
                         <outlet property="TransactionView" destination="hbs-QE-TkQ" id="3Lm-cn-0YE"/>
                         <outlet property="balanceLabel" destination="LWr-li-rhK" id="ROd-WU-T49"/>
+                        <outlet property="budgetLeftLabel" destination="WT5-nv-MSu" id="s5A-Gq-7cb"/>
+                        <outlet property="budgetLevelBar" destination="JuQ-W5-l2K" id="WXh-hW-kpT"/>
                         <outlet property="expenseLabel" destination="HKy-7E-KXg" id="Mga-xr-RoZ"/>
                         <outlet property="incomeLabel" destination="FYk-Bb-jgh" id="oVL-iy-drH"/>
                         <outlet property="monthLabel" destination="He6-jM-TH7" id="HmM-UF-jO7"/>

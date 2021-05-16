@@ -21,6 +21,8 @@ class HomeViewController: UIViewController{
     @IBOutlet weak var MnthlyBudget: UIView!
     @IBOutlet weak var TransactionView: UIView!
     
+    @IBOutlet weak var budgetLeftLabel: UILabel!
+    @IBOutlet weak var budgetLevelBar: UIProgressView!
     @IBOutlet weak var expenseLabel: UILabel!
     @IBOutlet weak var incomeLabel: UILabel!
     @IBOutlet weak var balanceLabel: UILabel!
@@ -29,9 +31,15 @@ class HomeViewController: UIViewController{
     @IBOutlet weak var monthLabel: UILabel!
     @IBOutlet weak var monthSelector: UIView!
     var fetchedTransactions: [Transaction] = [];
+    var filteredTransactions: [Transaction] = [];
+    var budgetList: [Budget] = [];
+    
     var income: Double = 0;
     var expense: Double = 0;
     var balance: Double = 0;
+    var selectedMonth = "";
+    var budgetValue: Double = 0;
+    var budgetProgress: Float = 0;
 //    var pickerData: [String] = [];
     
     let helper = Helper();
@@ -80,9 +88,13 @@ class HomeViewController: UIViewController{
         dropDown.dataSource = helper.getMonths();
         dropDown.selectRow(4);
         monthLabel.text = dropDown.dataSource[4];
+        selectedMonth = dropDown.dataSource[4];
         dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
 //            print("Selected item: \(item) at index: \(index)");
             monthLabel.text = item;
+            selectedMonth = item;
+            fetchData();
+            
         }
         fetchData();
 //        setPickerData();
@@ -90,12 +102,14 @@ class HomeViewController: UIViewController{
     
     @objc func fetchData(){
         fetchedTransactions = [];
+        filteredTransactions = [];
         income = 0;
         expense = 0;
         balance = 0;
         
         transactionsUpdate();
         valuesUpdate();
+        getCurrentBudget();
     }
     
 
@@ -120,13 +134,14 @@ class HomeViewController: UIViewController{
             fetchedTransactions.sort{
                 $0.date > $1.date;
             }
-            print(fetchedTransactions);
+            filteredTransactions = fetchedTransactions.filter { helper.extractMonth(inDate: $0.date) == selectedMonth }
+            print(filteredTransactions);
         }
         transactionsTable.reloadData();
     }
     
     @objc func valuesUpdate(){
-        for t in fetchedTransactions {
+        for t in filteredTransactions {
             if(t.type == "Income"){
                 income = income + t.amount;
             }
@@ -140,6 +155,43 @@ class HomeViewController: UIViewController{
         expenseLabel.text = String("$ \(expense)");
     }
     
+    
+    @objc func getCurrentBudget(){
+        
+//        var currentBudget: Budget;
+        
+        if let data = UserDefaults.standard.value(forKey: "Budget") as? Data {
+            budgetList = try! PropertyListDecoder().decode(Array<Budget>.self, from: data)
+            print("currentwa \(budgetList)")
+            for budget in budgetList{
+                if(budget.monthYear == selectedMonth){
+                    print("pehle tha", budget);
+                   
+                    budgetValue = budget.budgetValue;
+//                    budgetAmountInput.text = String(budgetValue);
+//                    totalBudgetLabel.text = String(budgetValue);
+                    budgetProgress = Float((balance)/budgetValue);
+                    print(budgetProgress);
+                    budgetLevelBar.setProgress(Float(budgetProgress), animated: false);
+                    if(balance < budgetValue){
+                        let amt = budgetValue - balance;
+                        budgetLeftLabel.text = "You need $\(amt) more to reach your budget";
+                    }
+                    else if(balance > budgetValue){
+                        let amt = balance - budgetValue;
+                        budgetLeftLabel.text = "You have $\(amt) surplus on your budget";
+                    }
+                    else if(balance == budgetValue){
+                        budgetLeftLabel.text = "Your budget is fulfilled";
+                    }
+//                    budgetLeftLabel.text = String(budgetValue - balance);
+                    
+                }
+            }
+           
+            
+        }
+    }
    
 
 }
@@ -149,7 +201,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return fetchedTransactions.count;
+        return filteredTransactions.count;
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -160,7 +212,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
         let helper = Helper();
        
         
-        let transaction = fetchedTransactions[indexPath.row];
+        let transaction = filteredTransactions[indexPath.row];
 //        print(helper.extractMonth(inDate: transaction.date));
         cell.id = transaction.id;
         cell.date = transaction.date;
@@ -192,7 +244,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
         let currentCell = tableView.cellForRow(at: indexPath) as! TransactionCell;
         print(currentCell.date);
         
-        let name = fetchedTransactions[indexPath.row];
+        let name = filteredTransactions[indexPath.row];
         
         print("Selected \(name)")
     }

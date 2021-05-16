@@ -81,7 +81,7 @@ class BudgetViewController: UIViewController {
                     budgetValue = budget.budgetValue;
                     budgetAmountInput.text = String(budgetValue);
                     totalBudgetLabel.text = String(budgetValue);
-                    budgetProgress = Float((currentIncome - currentExpense)/budgetValue);
+                    budgetProgress = Float((balance)/budgetValue);
                     print(budgetProgress);
                     budgetLevelBar.setProgress(Float(budgetProgress), animated: false);
                     if(balance < budgetValue){

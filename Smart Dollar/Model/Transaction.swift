@@ -17,7 +17,7 @@ struct Transaction: Codable {
     var currency: String;
 }
 
-// Filter Homepage
+// Budget Homepage
 // Transaction last click issue
 // Validation and testing
 // Commenting
