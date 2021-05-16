@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		875E7A38265118B0005515CF /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 875E7A37265118B0005515CF /* Charts.framework */; };
-		875E7A39265118B0005515CF /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 875E7A37265118B0005515CF /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A433913D0368EE9C4C96C720 /* Pods_Smart_DollarTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CAE98BFB516EB2C9DB13AC2 /* Pods_Smart_DollarTests.framework */; };
 		ADB0669A34CBDF04290152B9 /* Pods_Smart_Dollar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E9AFE2461592FF098E3B39B /* Pods_Smart_Dollar.framework */; };
 		BA1077049B5D45D591DF62B6 /* Pods_Smart_Dollar_Smart_DollarUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D924C6D77062C5EE47D8F03 /* Pods_Smart_Dollar_Smart_DollarUITests.framework */; };
@@ -49,20 +47,6 @@
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		875E7A3A265118B0005515CF /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				875E7A39265118B0005515CF /* Charts.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		053F0F173387F6D38CDFCAB1 /* Pods-Smart Dollar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Dollar.debug.xcconfig"; path = "Target Support Files/Pods-Smart Dollar/Pods-Smart Dollar.debug.xcconfig"; sourceTree = "<group>"; };
 		06C31B1D9A5B8441F77C8C16 /* Pods-Smart DollarTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart DollarTests.release.xcconfig"; path = "Target Support Files/Pods-Smart DollarTests/Pods-Smart DollarTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -78,8 +62,6 @@
 		EC954994264FA25C00DBD176 /* BudgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetViewController.swift; sourceTree = "<group>"; };
 		EC954999264FA2D800DBD176 /* AllTransactions.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AllTransactions.storyboard; sourceTree = "<group>"; };
 		EC95499E264FA3C200DBD176 /* AllTransactionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTransactionsViewController.swift; sourceTree = "<group>"; };
-		EC9549CB26510F1200DBD176 /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EC9549D42651112900DBD176 /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECDDF7CE26497BD4006F94A1 /* Smart Dollar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Smart Dollar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECDDF7D126497BD4006F94A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ECDDF7D326497BD4006F94A1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -108,7 +90,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				ADB0669A34CBDF04290152B9 /* Pods_Smart_Dollar.framework in Frameworks */,
-				875E7A38265118B0005515CF /* Charts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,7 +244,6 @@
 				ECDDF7CB26497BD4006F94A1 /* Frameworks */,
 				ECDDF7CC26497BD4006F94A1 /* Resources */,
 				0B08459A743A8E6A634AA95F /* [CP] Embed Pods Frameworks */,
-				875E7A3A265118B0005515CF /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
