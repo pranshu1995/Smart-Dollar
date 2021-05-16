@@ -1,2 +1,3 @@
 ${PODS_ROOT}/Target Support Files/Pods-Smart Dollar-Smart DollarUITests/Pods-Smart Dollar-Smart DollarUITests-frameworks.sh
+${BUILT_PRODUCTS_DIR}/Charts/Charts.framework
 ${BUILT_PRODUCTS_DIR}/DropDown/DropDown.framework
