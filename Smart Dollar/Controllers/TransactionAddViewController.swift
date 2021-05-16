@@ -41,6 +41,9 @@ class TransactionAddViewController: UIViewController {
             categoryLabel.text = item;
             
         }
+        
+        
+        transactionAmount.textColor = UIColor(red: 33/256, green: 150/256, blue: 30/256, alpha: 1.0);
 //        dropDown.show();
     
 
@@ -70,9 +73,11 @@ class TransactionAddViewController: UIViewController {
 //        print(transactionType.selectedSegmentIndex);
         if(transactionType.selectedSegmentIndex == 0){
             dropDown.dataSource = incomeCategories;
+            transactionAmount.textColor = UIColor(red: 33/256, green: 150/256, blue: 30/256, alpha: 1.0);
         }
         else if(transactionType.selectedSegmentIndex == 1){
             dropDown.dataSource = expenseCategories;
+            transactionAmount.textColor = UIColor(red: 235/256, green: 87/256, blue: 87/256, alpha: 1.0)
         }
         categoryLabel.text = "Select Category";
     }

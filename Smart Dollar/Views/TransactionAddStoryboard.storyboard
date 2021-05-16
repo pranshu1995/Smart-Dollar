@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BEI-VM-vvI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BEI-VM-vvI">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Transaction Add View Controller-->
+        <!--Add New Transaction-->
         <scene sceneID="G4h-BW-4Na">
             <objects>
                 <viewController storyboardIdentifier="TransactionAddStoryboard" id="BEI-VM-vvI" customClass="TransactionAddViewController" customModule="Smart_Dollar" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Zlr-dc-9ff">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Kmd-MO-UI7">
-                                <rect key="frame" x="136" y="116" width="143" height="32"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Kmd-MO-UI7">
+                                <rect key="frame" x="135.5" y="20" width="143" height="32"/>
                                 <segments>
                                     <segment title="Income"/>
                                     <segment title="Expense"/>
@@ -26,41 +26,35 @@
                                     <action selector="transactionTypeSelector:" destination="BEI-VM-vvI" eventType="valueChanged" id="PgT-hZ-ILF"/>
                                 </connections>
                             </segmentedControl>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Amount" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tda-AT-4KZ">
-                                <rect key="frame" x="111" y="234" width="204" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Amount" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="tda-AT-4KZ">
+                                <rect key="frame" x="57" y="121" width="300" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="zxv-N4-avM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="32"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
-                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="059-or-oh3">
-                                <rect key="frame" x="100" y="291" width="226" height="68"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <action selector="dateUpdated:" destination="BEI-VM-vvI" eventType="valueChanged" id="w7T-Wd-eMD"/>
-                                </connections>
-                            </datePicker>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Qn-8k-Wbc">
-                                <rect key="frame" x="192" y="649" width="30" height="30"/>
-                                <state key="normal" title="Add"/>
+                                <rect key="frame" x="108.5" y="664" width="197" height="50"/>
+                                <state key="normal" backgroundImage="Add_Button"/>
                                 <connections>
                                     <action selector="addTransaction:" destination="BEI-VM-vvI" eventType="touchUpInside" id="Lpf-0k-aJj"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Desciption" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="62g-RT-Pcu">
-                                <rect key="frame" x="93" y="510" width="240" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Desciption" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="62g-RT-Pcu">
+                                <rect key="frame" x="57" y="479" width="300" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="Lea-t6-EzK"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KeK-uY-dYV" customClass="UIControl">
-                                <rect key="frame" x="87" y="407" width="240" height="50"/>
+                                <rect key="frame" x="80" y="359" width="254" height="50"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JAO-fn-lze">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JAO-fn-lze">
                                         <rect key="frame" x="45" y="7.5" width="150" height="35"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="150" id="OTI-d5-gYx"/>
-                                            <constraint firstAttribute="height" constant="35" id="rRT-Qc-AWJ"/>
-                                        </constraints>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -68,29 +62,76 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="5Vz-Ux-IZg"/>
-                                    <constraint firstAttribute="width" constant="240" id="MEO-j0-DCO"/>
-                                    <constraint firstItem="JAO-fn-lze" firstAttribute="centerY" secondItem="KeK-uY-dYV" secondAttribute="centerY" id="kR3-g6-e5t"/>
-                                    <constraint firstItem="JAO-fn-lze" firstAttribute="centerX" secondItem="KeK-uY-dYV" secondAttribute="centerX" id="rzh-E5-uio"/>
+                                    <constraint firstAttribute="height" constant="50" id="Qw5-Ys-TgT"/>
+                                    <constraint firstAttribute="width" constant="254" id="i37-w9-sC4"/>
                                 </constraints>
                                 <connections>
                                     <action selector="dropDownClick:" destination="BEI-VM-vvI" eventType="touchUpInside" id="tbc-DM-VDv"/>
                                 </connections>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Amount:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a0l-yk-jSm">
+                                <rect key="frame" x="152" y="81" width="110" height="20"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Date:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="obG-b7-cQ4">
+                                <rect key="frame" x="164" y="199" width="86" height="20"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose Category:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q1Y-Zg-imq">
+                                <rect key="frame" x="138" y="319" width="138" height="20"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Write Description:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X9D-Zh-8fO">
+                                <rect key="frame" x="138.5" y="439" width="137" height="20"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <datePicker contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="059-or-oh3">
+                                <rect key="frame" x="107" y="239" width="200" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="1aP-Fl-Hop"/>
+                                    <constraint firstAttribute="width" constant="200" id="bW8-In-gjR"/>
+                                </constraints>
+                                <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                                <connections>
+                                    <action selector="dateUpdated:" destination="BEI-VM-vvI" eventType="valueChanged" id="w7T-Wd-eMD"/>
+                                </connections>
+                            </datePicker>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="tT9-jj-gLj"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="KeK-uY-dYV" firstAttribute="top" secondItem="tT9-jj-gLj" secondAttribute="top" constant="363" id="LwA-Bz-1EZ"/>
-                            <constraint firstItem="tT9-jj-gLj" firstAttribute="bottom" secondItem="2Qn-8k-Wbc" secondAttribute="bottom" constant="183" id="Rby-Ax-DcB"/>
-                            <constraint firstItem="Kmd-MO-UI7" firstAttribute="centerX" secondItem="tT9-jj-gLj" secondAttribute="centerX" id="WhX-zA-GF2"/>
-                            <constraint firstItem="Kmd-MO-UI7" firstAttribute="top" secondItem="tT9-jj-gLj" secondAttribute="top" constant="72" id="Ys0-nw-dMs"/>
-                            <constraint firstItem="Kmd-MO-UI7" firstAttribute="leading" secondItem="tT9-jj-gLj" secondAttribute="leading" constant="136" id="Zsl-xa-nyC"/>
-                            <constraint firstItem="2Qn-8k-Wbc" firstAttribute="centerX" secondItem="tT9-jj-gLj" secondAttribute="centerX" id="elE-7U-eUD"/>
-                            <constraint firstItem="KeK-uY-dYV" firstAttribute="centerX" secondItem="tT9-jj-gLj" secondAttribute="centerX" id="fRc-2S-7U3"/>
+                            <constraint firstItem="Kmd-MO-UI7" firstAttribute="centerX" secondItem="Zlr-dc-9ff" secondAttribute="centerX" id="0lc-UU-NfF"/>
+                            <constraint firstItem="tda-AT-4KZ" firstAttribute="centerX" secondItem="Zlr-dc-9ff" secondAttribute="centerX" id="6YY-aV-oNr"/>
+                            <constraint firstItem="a0l-yk-jSm" firstAttribute="top" secondItem="Kmd-MO-UI7" secondAttribute="bottom" constant="30" id="9JB-Nq-jQT"/>
+                            <constraint firstItem="2Qn-8k-Wbc" firstAttribute="centerX" secondItem="Zlr-dc-9ff" secondAttribute="centerX" id="EhI-tr-B0B"/>
+                            <constraint firstItem="obG-b7-cQ4" firstAttribute="centerX" secondItem="Zlr-dc-9ff" secondAttribute="centerX" id="H8u-zY-VxC"/>
+                            <constraint firstItem="KeK-uY-dYV" firstAttribute="centerX" secondItem="Zlr-dc-9ff" secondAttribute="centerX" id="bE2-3U-ZMY"/>
+                            <constraint firstItem="X9D-Zh-8fO" firstAttribute="top" secondItem="KeK-uY-dYV" secondAttribute="bottom" constant="30" id="eJg-D6-i9U"/>
+                            <constraint firstItem="tT9-jj-gLj" firstAttribute="bottom" secondItem="2Qn-8k-Wbc" secondAttribute="bottom" constant="60" id="gf8-3e-8HB"/>
+                            <constraint firstItem="KeK-uY-dYV" firstAttribute="top" secondItem="Q1Y-Zg-imq" secondAttribute="bottom" constant="20" id="jUx-oX-syq"/>
+                            <constraint firstItem="X9D-Zh-8fO" firstAttribute="centerX" secondItem="Zlr-dc-9ff" secondAttribute="centerX" id="puT-IF-Fwp"/>
+                            <constraint firstItem="Kmd-MO-UI7" firstAttribute="top" secondItem="tT9-jj-gLj" secondAttribute="top" constant="20" id="q4y-il-Pkq"/>
+                            <constraint firstItem="62g-RT-Pcu" firstAttribute="top" secondItem="X9D-Zh-8fO" secondAttribute="bottom" constant="20" id="q8O-Qy-Wpa"/>
+                            <constraint firstItem="a0l-yk-jSm" firstAttribute="centerX" secondItem="Zlr-dc-9ff" secondAttribute="centerX" id="qhp-F7-Fx8"/>
+                            <constraint firstItem="tda-AT-4KZ" firstAttribute="top" secondItem="a0l-yk-jSm" secondAttribute="bottom" constant="20" id="sA7-i3-he9"/>
+                            <constraint firstItem="059-or-oh3" firstAttribute="top" secondItem="obG-b7-cQ4" secondAttribute="bottom" constant="20" id="ujb-bh-0zr"/>
+                            <constraint firstItem="Q1Y-Zg-imq" firstAttribute="centerX" secondItem="Zlr-dc-9ff" secondAttribute="centerX" id="wVs-l7-DyU"/>
+                            <constraint firstItem="059-or-oh3" firstAttribute="centerX" secondItem="Zlr-dc-9ff" secondAttribute="centerX" id="x1a-AE-lzT"/>
+                            <constraint firstItem="62g-RT-Pcu" firstAttribute="centerX" secondItem="Zlr-dc-9ff" secondAttribute="centerX" id="xGh-9B-mh8"/>
+                            <constraint firstItem="Q1Y-Zg-imq" firstAttribute="top" secondItem="059-or-oh3" secondAttribute="bottom" constant="30" id="xtn-Ar-kJi"/>
+                            <constraint firstItem="obG-b7-cQ4" firstAttribute="top" secondItem="tda-AT-4KZ" secondAttribute="bottom" constant="30" id="ywE-iq-9Or"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="jwf-Je-AJd"/>
+                    <navigationItem key="navigationItem" title="Add New Transaction" id="jwf-Je-AJd"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="categoryLabel" destination="JAO-fn-lze" id="9DQ-Pj-cby"/>
                         <outlet property="dropDownView" destination="KeK-uY-dYV" id="c5r-Vg-Zs6"/>
@@ -106,6 +147,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Add_Button" width="197" height="50"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -19,7 +19,8 @@ class HomeViewController: UIViewController{
 
     @IBOutlet weak var InpExp: UIView!
     @IBOutlet weak var MnthlyBudget: UIView!
-
+    @IBOutlet weak var TransactionView: UIView!
+    
     @IBOutlet weak var expenseLabel: UILabel!
     @IBOutlet weak var incomeLabel: UILabel!
     @IBOutlet weak var balanceLabel: UILabel!
@@ -67,6 +68,13 @@ class HomeViewController: UIViewController{
         MnthlyBudget.layer.shadowRadius = 10
         MnthlyBudget.layer.cornerRadius = 20
         MnthlyBudget.layer.masksToBounds = true
+        
+        TransactionView.layer.shadowColor = UIColor.gray.cgColor
+        TransactionView.layer.shadowOpacity = 1
+        TransactionView.layer.shadowOffset = .zero
+        TransactionView.layer.shadowRadius = 10
+        TransactionView.layer.cornerRadius = 20
+        TransactionView.layer.masksToBounds = true
         
         dropDown.anchorView = monthSelector;
         dropDown.dataSource = helper.getMonths();
