@@ -15,7 +15,7 @@ class BudgetViewController: UIViewController {
     @IBOutlet weak var daysLeftLabel: UILabel!
     @IBOutlet weak var calendarLabel: UILabel!
     @IBOutlet weak var totalBudgetLabel: UILabel!
-    @IBOutlet weak var moneySpentLabel: UILabel!
+
     
     let helper = Helper();
     
@@ -37,6 +37,7 @@ class BudgetViewController: UIViewController {
 
         currentMonth = helper.extractMonth(inDate: Date.init());
         calendarLabel.text = currentMonth;
+        daysLeftLabel.text = "\(helper.monthDaysLeft()) days left for this month";
         fetchData();
         getCurrentValues();
         getCurrentBudget();
@@ -76,11 +77,24 @@ class BudgetViewController: UIViewController {
             for budget in budgetList{
                 if(budget.monthYear == currentMonth){
                     print("pehle tha", budget);
+                   
                     budgetValue = budget.budgetValue;
+                    budgetAmountInput.text = String(budgetValue);
                     totalBudgetLabel.text = String(budgetValue);
                     budgetProgress = Float((currentIncome - currentExpense)/budgetValue);
                     print(budgetProgress);
-                    budgetLevelBar.setProgress(Float(budgetProgress), animated: true);
+                    budgetLevelBar.setProgress(Float(budgetProgress), animated: false);
+                    if(balance < budgetValue){
+                        let amt = budgetValue - balance;
+                        budgetLeftLabel.text = "You need $\(amt) more to reach your budget";
+                    }
+                    else if(balance > budgetValue){
+                        let amt = balance - budgetValue;
+                        budgetLeftLabel.text = "You have $\(amt) surplus on your budget";
+                    }
+                    else if(balance == budgetValue){
+                        budgetLeftLabel.text = "Your budget is fulfilled";
+                    }
 //                    budgetLeftLabel.text = String(budgetValue - balance);
                     
                 }

@@ -18,4 +18,6 @@ target 'Smart Dollar' do
     # Pods for testing
   end
 
+  pod 'Charts'
+
 end
