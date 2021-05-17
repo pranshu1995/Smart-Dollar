@@ -173,6 +173,17 @@ class HomeViewController: UIViewController{
                     budgetProgress = Float((balance)/budgetValue);
                     print(budgetProgress);
                     budgetLevelBar.setProgress(Float(budgetProgress), animated: false);
+                    
+                    if(budgetProgress < 0.2){
+                        budgetLevelBar.progressTintColor = UIColor.red;
+                    }
+                    else if(budgetProgress > 0.2 && budgetProgress < 0.7){
+                        budgetLevelBar.progressTintColor = UIColor.orange;
+                    }
+                    else if(budgetProgress > 0.7){
+                        budgetLevelBar.progressTintColor = UIColor.green;
+                    }
+                    
                     if(balance < budgetValue){
                         let amt = budgetValue - balance;
                         budgetLeftLabel.text = "You need $\(amt) more to reach your budget";

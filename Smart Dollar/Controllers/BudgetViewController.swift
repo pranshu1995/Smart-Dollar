@@ -37,7 +37,7 @@ class BudgetViewController: UIViewController {
 
         currentMonth = helper.extractMonth(inDate: Date.init());
         calendarLabel.text = currentMonth;
-        daysLeftLabel.text = "\(helper.monthDaysLeft()) days left for this month";
+        daysLeftLabel.text = "\(helper.monthDaysLeft()) days left";
         fetchData();
         getCurrentValues();
         getCurrentBudget();
@@ -84,13 +84,25 @@ class BudgetViewController: UIViewController {
                     budgetProgress = Float((balance)/budgetValue);
                     print(budgetProgress);
                     budgetLevelBar.setProgress(Float(budgetProgress), animated: false);
+                    
+                    
+                    if(budgetProgress < 0.2){
+                        budgetLevelBar.progressTintColor = UIColor.red;
+                    }
+                    else if(budgetProgress > 0.2 && budgetProgress < 0.7){
+                        budgetLevelBar.progressTintColor = UIColor.orange;
+                    }
+                    else if(budgetProgress > 0.7){
+                        budgetLevelBar.progressTintColor = UIColor.green;
+                    }
+                    
                     if(balance < budgetValue){
                         let amt = budgetValue - balance;
-                        budgetLeftLabel.text = "You need $\(amt) more to reach your budget";
+                        budgetLeftLabel.text = "You need $\(amt) more";
                     }
                     else if(balance > budgetValue){
                         let amt = balance - budgetValue;
-                        budgetLeftLabel.text = "You have $\(amt) surplus on your budget";
+                        budgetLeftLabel.text = "You have $\(amt) surplus";
                     }
                     else if(balance == budgetValue){
                         budgetLeftLabel.text = "Your budget is fulfilled";
