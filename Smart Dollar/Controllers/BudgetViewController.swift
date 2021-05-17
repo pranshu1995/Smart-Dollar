@@ -137,6 +137,8 @@ class BudgetViewController: UIViewController {
         budgetList.append(newBudget);
         print(budgetList);
         
+        helper.showToast(message: "Budget changed", view: self.view)
+        
         UserDefaults.standard.set(try? PropertyListEncoder().encode(budgetList), forKey: "Budget");
         getCurrentBudget();
     }

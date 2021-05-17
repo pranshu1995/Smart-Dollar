@@ -28,6 +28,7 @@ class TransactionAddViewController: UIViewController {
     let dropDown = DropDown();
     
     var fetchedTransactions: [Transaction] = [];
+    let helper = Helper();
     
    
     
@@ -126,6 +127,7 @@ class TransactionAddViewController: UIViewController {
             UserDefaults.standard.set(try? PropertyListEncoder().encode(fetchedTransactions), forKey: "Transactions");
             fetchedTransactions = [];
             
+            helper.showToast(message: "Trasaction Added", view: self.view)
     }
 
 }
