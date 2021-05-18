@@ -100,5 +100,21 @@ struct Helper{
 
         }
 
+    func deleteTransaction(id: String){
+        var fetchedTransactions: [Transaction] = [];
+        if let data = UserDefaults.standard.value(forKey: "Transactions") as? Data {
+            fetchedTransactions = try! PropertyListDecoder().decode(Array<Transaction>.self, from: data)
+            print("deleting");
+            for (index,transaction) in fetchedTransactions.enumerated(){
+                if(transaction.id! == id){
+                    fetchedTransactions.remove(at: index);
+                    print("updated");
+                }
+            }
+            
+            UserDefaults.standard.set(try? PropertyListEncoder().encode(fetchedTransactions), forKey: "Transactions");
+            fetchedTransactions = [];
+        }
+    }
 
 }

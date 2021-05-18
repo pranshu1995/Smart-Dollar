@@ -28,6 +28,7 @@ class HomeViewController: UIViewController{
     @IBOutlet weak var balanceLabel: UILabel!
     @IBOutlet weak var transactionsTable: UITableView!;
     
+    @IBOutlet weak var transactionViewStack: UIView!
     @IBOutlet weak var monthLabel: UILabel!
     @IBOutlet weak var monthSelector: UIView!
     var fetchedTransactions: [Transaction] = [];
@@ -62,6 +63,10 @@ class HomeViewController: UIViewController{
         super.viewDidLoad();
        
         // Do any additional setup after loading the view.
+        transactionViewStack.frame.size.height = 600;
+        transactionsTable.contentSize.height = 500;
+        
+        print("heighto \(transactionViewStack.frame.size.height) and \(transactionsTable.contentSize.height)")
         
         InpExp.layer.shadowColor = UIColor.gray.cgColor
         InpExp.layer.shadowOpacity = 1
@@ -267,11 +272,11 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            let currentTransaction = filteredTransactions[indexPath.row];
+            helper.deleteTransaction(id: currentTransaction.id!);
             filteredTransactions.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
-        }
+        } 
     }
 }
 

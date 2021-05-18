@@ -15,6 +15,8 @@ class AllTransactionsViewController: UIViewController, UITabBarDelegate {
     var fetchedTransactions: [Transaction] = [];
     var displayTransactions: [Transaction] = [];
     
+    let helper = Helper();
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchData();
@@ -131,10 +133,18 @@ extension AllTransactionsViewController: UITableViewDelegate, UITableViewDataSou
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            displayTransactions.remove(at: indexPath.row)
+            let currentTransaction = displayTransactions[indexPath.row];
+            
+            helper.deleteTransaction(id: currentTransaction.id!);
+            
+            displayTransactions.remove(at: indexPath.row);
+            for (index,transaction) in fetchedTransactions.enumerated(){
+                if(transaction.id! == currentTransaction.id){
+                    fetchedTransactions.remove(at: index);
+                }
+            }
+            
             tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
         }
     }
 }

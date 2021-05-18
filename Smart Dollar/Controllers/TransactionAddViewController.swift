@@ -21,6 +21,9 @@ class TransactionAddViewController: UIViewController {
     
     @IBOutlet weak var transactionType: UISegmentedControl!
     
+    @IBOutlet weak var btnLabel: UIButton!
+    
+    @IBOutlet weak var deleteBtn: UIButton!
     var newTransaction = true;
 //    var transactionId = "";
     var currentTransaction: Transaction = Transaction();
@@ -50,8 +53,16 @@ class TransactionAddViewController: UIViewController {
         if(newTransaction == true){
             dropDown.dataSource = incomeCategories;
             transactionAmount.textColor = UIColor(red: 33/256, green: 150/256, blue: 30/256, alpha: 1.0);
+            
+            btnLabel.setTitle("Add", for: .normal);
+            deleteBtn.isHidden = true;
+            
         }
         else{
+            
+            btnLabel.setTitle("Update", for: .normal);
+            deleteBtn.isHidden = false;
+            
             print("purana \(currentTransaction)");
             
             transactionId = currentTransaction.id!
@@ -126,7 +137,16 @@ class TransactionAddViewController: UIViewController {
 //
 //    }
     
-        @IBAction func addTransaction(_ sender: Any) {
+    @IBAction func deleteTransaction(_ sender: Any) {
+        print("Deleting \(currentTransaction.id!)");
+        helper.deleteTransaction(id: currentTransaction.id!);
+        currentTransaction = Transaction();
+        newTransaction = true;
+        viewDidLoad();
+    }
+    
+    
+    @IBAction func addTransaction(_ sender: Any) {
             let type: String;
             
             if(transactionType.selectedSegmentIndex == 0){

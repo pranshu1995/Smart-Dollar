@@ -22,3 +22,4 @@ struct Transaction: Codable {
 // Deletion Handling
 // Validation and testing
 // Commenting
+// Update values when deleted

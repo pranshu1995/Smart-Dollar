@@ -36,7 +36,7 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Qn-8k-Wbc">
                                 <rect key="frame" x="108.5" y="664" width="197" height="50"/>
-                                <state key="normal" backgroundImage="Add_Button"/>
+                                <state key="normal" backgroundImage="Button"/>
                                 <connections>
                                     <action selector="addTransaction:" destination="BEI-VM-vvI" eventType="touchUpInside" id="Lpf-0k-aJj"/>
                                 </connections>
@@ -104,6 +104,14 @@
                                     <action selector="dateUpdated:" destination="BEI-VM-vvI" eventType="valueChanged" id="w7T-Wd-eMD"/>
                                 </connections>
                             </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bUZ-C1-V8h">
+                                <rect key="frame" x="289" y="586" width="45" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Delete"/>
+                                <connections>
+                                    <action selector="deleteTransaction:" destination="BEI-VM-vvI" eventType="touchUpInside" id="m3S-Gm-IzP"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="tT9-jj-gLj"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -133,7 +141,9 @@
                     <navigationItem key="navigationItem" title="Add New Transaction" id="jwf-Je-AJd"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
+                        <outlet property="btnLabel" destination="2Qn-8k-Wbc" id="KQO-kq-yNr"/>
                         <outlet property="categoryLabel" destination="JAO-fn-lze" id="9DQ-Pj-cby"/>
+                        <outlet property="deleteBtn" destination="bUZ-C1-V8h" id="SGB-Hw-Aah"/>
                         <outlet property="dropDownView" destination="KeK-uY-dYV" id="c5r-Vg-Zs6"/>
                         <outlet property="transactionAmount" destination="tda-AT-4KZ" id="rw9-ND-LtQ"/>
                         <outlet property="transactionDate" destination="059-or-oh3" id="QbV-v7-djR"/>
@@ -147,7 +157,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Add_Button" width="197" height="50"/>
+        <image name="Button" width="197" height="50"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
