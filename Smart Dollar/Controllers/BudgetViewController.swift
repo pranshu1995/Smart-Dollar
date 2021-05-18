@@ -116,10 +116,21 @@ class BudgetViewController: UIViewController {
         }
     }
     
-
+    @objc func validateTransaction() -> Bool{
+        var flag = true;
+        if(Float(budgetAmountInput.text!) ?? 0 == 0 || String(budgetAmountInput.text!).trimmingCharacters(in: .whitespacesAndNewlines) == ""){
+            helper.showToast(message: "Invalid Budget", view: self.view);
+            flag = false;
+        }
+        return flag;
+    }
  
     @IBAction func budgetUpdate(_ sender: Any) {
         print("updating");
+        
+        let validate = validateTransaction();
+        
+        if(validate){
         
         let newBudget: Budget = Budget(budgetValue: Double(String(budgetAmountInput.text!))!, monthYear: currentMonth, currency: "AUD");
         
@@ -141,6 +152,7 @@ class BudgetViewController: UIViewController {
         
         UserDefaults.standard.set(try? PropertyListEncoder().encode(budgetList), forKey: "Budget");
         getCurrentBudget();
+        }
     }
     
 }

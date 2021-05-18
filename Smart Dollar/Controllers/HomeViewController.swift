@@ -63,10 +63,10 @@ class HomeViewController: UIViewController{
         super.viewDidLoad();
        
         // Do any additional setup after loading the view.
-        transactionViewStack.frame.size.height = 600;
-        transactionsTable.contentSize.height = 500;
-        
-        print("heighto \(transactionViewStack.frame.size.height) and \(transactionsTable.contentSize.height)")
+//        transactionViewStack.frame.size.height = 600;
+//        transactionsTable.contentSize.height = 500;
+//
+//        print("heighto \(transactionViewStack.frame.size.height) and \(transactionsTable.contentSize.height)")
         
         InpExp.layer.shadowColor = UIColor.gray.cgColor
         InpExp.layer.shadowOpacity = 1
@@ -117,9 +117,6 @@ class HomeViewController: UIViewController{
     @objc func fetchData(){
         fetchedTransactions = [];
         filteredTransactions = [];
-        income = 0;
-        expense = 0;
-        balance = 0;
         
         transactionsUpdate();
         valuesUpdate();
@@ -155,6 +152,10 @@ class HomeViewController: UIViewController{
     }
     
     @objc func valuesUpdate(){
+        income = 0;
+        expense = 0;
+        balance = 0;
+        
         for t in filteredTransactions {
             if(t.type == "Income"){
                 income = income + t.amount!;
@@ -187,7 +188,7 @@ class HomeViewController: UIViewController{
                     budgetProgress = Float((balance)/budgetValue);
                     print(budgetProgress);
                     budgetLevelBar.setProgress(Float(budgetProgress), animated: false);
-                    
+                    budgetLeftLabel.textColor = UIColor.black;
                     if(budgetProgress < 0.2){
                         budgetLevelBar.progressTintColor = UIColor.red;
                     }
@@ -211,6 +212,12 @@ class HomeViewController: UIViewController{
                     }
 //                    budgetLeftLabel.text = String(budgetValue - balance);
                     
+                }
+                else{
+                    budgetLeftLabel.text = "No budget available for this month";
+                    budgetLeftLabel.textColor = UIColor.red;
+                    budgetLevelBar.setProgress(1, animated: false);
+                    budgetLevelBar.progressTintColor = UIColor.red;
                 }
             }
            
@@ -236,8 +243,10 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
         
         let helper = Helper();
        
+        print("atkaa \(filteredTransactions)");
         
         let transaction = filteredTransactions[indexPath.row];
+        print("Naa meelo ");
 //        print(helper.extractMonth(inDate: transaction.date));
         cell.id = transaction.id!;
         cell.date = transaction.date!;
@@ -284,6 +293,13 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
             let currentTransaction = filteredTransactions[indexPath.row];
             helper.deleteTransaction(id: currentTransaction.id!);
             filteredTransactions.remove(at: indexPath.row)
+            for (index,transaction) in fetchedTransactions.enumerated(){
+                if(transaction.id! == currentTransaction.id){
+                    fetchedTransactions.remove(at: index);
+                }
+            }
+            valuesUpdate();
+            getCurrentBudget();
             tableView.deleteRows(at: [indexPath], with: .fade)
         } 
     }

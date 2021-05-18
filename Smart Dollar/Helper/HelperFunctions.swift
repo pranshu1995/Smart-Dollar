@@ -99,6 +99,8 @@ struct Helper{
                })
 
         }
+    
+    
 
     func deleteTransaction(id: String){
         var fetchedTransactions: [Transaction] = [];
@@ -109,6 +111,7 @@ struct Helper{
                 if(transaction.id! == id){
                     fetchedTransactions.remove(at: index);
                     print("updated");
+                    break;
                 }
             }
             
