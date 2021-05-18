@@ -36,7 +36,10 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Qn-8k-Wbc">
                                 <rect key="frame" x="108.5" y="664" width="197" height="50"/>
-                                <state key="normal" backgroundImage="Button"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
+                                <state key="normal" title="Add Transaction" backgroundImage="Button">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="addTransaction:" destination="BEI-VM-vvI" eventType="touchUpInside" id="Lpf-0k-aJj"/>
                                 </connections>
@@ -104,10 +107,12 @@
                                     <action selector="dateUpdated:" destination="BEI-VM-vvI" eventType="valueChanged" id="w7T-Wd-eMD"/>
                                 </connections>
                             </datePicker>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bUZ-C1-V8h">
-                                <rect key="frame" x="289" y="586" width="45" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Delete"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bUZ-C1-V8h">
+                                <rect key="frame" x="108.5" y="591" width="197" height="50"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
+                                <state key="normal" title="Delete" backgroundImage="deleteButton">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="deleteTransaction:" destination="BEI-VM-vvI" eventType="touchUpInside" id="m3S-Gm-IzP"/>
                                 </connections>
@@ -119,8 +124,10 @@
                             <constraint firstItem="Kmd-MO-UI7" firstAttribute="centerX" secondItem="Zlr-dc-9ff" secondAttribute="centerX" id="0lc-UU-NfF"/>
                             <constraint firstItem="tda-AT-4KZ" firstAttribute="centerX" secondItem="Zlr-dc-9ff" secondAttribute="centerX" id="6YY-aV-oNr"/>
                             <constraint firstItem="a0l-yk-jSm" firstAttribute="top" secondItem="Kmd-MO-UI7" secondAttribute="bottom" constant="30" id="9JB-Nq-jQT"/>
+                            <constraint firstItem="bUZ-C1-V8h" firstAttribute="centerX" secondItem="Zlr-dc-9ff" secondAttribute="centerX" id="E6f-0s-XaV"/>
                             <constraint firstItem="2Qn-8k-Wbc" firstAttribute="centerX" secondItem="Zlr-dc-9ff" secondAttribute="centerX" id="EhI-tr-B0B"/>
                             <constraint firstItem="obG-b7-cQ4" firstAttribute="centerX" secondItem="Zlr-dc-9ff" secondAttribute="centerX" id="H8u-zY-VxC"/>
+                            <constraint firstItem="2Qn-8k-Wbc" firstAttribute="top" secondItem="bUZ-C1-V8h" secondAttribute="bottom" constant="23" id="ayW-bX-DvJ"/>
                             <constraint firstItem="KeK-uY-dYV" firstAttribute="centerX" secondItem="Zlr-dc-9ff" secondAttribute="centerX" id="bE2-3U-ZMY"/>
                             <constraint firstItem="X9D-Zh-8fO" firstAttribute="top" secondItem="KeK-uY-dYV" secondAttribute="bottom" constant="30" id="eJg-D6-i9U"/>
                             <constraint firstItem="tT9-jj-gLj" firstAttribute="bottom" secondItem="2Qn-8k-Wbc" secondAttribute="bottom" constant="60" id="gf8-3e-8HB"/>
@@ -158,6 +165,7 @@
     </scenes>
     <resources>
         <image name="Button" width="197" height="50"/>
+        <image name="deleteButton" width="197" height="50"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
