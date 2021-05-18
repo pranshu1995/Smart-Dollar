@@ -59,7 +59,7 @@ class AllTransactionsViewController: UIViewController, UITabBarDelegate {
         if let data = UserDefaults.standard.value(forKey: "Transactions") as? Data {
             fetchedTransactions = try! PropertyListDecoder().decode(Array<Transaction>.self, from: data)
             fetchedTransactions.sort{
-                $0.date > $1.date;
+                $0.date! > $1.date!;
             }
             print(fetchedTransactions);
         }
@@ -86,17 +86,17 @@ extension AllTransactionsViewController: UITableViewDelegate, UITableViewDataSou
         
         let transaction = displayTransactions[indexPath.row];
 //        print(helper.extractMonth(inDate: transaction.date));
-        cell.id = transaction.id;
-        cell.date = transaction.date;
+        cell.id = transaction.id!;
+        cell.date = transaction.date!;
         //cell.currencyLabel?.text = transaction.currency;
-        cell.amountLabel?.text = transaction.currency + " $ " + String(transaction.amount);
+        cell.amountLabel?.text = transaction.currency! + " $ " + String(transaction.amount!);
         cell.categoryLabel?.text = transaction.category;
         //cell.typeLabel?.text = transaction.type;
-        cell.dateLabel?.text = helper.dateToString(inDate: transaction.date);
+        cell.dateLabel?.text = helper.dateToString(inDate: transaction.date!);
         cell.descriptionLabel?.text = transaction.description;
         
         let imgSrc = transaction.category;
-        cell.catIcon.image = UIImage(named: imgSrc);
+        cell.catIcon.image = UIImage(named: imgSrc!);
         
         if(transaction.type == "Income"){
             cell.amountLabel?.textColor = UIColor(red: 33/256, green: 150/256, blue: 30/256, alpha: 1.0)
@@ -114,16 +114,30 @@ extension AllTransactionsViewController: UITableViewDelegate, UITableViewDataSou
         return cell;
     }
     
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        let currentCell = tableView.cellForRow(at: indexPath) as! AllTransactionsCell;
-        print(currentCell.date);
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let currentCell = tableView.cellForRow(at: indexPath) as! AllTransactionsCell;
+//        print(currentCell.date);
         
-        let name = displayTransactions[indexPath.row];
+        let currentTransaction = displayTransactions[indexPath.row];
         
-        print("Selected \(name)")
+        print("Selected \(currentTransaction) on \(indexPath.row)")
+        let transactionView: UIStoryboard = UIStoryboard(name: "TransactionAddStoryboard", bundle: nil)
+        let vc = transactionView.instantiateViewController(identifier: "TransactionAddViewController") as! TransactionAddViewController;
+        self.navigationController?.pushViewController(vc, animated: true)
+        vc.newTransaction = false;
+        vc.currentTransaction = currentTransaction;
+        
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            displayTransactions.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        } else if editingStyle == .insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
+        }
     }
 }
-
 
 
 class AllTransactionsCell: UITableViewCell{

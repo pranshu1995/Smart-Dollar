@@ -132,9 +132,9 @@ class HomeViewController: UIViewController{
         if let data = UserDefaults.standard.value(forKey: "Transactions") as? Data {
             fetchedTransactions = try! PropertyListDecoder().decode(Array<Transaction>.self, from: data)
             fetchedTransactions.sort{
-                $0.date > $1.date;
+                $0.date! > $1.date!;
             }
-            filteredTransactions = fetchedTransactions.filter { helper.extractMonth(inDate: $0.date) == selectedMonth }
+            filteredTransactions = fetchedTransactions.filter { helper.extractMonth(inDate: $0.date!) == selectedMonth }
             print(filteredTransactions);
         }
         transactionsTable.reloadData();
@@ -143,10 +143,10 @@ class HomeViewController: UIViewController{
     @objc func valuesUpdate(){
         for t in filteredTransactions {
             if(t.type == "Income"){
-                income = income + t.amount;
+                income = income + t.amount!;
             }
             else if(t.type == "Expense"){
-                expense = expense + t.amount;
+                expense = expense + t.amount!;
             }
         }
         balance = income - expense;
@@ -225,20 +225,20 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
         
         let transaction = filteredTransactions[indexPath.row];
 //        print(helper.extractMonth(inDate: transaction.date));
-        cell.id = transaction.id;
-        cell.date = transaction.date;
+        cell.id = transaction.id!;
+        cell.date = transaction.date!;
         //cell.currencyLabel?.text = transaction.currency;
-        cell.amountLabel?.text = transaction.currency + " $ " + String(transaction.amount);
+        cell.amountLabel?.text = transaction.currency! + " $ " + String(transaction.amount!);
         cell.categoryLabel?.text = transaction.category;
         //cell.typeLabel?.text = transaction.type;
-        cell.dateLabel?.text = helper.dateToString(inDate: transaction.date);
+        cell.dateLabel?.text = helper.dateToString(inDate: transaction.date!);
         //cell.descriptionLabel?.text = transaction.description;
 //        let name = fetchedTransactions[indexPath.row];
         
 //        cell.textLabel?.text = name;
 //        cell.detailTextLabel?.text = "100";
         let imgSrc = transaction.category;
-        cell.transactionImg.image = UIImage(named: imgSrc);
+        cell.transactionImg.image = UIImage(named: imgSrc!);
         
         if(transaction.type == "Income"){
             cell.amountLabel?.textColor = UIColor(red: 33/256, green: 150/256, blue: 30/256, alpha: 1.0)
@@ -251,13 +251,27 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
         return cell;
     }
     
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        let currentCell = tableView.cellForRow(at: indexPath) as! TransactionCell;
-        print(currentCell.date);
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let currentCell = tableView.cellForRow(at: indexPath) as! TransactionCell;
+//        print(currentCell.date);
         
-        let name = filteredTransactions[indexPath.row];
+        let currentTransaction = filteredTransactions[indexPath.row];
         
-        print("Selected \(name)")
+        print("Selected \(currentTransaction)")
+        let transactionView: UIStoryboard = UIStoryboard(name: "TransactionAddStoryboard", bundle: nil)
+        let vc = transactionView.instantiateViewController(identifier: "TransactionAddViewController") as! TransactionAddViewController
+        self.navigationController?.pushViewController(vc, animated: true)
+        vc.newTransaction = false;
+        vc.currentTransaction = currentTransaction;
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            filteredTransactions.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        } else if editingStyle == .insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
+        }
     }
 }
 

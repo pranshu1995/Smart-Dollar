@@ -8,16 +8,17 @@
 import Foundation
 
 struct Transaction: Codable {
-    var id: String;
-    var amount: Double;
-    var description: String;
-    var type: String;
-    var category: String;
-    var date: Date;
-    var currency: String;
+    var id: String?;
+    var amount: Double?;
+    var description: String?;
+    var type: String?;
+    var category: String?;
+    var date: Date?;
+    var currency: String?;
 }
 
 // Budget Homepage
-// Transaction last click issue
+// Transaction click to page
+// Deletion Handling
 // Validation and testing
 // Commenting

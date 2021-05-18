@@ -47,7 +47,7 @@ class BudgetViewController: UIViewController {
     @objc func fetchData(){
         if let data = UserDefaults.standard.value(forKey: "Transactions") as? Data {
             fetchedTransactions = try! PropertyListDecoder().decode(Array<Transaction>.self, from: data)
-            displayTransactions = fetchedTransactions.filter{ helper.extractMonth(inDate: $0.date) == currentMonth};
+            displayTransactions = fetchedTransactions.filter{ helper.extractMonth(inDate: $0.date!) == currentMonth};
             print(displayTransactions);
         }
     }
@@ -55,10 +55,10 @@ class BudgetViewController: UIViewController {
     @objc func getCurrentValues(){
         for transaction in displayTransactions{
             if(transaction.type == "Income"){
-                currentIncome = currentIncome + transaction.amount;
+                currentIncome = currentIncome + transaction.amount!;
             }
             else if(transaction.type == "Expense"){
-                currentExpense = currentExpense + transaction.amount;
+                currentExpense = currentExpense + transaction.amount!;
             }
             
         }
