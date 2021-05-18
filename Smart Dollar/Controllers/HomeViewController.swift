@@ -87,7 +87,16 @@ class HomeViewController: UIViewController{
         TransactionView.layer.shadowOffset = .zero
         TransactionView.layer.shadowRadius = 10
         TransactionView.layer.cornerRadius = 20
+        TransactionView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         TransactionView.layer.masksToBounds = true
+        
+        transactionsTable.layer.shadowColor = UIColor.gray.cgColor
+        transactionsTable.layer.shadowOpacity = 1
+        transactionsTable.layer.shadowOffset = .zero
+        transactionsTable.layer.shadowRadius = 10
+        transactionsTable.layer.cornerRadius = 20
+        transactionsTable.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        transactionsTable.layer.masksToBounds = true
         
         dropDown.anchorView = monthSelector;
         dropDown.dataSource = helper.getMonths();
