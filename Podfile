@@ -4,8 +4,7 @@
 target 'Smart Dollar' do
   pod 'DropDSwift Conversion Groupown'
   pod 'Charts'
-  pod 'AppLocker'
-  # Comment the next line if you don't want to use dynamic frameworks
+ # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
   # Pods for Smart Dollar
