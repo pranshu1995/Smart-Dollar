@@ -11,6 +11,8 @@ import Charts
 class StatsFirstViewController: UIViewController, ChartViewDelegate {
     
     var barChart = BarChartView()
+    let defaults = UserDefaults.standard
+    var Transactions: [Transaction] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +25,16 @@ class StatsFirstViewController: UIViewController, ChartViewDelegate {
         barChart.center = view.center
         
         view.addSubview(barChart)
+        
+        print("Fetched Data for Charts:")
+        
+        if let data = defaults.value(forKey: "Transactions") as? Data {
+            Transactions = try! PropertyListDecoder().decode(Array<Transaction>.self, from: data)
+            Transactions.sort{
+                $0.date > $1.date;
+            }
+            print(Transactions);
+        }
         
         var entries = [BarChartDataEntry]()
         
