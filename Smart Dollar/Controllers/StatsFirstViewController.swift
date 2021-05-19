@@ -15,7 +15,6 @@ class StatsFirstViewController: UIViewController, ChartViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         barChart.delegate = self
-//        self.title = "Expense";
     }
     
     override func viewDidLayoutSubviews() {

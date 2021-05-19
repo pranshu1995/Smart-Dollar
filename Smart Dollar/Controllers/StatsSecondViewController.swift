@@ -15,7 +15,6 @@ class StatsSecondViewController: UIViewController,ChartViewDelegate  {
     override func viewDidLoad() {
         super.viewDidLoad()
         lineChart.delegate = self
-//        self.title = "Income";
     }
     
     override func viewDidLayoutSubviews() {

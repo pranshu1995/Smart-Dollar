@@ -14,7 +14,6 @@ class StatsThirdViewController: UIViewController,ChartViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.title = "Cash Flow";
     }
     
     override func viewDidLayoutSubviews() {
@@ -24,6 +23,10 @@ class StatsThirdViewController: UIViewController,ChartViewDelegate {
         pieChart.center = view.center
         
         view.addSubview(pieChart)
+        
+        print("Fetched Data:...")
+//        print(UserDefaults.standard.value(forKey: "Transactions"))
+        
         
         var entries = [ChartDataEntry]()
         
