@@ -260,8 +260,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
         
 //        cell.textLabel?.text = name;
 //        cell.detailTextLabel?.text = "100";
-        let imgSrc = transaction.category;
-        cell.transactionImg.image = UIImage(named: imgSrc!);
+        print("Catgoryyyyy!", transaction.category!)
+        let imgSrc = transaction.category!;
+        cell.transactionImg.image = UIImage(named: imgSrc);
         
         if(transaction.type == "Income"){
             cell.amountLabel?.textColor = UIColor(red: 33/256, green: 150/256, blue: 30/256, alpha: 1.0)
