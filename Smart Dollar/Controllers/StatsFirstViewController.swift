@@ -31,7 +31,7 @@ class StatsFirstViewController: UIViewController, ChartViewDelegate {
         if let data = defaults.value(forKey: "Transactions") as? Data {
             Transactions = try! PropertyListDecoder().decode(Array<Transaction>.self, from: data)
             Transactions.sort{
-                $0.date > $1.date;
+                $0.date! > $1.date!;
             }
             print(Transactions);
         }

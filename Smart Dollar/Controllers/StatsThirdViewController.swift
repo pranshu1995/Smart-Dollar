@@ -31,7 +31,7 @@ class StatsThirdViewController: UIViewController,ChartViewDelegate {
         if let data = defaults.value(forKey: "Transactions") as? Data {
             Transactions = try! PropertyListDecoder().decode(Array<Transaction>.self, from: data)
             Transactions.sort{
-                $0.date > $1.date;
+                $0.date! > $1.date!;
             }
 //            print(Transactions);
         }
@@ -43,8 +43,8 @@ class StatsThirdViewController: UIViewController,ChartViewDelegate {
             if(Transactions[i].type == "Income") {
 //                print(Transactions[i])
                 let x = Transactions[i].amount
-                print(x)
-                entries.append(ChartDataEntry(x: Double(x), y: Double(x)))
+                print(x!)
+                entries.append(ChartDataEntry(x: Double(x!), y: Double(x!)))
             }
         }
         
