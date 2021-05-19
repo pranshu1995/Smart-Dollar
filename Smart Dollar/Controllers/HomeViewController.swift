@@ -22,6 +22,7 @@ class HomeViewController: UIViewController{
     @IBOutlet weak var TransactionView: UIView!
     
    
+    @IBOutlet weak var currBudgetLabel: UILabel!
     @IBOutlet weak var budgetLeftLabel: UILabel!
     @IBOutlet weak var budgetLevelBar: UIProgressView!
     @IBOutlet weak var expenseLabel: UILabel!
@@ -182,7 +183,7 @@ class HomeViewController: UIViewController{
             for budget in budgetList{
                 if(budget.monthYear == selectedMonth){
                     print("pehle tha", budget);
-                   
+                    currBudgetLabel.text = "$ \(String(budget.budgetValue))" ;
                     budgetValue = budget.budgetValue;
 //                    budgetAmountInput.text = String(budgetValue);
 //                    totalBudgetLabel.text = String(budgetValue);
