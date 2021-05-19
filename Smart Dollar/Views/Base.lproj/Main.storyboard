@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zok-zy-spk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zok-zy-spk">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18092"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -202,7 +202,7 @@
                                                 </constraints>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TransactionCell" rowHeight="96" id="LFM-Bh-8yT" customClass="TransactionCell" customModule="Smart_Dollar" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="28" width="374" height="96"/>
+                                                        <rect key="frame" x="0.0" y="24.5" width="374" height="96"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LFM-Bh-8yT" id="REM-MV-Oaj">
                                                             <rect key="frame" x="0.0" y="0.0" width="374" height="96"/>
@@ -332,33 +332,56 @@
             </objects>
             <point key="canvasLocation" x="-1136" y="1714"/>
         </scene>
-        <!--Statistics-->
-        <scene sceneID="bcc-yR-PHm">
+        <!--Cash Flow-->
+        <scene sceneID="5OL-DG-yRQ">
             <objects>
-                <viewController storyboardIdentifier="StatiticsStoryboard" id="Rpn-cV-sSx" userLabel="Statistics" customClass="StatisticsViewController" customModule="Smart_Dollar" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="JjC-D0-8oo">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Staty" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yd1-pe-SxN">
-                                <rect key="frame" x="182" y="265" width="50" height="177"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="VOD-g5-bPq"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="yd1-pe-SxN" firstAttribute="centerX" secondItem="VOD-g5-bPq" secondAttribute="centerX" id="C4n-Lx-I0L"/>
-                            <constraint firstItem="yd1-pe-SxN" firstAttribute="centerY" secondItem="VOD-g5-bPq" secondAttribute="centerY" id="KKR-1f-V83"/>
-                        </constraints>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Statistics" image="bar_chart.png" id="xKf-Dh-qGj"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bH5-f4-LyD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <navigationController id="BJz-8n-gZU" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Cash Flow" id="yn9-MW-pJe"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="3Wv-Yq-wd3">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="bTl-sM-Kqr" kind="relationship" relationship="rootViewController" id="bOo-N7-ojF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LcR-jv-O1R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3108.6956521739135" y="1029.9107142857142"/>
+            <point key="canvasLocation" x="4954" y="2121"/>
+        </scene>
+        <!--Income-->
+        <scene sceneID="gdr-ut-85n">
+            <objects>
+                <navigationController id="GKN-dW-iXR" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Income" id="cwO-RU-Vrw"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="JAU-xw-hhG">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="LVy-zF-sSH" kind="relationship" relationship="rootViewController" id="ffn-Ek-zR8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mvR-Y3-NHd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4000" y="2121"/>
+        </scene>
+        <!--Expense-->
+        <scene sceneID="3d7-IB-RPd">
+            <objects>
+                <navigationController id="ESu-h3-O63" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Expense" id="xhi-xj-RyB"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="maO-hK-YeC">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="rYW-Mo-J2i" kind="relationship" relationship="rootViewController" id="q5t-gF-huh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gct-kN-mfK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3039" y="2121"/>
         </scene>
         <!--Settings-->
         <scene sceneID="kMs-aa-N32">
@@ -402,7 +425,7 @@
                     <connections>
                         <segue destination="bNk-Jl-CVW" kind="relationship" relationship="viewControllers" id="MwS-OB-aFg"/>
                         <segue destination="8kv-9P-Iwt" kind="relationship" relationship="viewControllers" id="APT-8z-xOC"/>
-                        <segue destination="Rpn-cV-sSx" kind="relationship" relationship="viewControllers" id="Miq-Q9-qXr"/>
+                        <segue destination="tK8-Va-cRi" kind="relationship" relationship="viewControllers" id="4dh-8E-SSc"/>
                         <segue destination="5aP-kB-vP8" kind="relationship" relationship="viewControllers" id="hOP-Rh-xVX"/>
                     </connections>
                 </tabBarController>
@@ -503,6 +526,74 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="16m-ch-n3Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2000.0000000000002" y="1029.9107142857142"/>
+        </scene>
+        <!--Statistics-->
+        <scene sceneID="aJH-ZG-oii">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="tK8-Va-cRi" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Statistics" image="bar_chart.png" id="c16-AF-ZDh"/>
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pbW-BT-l2N">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BJz-8n-gZU" kind="relationship" relationship="viewControllers" id="CPU-5g-ttK"/>
+                        <segue destination="GKN-dW-iXR" kind="relationship" relationship="viewControllers" id="tqM-Ve-o1i"/>
+                        <segue destination="ESu-h3-O63" kind="relationship" relationship="viewControllers" id="cy6-xW-Voj"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XcU-BS-VJh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4000.0000000000005" y="1364.7321428571429"/>
+        </scene>
+        <!--Stats Second View Controller-->
+        <scene sceneID="yyH-jH-UDW">
+            <objects>
+                <viewController id="LVy-zF-sSH" customClass="StatsSecondViewController" customModule="Smart_Dollar" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TWi-dJ-RIO">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="CPn-Tn-5TT"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="RzY-1m-nDO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Bj-xj-Cc0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4000.0000000000005" y="2815.8482142857142"/>
+        </scene>
+        <!--Stats First View Controller-->
+        <scene sceneID="oLU-xM-JAI">
+            <objects>
+                <viewController id="rYW-Mo-J2i" customClass="StatsFirstViewController" customModule="Smart_Dollar" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="A1A-Hd-z2a">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="zil-rq-w7W"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="cFk-VH-jLN"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nYo-dt-boG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3037.68115942029" y="2815.8482142857142"/>
+        </scene>
+        <!--Stats Third View Controller-->
+        <scene sceneID="UZT-qM-FBF">
+            <objects>
+                <viewController id="bTl-sM-Kqr" customClass="StatsThirdViewController" customModule="Smart_Dollar" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yws-Am-lvf">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="hAk-zK-4WU"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="Arp-7G-4U2"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bfT-jN-gxt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4980" y="2816"/>
         </scene>
     </scenes>
     <resources>

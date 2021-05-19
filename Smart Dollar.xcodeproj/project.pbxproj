@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		875E7A38265118B0005515CF /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 875E7A37265118B0005515CF /* Charts.framework */; };
-		875E7A39265118B0005515CF /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 875E7A37265118B0005515CF /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		87041AD72654888B00C32C81 /* StatsFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87041AD62654888B00C32C81 /* StatsFirstViewController.swift */; };
+		87041ADB265488FD00C32C81 /* StatsSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87041ADA265488FD00C32C81 /* StatsSecondViewController.swift */; };
+		87041ADD2654890E00C32C81 /* StatsThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87041ADC2654890E00C32C81 /* StatsThirdViewController.swift */; };
+		87041AE1265491F300C32C81 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87041AE0265491F300C32C81 /* Charts.framework */; };
 		A433913D0368EE9C4C96C720 /* Pods_Smart_DollarTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CAE98BFB516EB2C9DB13AC2 /* Pods_Smart_DollarTests.framework */; };
 		ADB0669A34CBDF04290152B9 /* Pods_Smart_Dollar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E9AFE2461592FF098E3B39B /* Pods_Smart_Dollar.framework */; };
 		BA1077049B5D45D591DF62B6 /* Pods_Smart_Dollar_Smart_DollarUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D924C6D77062C5EE47D8F03 /* Pods_Smart_Dollar_Smart_DollarUITests.framework */; };
@@ -49,20 +51,6 @@
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		875E7A3A265118B0005515CF /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				875E7A39265118B0005515CF /* Charts.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		053F0F173387F6D38CDFCAB1 /* Pods-Smart Dollar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Dollar.debug.xcconfig"; path = "Target Support Files/Pods-Smart Dollar/Pods-Smart Dollar.debug.xcconfig"; sourceTree = "<group>"; };
 		06C31B1D9A5B8441F77C8C16 /* Pods-Smart DollarTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart DollarTests.release.xcconfig"; path = "Target Support Files/Pods-Smart DollarTests/Pods-Smart DollarTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -71,6 +59,11 @@
 		5F5EE9EE411083DBD35537B3 /* Pods-Smart Dollar-Smart DollarUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Dollar-Smart DollarUITests.release.xcconfig"; path = "Target Support Files/Pods-Smart Dollar-Smart DollarUITests/Pods-Smart Dollar-Smart DollarUITests.release.xcconfig"; sourceTree = "<group>"; };
 		6E9AFE2461592FF098E3B39B /* Pods_Smart_Dollar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Smart_Dollar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CAE98BFB516EB2C9DB13AC2 /* Pods_Smart_DollarTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Smart_DollarTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		87041AD62654888B00C32C81 /* StatsFirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsFirstViewController.swift; sourceTree = "<group>"; };
+		87041ADA265488FD00C32C81 /* StatsSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsSecondViewController.swift; sourceTree = "<group>"; };
+		87041ADC2654890E00C32C81 /* StatsThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsThirdViewController.swift; sourceTree = "<group>"; };
+		87041ADE265491D700C32C81 /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		87041AE0265491F300C32C81 /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		875E7A37265118B0005515CF /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D4BD53083EDC4B82F318F31 /* Pods-Smart DollarTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart DollarTests.debug.xcconfig"; path = "Target Support Files/Pods-Smart DollarTests/Pods-Smart DollarTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CA87756246F4BEEDBB904362 /* Pods-Smart Dollar-Smart DollarUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Dollar-Smart DollarUITests.debug.xcconfig"; path = "Target Support Files/Pods-Smart Dollar-Smart DollarUITests/Pods-Smart Dollar-Smart DollarUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -105,8 +98,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87041AE1265491F300C32C81 /* Charts.framework in Frameworks */,
 				ADB0669A34CBDF04290152B9 /* Pods_Smart_Dollar.framework in Frameworks */,
-				875E7A38265118B0005515CF /* Charts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,6 +138,8 @@
 		CDDD47636623D1F0D5446283 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				87041AE0265491F300C32C81 /* Charts.framework */,
+				87041ADE265491D700C32C81 /* Charts.framework */,
 				875E7A37265118B0005515CF /* Charts.framework */,
 				6E9AFE2461592FF098E3B39B /* Pods_Smart_Dollar.framework */,
 				0D924C6D77062C5EE47D8F03 /* Pods_Smart_Dollar_Smart_DollarUITests.framework */,
@@ -240,6 +235,9 @@
 			isa = PBXGroup;
 			children = (
 				ECDDF80B264982D1006F94A1 /* StatisticsViewController.swift */,
+				87041AD62654888B00C32C81 /* StatsFirstViewController.swift */,
+				87041ADA265488FD00C32C81 /* StatsSecondViewController.swift */,
+				87041ADC2654890E00C32C81 /* StatsThirdViewController.swift */,
 				ECDDF7D526497BD4006F94A1 /* HomeViewController.swift */,
 				ECDDF81F2649A12B006F94A1 /* TransactionAddViewController.swift */,
 				ECDDF810264982F8006F94A1 /* SettingsViewController.swift */,
@@ -261,7 +259,6 @@
 				ECDDF7CB26497BD4006F94A1 /* Frameworks */,
 				ECDDF7CC26497BD4006F94A1 /* Resources */,
 				0B08459A743A8E6A634AA95F /* [CP] Embed Pods Frameworks */,
-				875E7A3A265118B0005515CF /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -492,11 +489,14 @@
 			files = (
 				ECDDF7D626497BD4006F94A1 /* HomeViewController.swift in Sources */,
 				ECDDF7D226497BD4006F94A1 /* AppDelegate.swift in Sources */,
+				87041ADD2654890E00C32C81 /* StatsThirdViewController.swift in Sources */,
 				ECDDF816264983DE006F94A1 /* Transaction.swift in Sources */,
 				ECDDF7D426497BD4006F94A1 /* SceneDelegate.swift in Sources */,
 				ECDDF811264982F8006F94A1 /* SettingsViewController.swift in Sources */,
+				87041ADB265488FD00C32C81 /* StatsSecondViewController.swift in Sources */,
 				ECDDF81B26498A1A006F94A1 /* Budget.swift in Sources */,
 				ECDDF80C264982D1006F94A1 /* StatisticsViewController.swift in Sources */,
+				87041AD72654888B00C32C81 /* StatsFirstViewController.swift in Sources */,
 				EC954995264FA25C00DBD176 /* BudgetViewController.swift in Sources */,
 				ECDDF8202649A12B006F94A1 /* TransactionAddViewController.swift in Sources */,
 				EC95499F264FA3C200DBD176 /* AllTransactionsViewController.swift in Sources */,

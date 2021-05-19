@@ -9,11 +9,10 @@ import UIKit
 import Charts
 
 class StatisticsViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
     }
     
 
@@ -28,3 +27,4 @@ class StatisticsViewController: UIViewController {
     */
 
 }
+
