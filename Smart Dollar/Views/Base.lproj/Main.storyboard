@@ -444,9 +444,9 @@
                     </tabBar>
                     <connections>
                         <segue destination="bNk-Jl-CVW" kind="relationship" relationship="viewControllers" id="MwS-OB-aFg"/>
-                        <segue destination="8kv-9P-Iwt" kind="relationship" relationship="viewControllers" id="APT-8z-xOC"/>
-                        <segue destination="tK8-Va-cRi" kind="relationship" relationship="viewControllers" id="4dh-8E-SSc"/>
                         <segue destination="5aP-kB-vP8" kind="relationship" relationship="viewControllers" id="hOP-Rh-xVX"/>
+                        <segue destination="tK8-Va-cRi" kind="relationship" relationship="viewControllers" id="4dh-8E-SSc"/>
+                        <segue destination="8kv-9P-Iwt" kind="relationship" relationship="viewControllers" id="APT-8z-xOC"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="obV-Yt-d5z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
