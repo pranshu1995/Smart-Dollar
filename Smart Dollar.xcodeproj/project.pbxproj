@@ -14,6 +14,9 @@
 		A433913D0368EE9C4C96C720 /* Pods_Smart_DollarTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CAE98BFB516EB2C9DB13AC2 /* Pods_Smart_DollarTests.framework */; };
 		ADB0669A34CBDF04290152B9 /* Pods_Smart_Dollar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E9AFE2461592FF098E3B39B /* Pods_Smart_Dollar.framework */; };
 		BA1077049B5D45D591DF62B6 /* Pods_Smart_Dollar_Smart_DollarUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D924C6D77062C5EE47D8F03 /* Pods_Smart_Dollar_Smart_DollarUITests.framework */; };
+		EC425B542655972A003466F8 /* AppLocker.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC425B512655972A003466F8 /* AppLocker.xib */; };
+		EC425B552655972A003466F8 /* AppLocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC425B522655972A003466F8 /* AppLocker.swift */; };
+		EC425B562655972A003466F8 /* UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC425B532655972A003466F8 /* UI.swift */; };
 		EC954988264EB3F700DBD176 /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC954987264EB3F700DBD176 /* HelperFunctions.swift */; };
 		EC954995264FA25C00DBD176 /* BudgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC954994264FA25C00DBD176 /* BudgetViewController.swift */; };
 		EC95499F264FA3C200DBD176 /* AllTransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC95499E264FA3C200DBD176 /* AllTransactionsViewController.swift */; };
@@ -69,6 +72,10 @@
 		875E7A37265118B0005515CF /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D4BD53083EDC4B82F318F31 /* Pods-Smart DollarTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart DollarTests.debug.xcconfig"; path = "Target Support Files/Pods-Smart DollarTests/Pods-Smart DollarTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CA87756246F4BEEDBB904362 /* Pods-Smart Dollar-Smart DollarUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Dollar-Smart DollarUITests.debug.xcconfig"; path = "Target Support Files/Pods-Smart Dollar-Smart DollarUITests/Pods-Smart Dollar-Smart DollarUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		EC425AF22655850F003466F8 /* AppLocker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AppLocker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC425B512655972A003466F8 /* AppLocker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AppLocker.xib; sourceTree = "<group>"; };
+		EC425B522655972A003466F8 /* AppLocker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppLocker.swift; sourceTree = "<group>"; };
+		EC425B532655972A003466F8 /* UI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UI.swift; sourceTree = "<group>"; };
 		EC954987264EB3F700DBD176 /* HelperFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperFunctions.swift; sourceTree = "<group>"; };
 		EC954994264FA25C00DBD176 /* BudgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetViewController.swift; sourceTree = "<group>"; };
 		EC954999264FA2D800DBD176 /* AllTransactions.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AllTransactions.storyboard; sourceTree = "<group>"; };
@@ -140,6 +147,7 @@
 		CDDD47636623D1F0D5446283 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EC425AF22655850F003466F8 /* AppLocker.framework */,
 				87041AE42654D5D400C32C81 /* Charts.framework */,
 				87041AE22654D1BF00C32C81 /* Charts.framework */,
 				87041AE0265491F300C32C81 /* Charts.framework */,
@@ -150,6 +158,24 @@
 				7CAE98BFB516EB2C9DB13AC2 /* Pods_Smart_DollarTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EC425B4F2655972A003466F8 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				EC425B502655972A003466F8 /* AppLocker */,
+				EC425B532655972A003466F8 /* UI.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		EC425B502655972A003466F8 /* AppLocker */ = {
+			isa = PBXGroup;
+			children = (
+				EC425B512655972A003466F8 /* AppLocker.xib */,
+				EC425B522655972A003466F8 /* AppLocker.swift */,
+			);
+			path = AppLocker;
 			sourceTree = "<group>";
 		};
 		EC954983264EA52A00DBD176 /* Helper */ = {
@@ -185,6 +211,7 @@
 		ECDDF7D026497BD4006F94A1 /* Smart Dollar */ = {
 			isa = PBXGroup;
 			children = (
+				EC425B4F2655972A003466F8 /* Source */,
 				EC954983264EA52A00DBD176 /* Helper */,
 				ECDDF80726498025006F94A1 /* Controllers */,
 				ECDDF8052649800B006F94A1 /* Views */,
@@ -360,6 +387,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECDDF7DE26497BD9006F94A1 /* LaunchScreen.storyboard in Resources */,
+				EC425B542655972A003466F8 /* AppLocker.xib in Resources */,
 				ECDDF7DB26497BD9006F94A1 /* Assets.xcassets in Resources */,
 				ECDDF82A264BB17F006F94A1 /* TransactionAddStoryboard.storyboard in Resources */,
 				ECDDF7D926497BD4006F94A1 /* Main.storyboard in Resources */,
@@ -492,6 +520,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECDDF7D626497BD4006F94A1 /* HomeViewController.swift in Sources */,
+				EC425B562655972A003466F8 /* UI.swift in Sources */,
 				ECDDF7D226497BD4006F94A1 /* AppDelegate.swift in Sources */,
 				87041ADD2654890E00C32C81 /* StatsThirdViewController.swift in Sources */,
 				ECDDF816264983DE006F94A1 /* Transaction.swift in Sources */,
@@ -505,6 +534,7 @@
 				ECDDF8202649A12B006F94A1 /* TransactionAddViewController.swift in Sources */,
 				EC95499F264FA3C200DBD176 /* AllTransactionsViewController.swift in Sources */,
 				EC954988264EB3F700DBD176 /* HelperFunctions.swift in Sources */,
+				EC425B552655972A003466F8 /* AppLocker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

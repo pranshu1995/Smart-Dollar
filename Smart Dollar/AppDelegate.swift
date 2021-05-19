@@ -7,6 +7,7 @@
 
 import UIKit
 import DropDown
+import AppLocker
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {

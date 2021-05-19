@@ -6,14 +6,43 @@
 //
 
 import UIKit
+import AppLocker
+
 
 class SettingsViewController: UIViewController {
 
+    var options = ALOptions();
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        lockerLoader();
         // Do any additional setup after loading the view.
     }
+    
+//    var opts
+    @objc func lockerLoader(){
+    
+//       options.image = UIImage(named: "face")!;
+    
+    options.title = "Smart Dollar Safe";
+    options.isSensorsEnabled = true;
+       
+    options.onSuccessfulDismiss = { (mode: ALMode?) in
+        print("dekhba");
+           if let mode = mode {
+    print("Password \(String(describing: mode))d successfully");
+           } else {
+    print("User Cancelled");
+           }
+       }
+       options.onFailedAttempt = { (mode: ALMode?) in
+        print("naa dekhba");
+    print("Failed to \(String(describing: mode))");
+       }
+        
+        AppLocker.present(with: .create, and: options)
+    }
+    
     
 
     /*

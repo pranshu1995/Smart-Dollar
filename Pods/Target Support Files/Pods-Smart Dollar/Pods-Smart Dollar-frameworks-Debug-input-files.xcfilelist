@@ -1,3 +1,5 @@
 ${PODS_ROOT}/Target Support Files/Pods-Smart Dollar/Pods-Smart Dollar-frameworks.sh
+${BUILT_PRODUCTS_DIR}/AppLocker/AppLocker.framework
 ${BUILT_PRODUCTS_DIR}/Charts/Charts.framework
 ${BUILT_PRODUCTS_DIR}/DropDown/DropDown.framework
+${BUILT_PRODUCTS_DIR}/Valet/Valet.framework
