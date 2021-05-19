@@ -10,42 +10,46 @@ import Charts
 
 class StatsFirstViewController: UIViewController, ChartViewDelegate {
     
-    var barChart = BarChartView()
+    var pieChart = PieChartView()
     let defaults = UserDefaults.standard
     var Transactions: [Transaction] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        barChart.delegate = self
+        pieChart.delegate = self
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        barChart.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.width)
-        barChart.center = view.center
+        pieChart.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.width)
+        pieChart.center = view.center
         
-        view.addSubview(barChart)
-        
-        print("Fetched Data for Charts:")
+        view.addSubview(pieChart)
         
         if let data = defaults.value(forKey: "Transactions") as? Data {
             Transactions = try! PropertyListDecoder().decode(Array<Transaction>.self, from: data)
             Transactions.sort{
-                $0.date! > $1.date!;
+                $0.date! < $1.date!;
             }
-            print(Transactions);
         }
         
-        var entries = [BarChartDataEntry]()
+        let length = Transactions.count
+        var entries = [ChartDataEntry]()
         
-        for x in 0..<10 {
-            entries.append(BarChartDataEntry(x: Double(x), y: Double(x)))
+        for i in 0..<length {
+            if(Transactions[i].type == "Expense") {
+                if(Transactions[i].category == "Shopping") {
+                    let x = Transactions[i].amount
+                    print(x!)
+                    entries.append(ChartDataEntry(x: Double(i), y: Double(x!)))
+                }
+            }
         }
         
-        let set = BarChartDataSet(entries: entries)
+        let set = PieChartDataSet(entries: entries)
         set.colors = ChartColorTemplates.joyful();
         
-        let data = BarChartData(dataSet: set)
-        barChart.data = data
+        let data = PieChartData(dataSet: set)
+        pieChart.data = data
     }
 }

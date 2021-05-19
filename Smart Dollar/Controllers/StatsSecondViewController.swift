@@ -13,6 +13,7 @@ class StatsSecondViewController: UIViewController,ChartViewDelegate  {
     var lineChart = LineChartView()
     let defaults = UserDefaults.standard
     var Transactions: [Transaction] = []
+    var pieChartIncome = PieChartView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,16 +28,11 @@ class StatsSecondViewController: UIViewController,ChartViewDelegate  {
         
         view.addSubview(lineChart)
         
-        print("Fetched Data for Charts:")
-        
-        print("Fetched Data for Charts:")
-        
         if let data = defaults.value(forKey: "Transactions") as? Data {
             Transactions = try! PropertyListDecoder().decode(Array<Transaction>.self, from: data)
             Transactions.sort{
-                $0.date! > $1.date!;
+                $0.date! < $1.date!;
             }
-//            print(Transactions);
         }
         
         let length = Transactions.count

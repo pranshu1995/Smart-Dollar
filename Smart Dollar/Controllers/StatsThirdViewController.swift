@@ -10,7 +10,7 @@ import Charts
 
 class StatsThirdViewController: UIViewController,ChartViewDelegate {
 
-    var pieChart = PieChartView()
+    var barChart = BarChartView()
     let defaults = UserDefaults.standard
     var Transactions: [Transaction] = []
     
@@ -21,37 +21,46 @@ class StatsThirdViewController: UIViewController,ChartViewDelegate {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        pieChart.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.width)
-        pieChart.center = view.center
+        barChart.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.width)
+        barChart.center = view.center
         
-        view.addSubview(pieChart)
+        view.addSubview(barChart)
         
         print("Fetched Data for Charts:")
         
         if let data = defaults.value(forKey: "Transactions") as? Data {
             Transactions = try! PropertyListDecoder().decode(Array<Transaction>.self, from: data)
             Transactions.sort{
-                $0.date! > $1.date!;
+                $0.date! < $1.date!;
             }
-//            print(Transactions);
+            print(Transactions);
         }
         
         let length = Transactions.count
-        var entries = [ChartDataEntry]()
+        var entries = [BarChartDataEntry]()
+        var Income_amount_total = 0.0
+        var Expense_amount_total = 0.0
         
         for i in 0..<length {
             if(Transactions[i].type == "Income") {
 //                print(Transactions[i])
-                let x = Transactions[i].amount
-                print(x!)
-                entries.append(ChartDataEntry(x: Double(x!), y: Double(x!)))
+                Income_amount_total = Income_amount_total + Transactions[i].amount!
+                print(Income_amount_total)
+            }
+            if(Transactions[i].type == "Expense") {
+//                print(Transactions[i])
+                Expense_amount_total = Expense_amount_total + Transactions[i].amount!
+                print(Expense_amount_total)
             }
         }
         
-        let set = PieChartDataSet(entries: entries)
-        set.colors = ChartColorTemplates.pastel();
+        entries.append(BarChartDataEntry(x: 1.0, y: Income_amount_total))
+        entries.append(BarChartDataEntry(x: 2.0, y: Expense_amount_total))
         
-        let data = PieChartData(dataSet: set)
-        pieChart.data = data
+        let set = BarChartDataSet(entries: entries)
+        set.colors = ChartColorTemplates.colorful();
+        
+        let data = BarChartData(dataSet: set)
+        barChart.data = data
     }
 }
