@@ -28,10 +28,10 @@
                                 </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="97" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Xlr-2x-W51">
-                                <rect key="frame" x="20" y="91" width="374" height="400"/>
+                                <rect key="frame" x="20" y="91" width="374" height="671"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="400" id="9I4-tf-piN"/>
+                                    <constraint firstAttribute="height" constant="671" id="9I4-tf-piN"/>
                                     <constraint firstAttribute="width" constant="374" id="aTn-t9-8Mb"/>
                                 </constraints>
                                 <prototypes>
