@@ -26,6 +26,8 @@ class AllTransactionsViewController: UIViewController, UITabBarDelegate {
     override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated);
         self.navigationController?.isNavigationBarHidden = false;
+//        print("kya yahan aaya?")
+        transactionType.selectedSegmentIndex = 0;
         fetchData();
     }
     
@@ -51,10 +53,11 @@ class AllTransactionsViewController: UIViewController, UITabBarDelegate {
 
     @objc func fetchData(){
         fetchedTransactions = [];
-       
+        displayTransactions = [];
         
         transactionsUpdate();
         displayTransactions = fetchedTransactions;
+        allTransactionsTable.reloadData();
     }
     
     @objc func transactionsUpdate(){
@@ -65,7 +68,7 @@ class AllTransactionsViewController: UIViewController, UITabBarDelegate {
             }
             print(fetchedTransactions);
         }
-        allTransactionsTable.reloadData();
+        
     }
 
 }
