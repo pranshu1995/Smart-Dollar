@@ -105,18 +105,30 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g3u-7Z-gDf">
+                                        <rect key="frame" x="166" y="18.5" width="60" height="19.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="0Rh-qd-BL8"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="WT5-nv-MSu" secondAttribute="trailing" constant="25" id="6Mi-Nw-vAt"/>
                                     <constraint firstItem="JuQ-W5-l2K" firstAttribute="centerX" secondItem="wGt-93-iow" secondAttribute="centerX" id="9rN-A5-UUf"/>
+                                    <constraint firstItem="g3u-7Z-gDf" firstAttribute="leading" secondItem="X4j-xE-frn" secondAttribute="trailing" constant="17" id="H7O-h7-ZwZ"/>
                                     <constraint firstAttribute="bottom" secondItem="WT5-nv-MSu" secondAttribute="bottom" constant="27" id="KZD-QM-QM7"/>
                                     <constraint firstItem="WT5-nv-MSu" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="wGt-93-iow" secondAttribute="leading" constant="20" symbolic="YES" id="LCc-B0-1zh"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="X4j-xE-frn" secondAttribute="trailing" constant="20" symbolic="YES" id="Oa4-uQ-xpm"/>
                                     <constraint firstItem="WT5-nv-MSu" firstAttribute="top" secondItem="JuQ-W5-l2K" secondAttribute="bottom" constant="16" id="aOK-XW-WWA"/>
+                                    <constraint firstItem="g3u-7Z-gDf" firstAttribute="bottom" secondItem="X4j-xE-frn" secondAttribute="bottom" id="dyx-UJ-yRK"/>
                                     <constraint firstItem="WT5-nv-MSu" firstAttribute="trailing" secondItem="JuQ-W5-l2K" secondAttribute="trailing" id="fwn-Fe-OZQ"/>
                                     <constraint firstItem="JuQ-W5-l2K" firstAttribute="leading" secondItem="X4j-xE-frn" secondAttribute="leading" id="iZp-Uo-COj"/>
                                     <constraint firstItem="JuQ-W5-l2K" firstAttribute="centerY" secondItem="wGt-93-iow" secondAttribute="centerY" id="nax-bL-eDR"/>
+                                    <constraint firstItem="g3u-7Z-gDf" firstAttribute="centerY" secondItem="X4j-xE-frn" secondAttribute="centerY" id="pqc-aC-wtH"/>
                                     <constraint firstItem="JuQ-W5-l2K" firstAttribute="top" secondItem="X4j-xE-frn" secondAttribute="bottom" constant="24" id="q2Z-rK-Fpe"/>
                                 </constraints>
                             </view>
@@ -307,6 +319,7 @@
                         <outlet property="balanceLabel" destination="LWr-li-rhK" id="ROd-WU-T49"/>
                         <outlet property="budgetLeftLabel" destination="WT5-nv-MSu" id="s5A-Gq-7cb"/>
                         <outlet property="budgetLevelBar" destination="JuQ-W5-l2K" id="WXh-hW-kpT"/>
+                        <outlet property="currBudgetLabel" destination="g3u-7Z-gDf" id="mhJ-yc-DlK"/>
                         <outlet property="expenseLabel" destination="HKy-7E-KXg" id="Mga-xr-RoZ"/>
                         <outlet property="incomeLabel" destination="FYk-Bb-jgh" id="oVL-iy-drH"/>
                         <outlet property="monthLabel" destination="He6-jM-TH7" id="HmM-UF-jO7"/>
@@ -431,9 +444,9 @@
                     </tabBar>
                     <connections>
                         <segue destination="bNk-Jl-CVW" kind="relationship" relationship="viewControllers" id="MwS-OB-aFg"/>
-                        <segue destination="8kv-9P-Iwt" kind="relationship" relationship="viewControllers" id="APT-8z-xOC"/>
-                        <segue destination="tK8-Va-cRi" kind="relationship" relationship="viewControllers" id="4dh-8E-SSc"/>
                         <segue destination="5aP-kB-vP8" kind="relationship" relationship="viewControllers" id="hOP-Rh-xVX"/>
+                        <segue destination="tK8-Va-cRi" kind="relationship" relationship="viewControllers" id="4dh-8E-SSc"/>
+                        <segue destination="8kv-9P-Iwt" kind="relationship" relationship="viewControllers" id="APT-8z-xOC"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="obV-Yt-d5z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -448,7 +461,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Feedback text" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FIa-uY-H3Y">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="No Budget Data" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FIa-uY-H3Y">
                                 <rect key="frame" x="122" y="323" width="244" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
