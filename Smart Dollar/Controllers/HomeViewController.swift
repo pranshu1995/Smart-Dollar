@@ -21,6 +21,7 @@ class HomeViewController: UIViewController{
     @IBOutlet weak var MnthlyBudget: UIView!
     @IBOutlet weak var TransactionView: UIView!
     
+   
     @IBOutlet weak var budgetLeftLabel: UILabel!
     @IBOutlet weak var budgetLevelBar: UIProgressView!
     @IBOutlet weak var expenseLabel: UILabel!
@@ -316,8 +317,9 @@ class TransactionCell : UITableViewCell{
     @IBOutlet weak var amountLabel: UILabel!
     
     @IBOutlet weak var categoryLabel: UILabel!
-    @IBOutlet weak var transactionImg: UIImageView!
+ 
     
+    @IBOutlet weak var transactionImg: UIImageView!
     
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
