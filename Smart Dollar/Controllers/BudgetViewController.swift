@@ -37,7 +37,7 @@ class BudgetViewController: UIViewController {
 
         currentMonth = helper.extractMonth(inDate: Date.init());
         calendarLabel.text = currentMonth;
-        daysLeftLabel.text = "\(helper.monthDaysLeft()) days left for this month";
+        daysLeftLabel.text = "\(helper.monthDaysLeft()) days left";
         fetchData();
         getCurrentValues();
         getCurrentBudget();
@@ -47,7 +47,7 @@ class BudgetViewController: UIViewController {
     @objc func fetchData(){
         if let data = UserDefaults.standard.value(forKey: "Transactions") as? Data {
             fetchedTransactions = try! PropertyListDecoder().decode(Array<Transaction>.self, from: data)
-            displayTransactions = fetchedTransactions.filter{ helper.extractMonth(inDate: $0.date) == currentMonth};
+            displayTransactions = fetchedTransactions.filter{ helper.extractMonth(inDate: $0.date!) == currentMonth};
             print(displayTransactions);
         }
     }
@@ -55,10 +55,10 @@ class BudgetViewController: UIViewController {
     @objc func getCurrentValues(){
         for transaction in displayTransactions{
             if(transaction.type == "Income"){
-                currentIncome = currentIncome + transaction.amount;
+                currentIncome = currentIncome + transaction.amount!;
             }
             else if(transaction.type == "Expense"){
-                currentExpense = currentExpense + transaction.amount;
+                currentExpense = currentExpense + transaction.amount!;
             }
             
         }
@@ -81,16 +81,28 @@ class BudgetViewController: UIViewController {
                     budgetValue = budget.budgetValue;
                     budgetAmountInput.text = String(budgetValue);
                     totalBudgetLabel.text = String(budgetValue);
-                    budgetProgress = Float((currentIncome - currentExpense)/budgetValue);
+                    budgetProgress = Float((balance)/budgetValue);
                     print(budgetProgress);
                     budgetLevelBar.setProgress(Float(budgetProgress), animated: false);
+                    
+                    
+                    if(budgetProgress < 0.2){
+                        budgetLevelBar.progressTintColor = UIColor.red;
+                    }
+                    else if(budgetProgress > 0.2 && budgetProgress < 0.7){
+                        budgetLevelBar.progressTintColor = UIColor.orange;
+                    }
+                    else if(budgetProgress > 0.7){
+                        budgetLevelBar.progressTintColor = UIColor.green;
+                    }
+                    
                     if(balance < budgetValue){
                         let amt = budgetValue - balance;
-                        budgetLeftLabel.text = "You need $\(amt) more to reach your budget";
+                        budgetLeftLabel.text = "You need $\(amt) more";
                     }
                     else if(balance > budgetValue){
                         let amt = balance - budgetValue;
-                        budgetLeftLabel.text = "You have $\(amt) surplus on your budget";
+                        budgetLeftLabel.text = "You have $\(amt) surplus";
                     }
                     else if(balance == budgetValue){
                         budgetLeftLabel.text = "Your budget is fulfilled";
@@ -104,10 +116,21 @@ class BudgetViewController: UIViewController {
         }
     }
     
-
+    @objc func validateTransaction() -> Bool{
+        var flag = true;
+        if(Float(budgetAmountInput.text!) ?? 0 == 0 || String(budgetAmountInput.text!).trimmingCharacters(in: .whitespacesAndNewlines) == ""){
+            helper.showToast(message: "Invalid Budget", view: self.view);
+            flag = false;
+        }
+        return flag;
+    }
  
     @IBAction func budgetUpdate(_ sender: Any) {
         print("updating");
+        
+        let validate = validateTransaction();
+        
+        if(validate){
         
         let newBudget: Budget = Budget(budgetValue: Double(String(budgetAmountInput.text!))!, monthYear: currentMonth, currency: "AUD");
         
@@ -125,8 +148,11 @@ class BudgetViewController: UIViewController {
         budgetList.append(newBudget);
         print(budgetList);
         
+        helper.showToast(message: "Budget changed", view: self.view)
+        
         UserDefaults.standard.set(try? PropertyListEncoder().encode(budgetList), forKey: "Budget");
         getCurrentBudget();
+        }
     }
     
 }

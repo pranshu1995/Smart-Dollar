@@ -21,29 +21,87 @@ class TransactionAddViewController: UIViewController {
     
     @IBOutlet weak var transactionType: UISegmentedControl!
     
-    var currentDate: Date = Date.init();
+    @IBOutlet weak var btnLabel: UIButton!
+    
+    @IBOutlet weak var deleteBtn: UIButton!
+    var newTransaction = true;
+//    var transactionId = "";
+    var currentTransaction: Transaction = Transaction();
+    
+//    let dateFormatter = DateFormatter();
+    
+    
+    var transactionId: String = UUID.init().uuidString;
+//    var currentDate: Date = Date.init();
     
     var incomeCategories = ["Deposits", "Salary", "Savings"];
-    var expenseCategories = ["Eating Out", "Grocery", "Shopping", "Housing", "Transportation", "Vehicle", "Entertainment", "Communication"];
+    var expenseCategories = ["Restaurant", "Grocery", "Shopping", "Housing", "Transportation", "Vehicle", "Entertainment", "Communication"];
     let dropDown = DropDown();
     
     var fetchedTransactions: [Transaction] = [];
+    let helper = Helper();
     
    
     
     override func viewDidLoad() {
-        super.viewDidLoad(); 
+        super.viewDidLoad();
         
+//        dateFormatter.dateFormat = "MMM dd yyyy";
+//        transactionDate
         dropDown.anchorView = dropDownView;
-        dropDown.dataSource = incomeCategories;
         dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
 //            print("Selected item: \(item) at index: \(index)");
             categoryLabel.text = item;
             
         }
         
+        if(newTransaction == true){
+            dropDown.dataSource = incomeCategories;
+            transactionAmount.textColor = UIColor(red: 33/256, green: 150/256, blue: 30/256, alpha: 1.0);
+            
+            btnLabel.setTitle("Add", for: .normal);
+            deleteBtn.isHidden = true;
+            
+        }
+        else{
+            
+            btnLabel.setTitle("Update", for: .normal);
+            deleteBtn.isHidden = false;
+            
+            print("purana \(currentTransaction)");
+            
+            transactionId = currentTransaction.id!
+            
+            transactionDescription.text = currentTransaction.description!;
+            
+            transactionDate.date = currentTransaction.date!;
+            
+            transactionAmount.text = String(currentTransaction.amount!);
+            
+            if(currentTransaction.type == "Income"){
+                transactionType.selectedSegmentIndex = 0;
+                dropDown.dataSource = incomeCategories;
+                transactionAmount.textColor = UIColor(red: 33/256, green: 150/256, blue: 30/256, alpha: 1.0);
+            
+            }
+            else if(currentTransaction.type == "Expense"){
+                transactionType.selectedSegmentIndex = 1;
+                dropDown.dataSource = expenseCategories;
+                transactionAmount.textColor = UIColor(red: 235/256, green: 87/256, blue: 87/256, alpha: 1.0)
+            }
+            
+            categoryLabel.text = currentTransaction.category!;
+            
+            
+            
+        }
         
-        transactionAmount.textColor = UIColor(red: 33/256, green: 150/256, blue: 30/256, alpha: 1.0);
+       
+        
+       
+        
+        
+        
 //        dropDown.show();
     
 
@@ -54,13 +112,32 @@ class TransactionAddViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = false;
     }
     
+    @objc func refreshPage(){
+        newTransaction = true;
+        currentTransaction = Transaction();
+        transactionId = UUID.init().uuidString;
+        fetchedTransactions = [];
+        btnLabel.setTitle("Add", for: .normal);
+        deleteBtn.isHidden = true;
+        transactionDescription.text = "";
+        transactionDate.date = Date.init();
+        transactionAmount.text = "";
+        
+    }
     
-    @IBAction func dateUpdated(_ sender: Any) {
-//        let dateFormatterGet = DateFormatter();
-//        dateFormatterGet.dateFormat = "MMM dd, yyyy HH:mm";
-//        let xDate = dateFormatterGet.string(from: transactionDate.date)
-//        print(xDate);
-//        currentDate = transactionDate.date;
+    @objc func validateTransaction() -> Bool{
+        var flag = true;
+        if(categoryLabel.text == "Select Category"){
+            helper.showToast(message: "Category not selected", view: self.view);
+            flag = false;
+        }
+        else if(Float(transactionAmount.text!) ?? 0 == 0 || String(transactionAmount.text!).trimmingCharacters(in: .whitespacesAndNewlines) == ""){
+            
+            
+            helper.showToast(message: "Invalid Amount", view: self.view);
+            flag = false;
+        }
+        return flag;
     }
     
     @IBAction func dropDownClick(_ sender: Any) {
@@ -92,9 +169,19 @@ class TransactionAddViewController: UIViewController {
 //
 //    }
     
-        @IBAction func addTransaction(_ sender: Any) {
+    @IBAction func deleteTransaction(_ sender: Any) {
+        print("Deleting \(currentTransaction.id!)");
+        helper.deleteTransaction(id: currentTransaction.id!);
+        refreshPage();
+    }
+    
+    
+    @IBAction func addTransaction(_ sender: Any) {
+        
+        let validate = validateTransaction();
+        
+        if(validate){
             let type: String;
-            let transactionId: String = UUID.init().uuidString;
             
             if(transactionType.selectedSegmentIndex == 0){
                 type = "Income";
@@ -103,29 +190,37 @@ class TransactionAddViewController: UIViewController {
                 type = "Expense";
             }
             
-            let dateFormatterGet = DateFormatter();
-            dateFormatterGet.dateFormat = "MMM dd, yyyy HH:mm";
-            print(dateFormatterGet.string(from: transactionDate.date));
-            print(transactionDate.date);
-//            let xDate = dateFormatterGet.string(from: transactionDate.date)
-            
+
             let amount: Double = Double(transactionAmount.text ?? "") ?? 0;
             
             print("kitna \(amount)")
-            let newTransaction = Transaction(id: transactionId, amount: amount, description: transactionDescription.text ?? "", type: type, category: categoryLabel.text ?? "", date: transactionDate.date, currency: "AUD");
+            let addTransaction = Transaction(id: transactionId, amount: amount, description: transactionDescription.text ?? "", type: type, category: categoryLabel.text ?? "", date: transactionDate.date, currency: "AUD");
+            
+            
             
             if let data = UserDefaults.standard.value(forKey: "Transactions") as? Data {
                 fetchedTransactions = try! PropertyListDecoder().decode(Array<Transaction>.self, from: data)
                 print(fetchedTransactions);
             }
             
+            if(newTransaction == false){
+                for (index,transaction) in fetchedTransactions.enumerated(){
+                    if(transaction.id! == addTransaction.id){
+                        fetchedTransactions.remove(at: index);
+                        print("updated");
+                    }
+                }
+            }
             
-            fetchedTransactions.append(newTransaction);
+            fetchedTransactions.append(addTransaction);
             
             
             UserDefaults.standard.set(try? PropertyListEncoder().encode(fetchedTransactions), forKey: "Transactions");
-            fetchedTransactions = [];
+//            fetchedTransactions = [];
             
+            helper.showToast(message: "Trasaction Added", view: self.view)
+            refreshPage();
+        }
     }
 
 }

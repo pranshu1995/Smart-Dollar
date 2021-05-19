@@ -1,86 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jHp-lM-N00">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jHp-lM-N00">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--All Transactions View Controller-->
+        <!--All Transactions-->
         <scene sceneID="aYl-H5-ROf">
             <objects>
-                <viewController storyboardIdentifier="AllTransactionsStoryboard" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jHp-lM-N00" customClass="AllTransactionsViewController" customModule="Smart_Dollar" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AllTransactionsStoryboard" title="All Transactions" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jHp-lM-N00" customClass="AllTransactionsViewController" customModule="Smart_Dollar" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uAp-oW-BC7">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WaX-Me-9zW">
-                                <rect key="frame" x="0.0" y="134" width="414" height="49"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <items>
-                                    <tabBarItem title="Income" id="Kdg-sG-tL2"/>
-                                    <tabBarItem title="All" id="N8Q-mT-VcA"/>
-                                    <tabBarItem title="Expense" id="K1K-hd-HZX"/>
-                                </items>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="syO-ik-wXm">
+                                <rect key="frame" x="89" y="20" width="236" height="32"/>
+                                <segments>
+                                    <segment title="All"/>
+                                    <segment title="Income"/>
+                                    <segment title="Expenses"/>
+                                </segments>
                                 <connections>
-                                    <outlet property="delegate" destination="jHp-lM-N00" id="0Zj-ed-rT5"/>
+                                    <action selector="transactionChange:" destination="jHp-lM-N00" eventType="valueChanged" id="0vE-DX-PfR"/>
                                 </connections>
-                            </tabBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="150" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Xlr-2x-W51">
-                                <rect key="frame" x="20" y="356" width="374" height="194"/>
+                            </segmentedControl>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="97" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Xlr-2x-W51">
+                                <rect key="frame" x="20" y="91" width="374" height="400"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="194" id="JqT-4k-pCC"/>
+                                    <constraint firstAttribute="height" constant="400" id="9I4-tf-piN"/>
+                                    <constraint firstAttribute="width" constant="374" id="aTn-t9-8Mb"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AllTransactionsCell" id="bQG-K6-zdl" customClass="AllTransactionsCell" customModule="Smart_Dollar" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="374" height="150"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AllTransactionsCell" rowHeight="97" id="bQG-K6-zdl" customClass="AllTransactionsCell" customModule="Smart_Dollar" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="24.5" width="374" height="97"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bQG-K6-zdl" id="mrJ-BS-Tey">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="150"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="97"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Currency" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n8T-cC-CP9">
-                                                    <rect key="frame" x="20" y="28" width="70" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DJk-Sc-VaY">
-                                                    <rect key="frame" x="133" y="27" width="60" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Nd-k0-AFV">
-                                                    <rect key="frame" x="152" y="76" width="70" height="33"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WUv-fD-88x">
-                                                    <rect key="frame" x="244" y="28" width="38" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z1G-Gs-HuQ">
-                                                    <rect key="frame" x="20" y="82" width="88" height="21"/>
+                                                    <rect key="frame" x="73" y="55" width="72" height="17"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0uq-8O-COn">
+                                                    <rect key="frame" x="230" y="55" width="134" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Amount" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DJk-Sc-VaY">
+                                                    <rect key="frame" x="240" y="26" width="124" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0uq-8O-COn">
-                                                    <rect key="frame" x="269" y="81" width="36" height="21"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oG8-zd-ddN">
+                                                    <rect key="frame" x="20" y="26" width="32" height="32"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Nd-k0-AFV">
+                                                    <rect key="frame" x="73" y="26" width="116" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -88,11 +78,10 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="amountLabel" destination="DJk-Sc-VaY" id="Lyl-XS-d7S"/>
+                                            <outlet property="catIcon" destination="oG8-zd-ddN" id="r4S-1X-JI5"/>
                                             <outlet property="categoryLabel" destination="3Nd-k0-AFV" id="Qku-FO-dnc"/>
-                                            <outlet property="currencyLabel" destination="n8T-cC-CP9" id="kxF-Am-bFS"/>
                                             <outlet property="dateLabel" destination="0uq-8O-COn" id="t1i-1B-7bD"/>
                                             <outlet property="descriptionLabel" destination="Z1G-Gs-HuQ" id="fAY-2z-GIv"/>
-                                            <outlet property="typeLabel" destination="WUv-fD-88x" id="zYM-HA-9lg"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -105,18 +94,16 @@
                         <viewLayoutGuide key="safeArea" id="cWe-ZV-Hpg"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="WaX-Me-9zW" firstAttribute="top" secondItem="cWe-ZV-Hpg" secondAttribute="top" constant="90" id="6qI-I9-rcW"/>
-                            <constraint firstItem="WaX-Me-9zW" firstAttribute="leading" secondItem="cWe-ZV-Hpg" secondAttribute="leading" id="KDz-yN-SnG"/>
-                            <constraint firstItem="Xlr-2x-W51" firstAttribute="centerY" secondItem="cWe-ZV-Hpg" secondAttribute="centerY" id="PEL-Ax-tX8"/>
-                            <constraint firstItem="Xlr-2x-W51" firstAttribute="leading" secondItem="uAp-oW-BC7" secondAttribute="leadingMargin" id="RGd-U5-3Kv"/>
-                            <constraint firstItem="Xlr-2x-W51" firstAttribute="centerX" secondItem="cWe-ZV-Hpg" secondAttribute="centerX" id="VWj-a5-uqN"/>
-                            <constraint firstItem="WaX-Me-9zW" firstAttribute="centerX" secondItem="cWe-ZV-Hpg" secondAttribute="centerX" id="Z8R-Mc-swV"/>
-                            <constraint firstItem="Xlr-2x-W51" firstAttribute="centerX" secondItem="WaX-Me-9zW" secondAttribute="centerX" id="ozA-io-mxO"/>
+                            <constraint firstItem="syO-ik-wXm" firstAttribute="top" secondItem="cWe-ZV-Hpg" secondAttribute="top" constant="20" id="Ie3-4L-Eq5"/>
+                            <constraint firstItem="Xlr-2x-W51" firstAttribute="centerX" secondItem="uAp-oW-BC7" secondAttribute="centerX" id="Lql-aR-edb"/>
+                            <constraint firstItem="Xlr-2x-W51" firstAttribute="top" secondItem="syO-ik-wXm" secondAttribute="bottom" constant="40" id="VR6-5w-cwV"/>
+                            <constraint firstItem="syO-ik-wXm" firstAttribute="centerX" secondItem="uAp-oW-BC7" secondAttribute="centerX" id="nvG-Ph-uyO"/>
                         </constraints>
                     </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="allTransactionsTable" destination="Xlr-2x-W51" id="Vtb-KD-4ZH"/>
-                        <outlet property="topTabBar" destination="WaX-Me-9zW" id="OME-et-0EN"/>
+                        <outlet property="transactionType" destination="syO-ik-wXm" id="hzW-ic-604"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VuZ-4d-eer" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
