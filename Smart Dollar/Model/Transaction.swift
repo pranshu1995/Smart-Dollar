@@ -26,5 +26,5 @@ struct Transaction: Codable {
 // Full Page Table for All Transactions Page
 // Highlight - Income/Expense Selection - Add Transaction Page
 // Category Selection - Dropdown UI update - Add Transaction Page
-// Toast update
+// Toast update - UI + Validations - Budget, Add Transaction Page
 
