@@ -19,6 +19,9 @@ class AllTransactionsViewController: UIViewController, UITabBarDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        transactionType.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18)],
+                                               for: .normal)
+        transactionType.setTitleTextAttributes([NSAttributedString.Key.foregroundColor : UIColor.white], for: .selected)
         fetchData();
         // Do any additional setup after loading the view.
     }

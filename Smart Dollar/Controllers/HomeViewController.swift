@@ -101,6 +101,13 @@ class HomeViewController: UIViewController{
         TransactionView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         TransactionView.layer.masksToBounds = true
         
+        mnthContainer.layer.shadowColor = UIColor.gray.cgColor
+        mnthContainer.layer.shadowOpacity = 1
+        mnthContainer.layer.shadowOffset = .zero
+        mnthContainer.layer.shadowRadius = 10
+        mnthContainer.layer.cornerRadius = 20
+        mnthContainer.layer.masksToBounds = true
+        
         transactionsTable.layer.shadowColor = UIColor.gray.cgColor
         transactionsTable.layer.shadowOpacity = 1
         transactionsTable.layer.shadowOffset = .zero
