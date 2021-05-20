@@ -98,4 +98,33 @@ struct Helper{
             fetchedTransactions = [];
         }
     }
+    
+    func updateCurrency(newCurrency: String, exchangeRate: Double){
+        UserDefaults.standard.setValue(newCurrency,forKey: "Currency");
+        
+        var fetchedTransactions: [Transaction] = [];
+        var budgetList: [Budget] = [];
+        
+        if let data = UserDefaults.standard.value(forKey: "Transactions") as? Data {
+            fetchedTransactions = try! PropertyListDecoder().decode(Array<Transaction>.self, from: data);
+            for (index,_) in fetchedTransactions.enumerated(){
+                fetchedTransactions[index].amount = fetchedTransactions[index].amount! * exchangeRate;
+                fetchedTransactions[index].currency = newCurrency;
+            }
+            UserDefaults.standard.set(try? PropertyListEncoder().encode(fetchedTransactions), forKey: "Transactions");
+            fetchedTransactions = [];
+        }
+        
+        if let data = UserDefaults.standard.value(forKey: "Budget") as? Data {
+            budgetList = try! PropertyListDecoder().decode(Array<Budget>.self, from: data)
+            
+            for (index,_) in budgetList.enumerated(){
+                budgetList[index].budgetValue = budgetList[index].budgetValue
+                budgetList[index].currency = newCurrency;
+            }
+            
+            UserDefaults.standard.set(try? PropertyListEncoder().encode(budgetList), forKey: "Budget");
+            budgetList = [];
+        }
+    }
 }

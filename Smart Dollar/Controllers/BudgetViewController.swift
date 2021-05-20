@@ -25,6 +25,7 @@ class BudgetViewController: UIViewController {
     var currentIncome: Double = 0;
     var currentExpense: Double = 0;
     var balance: Double = 0;
+    var currencyValue: String = "AUD";
     
     // Variables to store data lists
     var budgetList: [Budget] = [];
@@ -78,6 +79,10 @@ class BudgetViewController: UIViewController {
             
         }
         balance = currentIncome - currentExpense;
+        
+        if(UserDefaults.standard.value(forKey: "Currency") != nil){
+            currencyValue = UserDefaults.standard.value(forKey: "Currency") as! String;
+        }
     }
     
     @objc func getCurrentBudget(){
@@ -92,7 +97,7 @@ class BudgetViewController: UIViewController {
                     
                     budgetValue = budget.budgetValue;
                     budgetAmountInput.text = String(budgetValue);
-                    totalBudgetLabel.text = String("$ \(budgetValue)");
+                    totalBudgetLabel.text = String("\(currencyValue) \(budgetValue)");
                     budgetProgress = Float((balance)/budgetValue);
                     budgetLevelBar.setProgress(Float(budgetProgress), animated: false);
                     
@@ -109,11 +114,11 @@ class BudgetViewController: UIViewController {
                     
                     if(balance < budgetValue){
                         let amt = budgetValue - balance;
-                        budgetLeftLabel.text = "You need $\(amt) more";
+                        budgetLeftLabel.text = "You need \(currencyValue) \(amt) more";
                     }
                     else if(balance > budgetValue){
                         let amt = balance - budgetValue;
-                        budgetLeftLabel.text = "You have $\(amt) surplus";
+                        budgetLeftLabel.text = "You have \(currencyValue) \(amt) surplus";
                     }
                     else if(balance == budgetValue){
                         budgetLeftLabel.text = "Your budget is fulfilled";
@@ -141,15 +146,18 @@ class BudgetViewController: UIViewController {
         
         if(validate){
         
-        let newBudget: Budget = Budget(budgetValue: Double(String(budgetAmountInput.text!))!, monthYear: currentMonth, currency: "AUD");
-        
-        if let data = UserDefaults.standard.value(forKey: "Budget") as? Data {
-            budgetList = try! PropertyListDecoder().decode(Array<Budget>.self, from: data)
-            for (index,budget) in budgetList.enumerated(){
-                if(budget.monthYear == currentMonth){
-                    budgetList.remove(at: index);
+            
+            
+            
+            let newBudget: Budget = Budget(budgetValue: Double(String(budgetAmountInput.text!))!, monthYear: currentMonth, currency: currencyValue);
+            
+            if let data = UserDefaults.standard.value(forKey: "Budget") as? Data {
+                budgetList = try! PropertyListDecoder().decode(Array<Budget>.self, from: data)
+                for (index,budget) in budgetList.enumerated(){
+                    if(budget.monthYear == currentMonth){
+                        budgetList.remove(at: index);
+                    }
                 }
-            }
         }
         
         budgetList.append(newBudget);

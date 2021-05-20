@@ -15,11 +15,14 @@ class ChangeCurrency: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     var activeCurrencyCode:String = "USD"
     var input:Double = 1;
     
+    let helper = Helper();
+    
     @IBOutlet weak var ChangeButton: UIButton!
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var outputrate: UILabel!
     
-//Currency Picker with country list
+ 
+    //Currency Picker with country list
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -99,4 +102,6 @@ class ChangeCurrency: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         outputrate.text = String(input * activeCurrency) + " " + activeCurrencyCode
     }
     
+    
+
 }
