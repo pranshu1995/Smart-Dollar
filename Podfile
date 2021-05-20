@@ -4,7 +4,8 @@
 target 'Smart Dollar' do
   pod 'DropDown'
   pod 'Charts'
-  # Comment the next line if you don't want to use dynamic frameworks
+   pod 'AppLocker'
+ # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
   # Pods for Smart Dollar
