@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  HomeViewController.swift
 //  Smart Dollar
 //
 //  Created by Pranshu Midha on 10/05/21.
@@ -10,18 +10,12 @@ import DropDown
 
 
 class HomeViewController: UIViewController{
-    
-    
-  
-    
-   
-    let dropDown = DropDown();
 
+    // Outlet variables for the Homepage
     @IBOutlet weak var InpExp: UIView!
     @IBOutlet weak var MnthlyBudget: UIView!
     @IBOutlet weak var TransactionView: UIView!
     
-   
     @IBOutlet weak var currBudgetLabel: UILabel!
     @IBOutlet weak var budgetLeftLabel: UILabel!
     @IBOutlet weak var budgetLevelBar: UIProgressView!
@@ -33,42 +27,57 @@ class HomeViewController: UIViewController{
     @IBOutlet weak var transactionViewStack: UIView!
     @IBOutlet weak var monthLabel: UILabel!
     @IBOutlet weak var monthSelector: UIView!
+    
+    // Variables to store lists
     var fetchedTransactions: [Transaction] = [];
     var filteredTransactions: [Transaction] = [];
     var budgetList: [Budget] = [];
     
+    // Variable to store data values
     var income: Double = 0;
     var expense: Double = 0;
     var balance: Double = 0;
     var selectedMonth = "";
     var budgetValue: Double = 0;
     var budgetProgress: Float = 0;
-//    var pickerData: [String] = [];
     
+    // Helper class and Dropdown library initialisation
     let helper = Helper();
-    
-//    let picker = MonthYearPicker(frame: CGRect(origin: CGPoint(x: 0, y: (view.bounds.height - 216) / 2), size: CGSize(width: view.bounds.width, height: 216)))
-//    picker.minimumDate = Date()
-//    picker.maximumDate = Calendar.current.date(byAdding: .year, value: 10, to: Date())
-//    picker.addTarget(self, action: #selector(dateChanged(_:)), for: .valueChanged)
-//    view.addSubview(picker)
-    
+    let dropDown = DropDown();
+  
     override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated);
+        super.viewWillAppear(animated);
         self.navigationController?.isNavigationBarHidden = true;
-        
         fetchData();
-//        setPickerData();
     }
     
     override func viewDidLoad() {
         super.viewDidLoad();
-       
-        // Do any additional setup after loading the view.
-//        transactionViewStack.frame.size.height = 600;
-//        transactionsTable.contentSize.height = 500;
-//
-//        print("heighto \(transactionViewStack.frame.size.height) and \(transactionsTable.contentSize.height)")
+        
+        // Hompage - UI setup + Dropdown + Fetch data from Userdefaults
+        setupHomeUI()
+        setupDropdown();
+        fetchData();
+    }
+    
+    @objc func setupDropdown(){
+        // Dropdown setup for homescreen
+        
+        dropDown.anchorView = monthSelector;
+        dropDown.dataSource = helper.getMonths();
+        dropDown.selectRow(4);
+        monthLabel.text = dropDown.dataSource[4];
+        selectedMonth = dropDown.dataSource[4];
+        dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
+            monthLabel.text = item;
+            selectedMonth = item;
+            fetchData();
+            // Update on month selection
+        }
+    }
+    
+    @objc func setupHomeUI(){
+        // Set UI values for screen elements
         
         InpExp.layer.shadowColor = UIColor.gray.cgColor
         InpExp.layer.shadowOpacity = 1
@@ -99,24 +108,11 @@ class HomeViewController: UIViewController{
         transactionsTable.layer.cornerRadius = 20
         transactionsTable.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         transactionsTable.layer.masksToBounds = true
-        
-        dropDown.anchorView = monthSelector;
-        dropDown.dataSource = helper.getMonths();
-        dropDown.selectRow(4);
-        monthLabel.text = dropDown.dataSource[4];
-        selectedMonth = dropDown.dataSource[4];
-        dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
-//            print("Selected item: \(item) at index: \(index)");
-            monthLabel.text = item;
-            selectedMonth = item;
-            fetchData();
-            
-        }
-        fetchData();
-//        setPickerData();
     }
     
     @objc func fetchData(){
+        // Data fetch from User Defaults and update all the elements and values for homescreen
+        
         fetchedTransactions = [];
         filteredTransactions = [];
         
@@ -125,35 +121,29 @@ class HomeViewController: UIViewController{
         getCurrentBudget();
     }
     
-
- 
-    @IBAction func dropDownClick(_ sender: Any) {
-        dropDown.show();
-//        dropDown.se
-    }
-    
-    
-//    @objc func setPickerData(){
-//
-//        pickerData = helper.getMonths();
-//        dropDown.selectRow(5);
-//        monthLabel.text = pickerData[5];
-//
-//    }
-    
     @objc func transactionsUpdate(){
+        // Fetch transactions from User defaults and fulter according to the selected month
         if let data = UserDefaults.standard.value(forKey: "Transactions") as? Data {
             fetchedTransactions = try! PropertyListDecoder().decode(Array<Transaction>.self, from: data)
+            
+            // Sort data by date
             fetchedTransactions.sort{
                 $0.date! > $1.date!;
             }
-            filteredTransactions = fetchedTransactions.filter { helper.extractMonth(inDate: $0.date!) == selectedMonth }
-            print(filteredTransactions);
+            
+            // Filter according to the selected month
+            filteredTransactions = fetchedTransactions.filter{
+                helper.extractMonth(inDate: $0.date!) == selectedMonth
+            }
         }
+        
+        // Reload table data
         transactionsTable.reloadData();
     }
     
     @objc func valuesUpdate(){
+        // Update values for Income, Expense and Balance
+        
         income = 0;
         expense = 0;
         balance = 0;
@@ -167,30 +157,29 @@ class HomeViewController: UIViewController{
             }
         }
         balance = income - expense;
+        
+        // Update labels
         balanceLabel.text = String("$ \(balance)");
         incomeLabel.text = String("$ \(income)");
         expenseLabel.text = String("$ \(expense)");
     }
-    
-    
+
     @objc func getCurrentBudget(){
-        
-//        var currentBudget: Budget;
+        // Fetch budget data from user defaults
         
         if let data = UserDefaults.standard.value(forKey: "Budget") as? Data {
             budgetList = try! PropertyListDecoder().decode(Array<Budget>.self, from: data)
-            print("currentwa \(budgetList)")
+            
             for budget in budgetList{
                 if(budget.monthYear == selectedMonth){
-                    print("pehle tha", budget);
+                    // Set progress and values if budget already setup for selected month
+                    
                     currBudgetLabel.text = "$ \(String(budget.budgetValue))" ;
                     budgetValue = budget.budgetValue;
-//                    budgetAmountInput.text = String(budgetValue);
-//                    totalBudgetLabel.text = String(budgetValue);
                     budgetProgress = Float((balance)/budgetValue);
-                    print(budgetProgress);
                     budgetLevelBar.setProgress(Float(budgetProgress), animated: false);
                     budgetLeftLabel.textColor = UIColor.black;
+                    
                     if(budgetProgress < 0.2){
                         budgetLevelBar.progressTintColor = UIColor.red;
                     }
@@ -212,63 +201,54 @@ class HomeViewController: UIViewController{
                     else if(balance == budgetValue){
                         budgetLeftLabel.text = "Your budget is fulfilled";
                     }
-//                    budgetLeftLabel.text = String(budgetValue - balance);
-                    
                 }
                 else{
+                    // Set values for month with no budget
+                    
                     budgetLeftLabel.text = "No budget available for this month";
                     budgetLeftLabel.textColor = UIColor.red;
                     budgetLevelBar.setProgress(1, animated: false);
                     budgetLevelBar.progressTintColor = UIColor.red;
                 }
             }
-           
-            
         }
     }
-   
+    
+
+ 
+    @IBAction func dropDownClick(_ sender: Any) {
+        // Display dropdown on click
+        
+        dropDown.show();
+    }
 
 }
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
-    
-    
+    // Table view setup for Homescreen
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return filteredTransactions.count;
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // Setup cell values for custom cell created
         
-//        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "CELL");
         let cell = tableView.dequeueReusableCell(withIdentifier: "TransactionCell", for: indexPath) as! TransactionCell;
-        
-        let helper = Helper();
-       
-        print("atkaa \(filteredTransactions)");
-        
         let transaction = filteredTransactions[indexPath.row];
-        print("Naa meelo ");
-//        print(helper.extractMonth(inDate: transaction.date));
+        
+        
         cell.id = transaction.id!;
         cell.date = transaction.date!;
-        //cell.currencyLabel?.text = transaction.currency;
         cell.amountLabel?.text = transaction.currency! + " $ " + String(transaction.amount!);
         cell.categoryLabel?.text = transaction.category;
-        //cell.typeLabel?.text = transaction.type;
         cell.dateLabel?.text = helper.dateToString(inDate: transaction.date!);
-        //cell.descriptionLabel?.text = transaction.description;
-//        let name = fetchedTransactions[indexPath.row];
         
-//        cell.textLabel?.text = name;
-//        cell.detailTextLabel?.text = "100";
-//        print("Catgoryyyyy!", transaction.category!)
         let imgSrc = transaction.category!;
         cell.transactionImg.image = UIImage(named: imgSrc);
         
         if(transaction.type == "Income"){
             cell.amountLabel?.textColor = UIColor(red: 33/256, green: 150/256, blue: 30/256, alpha: 1.0)
-
         }
         else{
             cell.amountLabel?.textColor = UIColor(red: 235/256, green: 87/256, blue: 87/256, alpha: 1.0)
@@ -278,12 +258,10 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let currentCell = tableView.cellForRow(at: indexPath) as! TransactionCell;
-//        print(currentCell.date);
+        // Function to fire on Table cell click/select
         
         let currentTransaction = filteredTransactions[indexPath.row];
-        
-        print("Selected \(currentTransaction)")
+
         let transactionView: UIStoryboard = UIStoryboard(name: "TransactionAddStoryboard", bundle: nil)
         let vc = transactionView.instantiateViewController(identifier: "TransactionAddViewController") as! TransactionAddViewController
         self.navigationController?.pushViewController(vc, animated: true)
@@ -292,15 +270,18 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        // Deleting value from table
+        
         if editingStyle == .delete {
             let currentTransaction = filteredTransactions[indexPath.row];
-            helper.deleteTransaction(id: currentTransaction.id!);
-            filteredTransactions.remove(at: indexPath.row)
+            helper.deleteTransaction(id: currentTransaction.id!); // Delete from User Defaults
+            filteredTransactions.remove(at: indexPath.row) // Delete from current list
             for (index,transaction) in fetchedTransactions.enumerated(){
                 if(transaction.id! == currentTransaction.id){
-                    fetchedTransactions.remove(at: index);
+                    fetchedTransactions.remove(at: index); // Delete from main list
                 }
             }
+            // Update Homescreen variables and values after deletion
             valuesUpdate();
             getCurrentBudget();
             tableView.deleteRows(at: [indexPath], with: .fade)
@@ -309,6 +290,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
 }
 
 class TransactionCell : UITableViewCell{
+    // Custom cell for the Transaction Table
+    
     var id: String = "";
     var date: Date = Date.init();
     

@@ -16,15 +16,5 @@ struct Transaction: Codable {
     var date: Date?;
     var currency: String?;
 }
-// Completed Deletion Module + Homepage Budget Update + Validations
-// Testing
-// Commenting
 
-// Dilak
-// Back Button - Add Transaction Page
-// Icon for Date - Homepage
-// Full Page Table for All Transactions Page
-// Highlight - Income/Expense Selection - Add Transaction Page
-// Category Selection - Dropdown UI update - Add Transaction Page
-// Toast update - UI + Validations - Budget, Add Transaction Page
 
