@@ -54,11 +54,11 @@ class StatsThirdViewController: UIViewController,ChartViewDelegate {
             }
         }
         
-        entries.append(BarChartDataEntry(x: 1.0, y: Income_amount_total))
-        entries.append(BarChartDataEntry(x: 2.0, y: Expense_amount_total))
+        entries.append(BarChartDataEntry(x: 1, y: Income_amount_total))
+        entries.append(BarChartDataEntry(x: 2, y: Expense_amount_total))
         
         let set = BarChartDataSet(entries: entries)
-        set.colors = ChartColorTemplates.colorful();
+        set.colors = [UIColor.systemPink,UIColor.systemOrange]
         
         let data = BarChartData(dataSet: set)
         barChart.data = data
