@@ -8,33 +8,82 @@
 import UIKit
 
 class AllTransactionsViewController: UIViewController, UITabBarDelegate {
+    // Page for displaying All transactions
+    
+    // Outlet variable for page
     @IBOutlet weak var transactionType: UISegmentedControl!
     
     @IBOutlet weak var allTransactionsTable: UITableView!
     
+    
+    // Variables to store data lists
     var fetchedTransactions: [Transaction] = [];
     var displayTransactions: [Transaction] = [];
     
+    // Helper class initialisation
     let helper = Helper();
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        transactionType.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18)],
-                                               for: .normal)
-        transactionType.setTitleTextAttributes([NSAttributedString.Key.foregroundColor : UIColor.white], for: .selected)
+        super.viewDidLoad();
+        
+        // Update Segment UI and fetch data from User Defaults
+        updateSegmentControl();
         fetchData();
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated);
         self.navigationController?.isNavigationBarHidden = false;
-//        print("kya yahan aaya?")
+        
+        // Set View type to All
         transactionType.selectedSegmentIndex = 0;
         fetchData();
     }
     
+    func filterTransactions(type: String) -> [Transaction]{
+        // Filter transaction according to type selected
+        
+        var arr: [Transaction] = [];
+        arr = fetchedTransactions.filter{ $0.type == type};
+        return arr;
+    }
+    
+    @objc func updateSegmentControl(){
+        // Update Segement control UI
+        
+        transactionType.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18)],for: .normal);
+        
+        transactionType.setTitleTextAttributes([NSAttributedString.Key.foregroundColor : UIColor.white], for: .selected)
+    }
+
+    @objc func fetchData(){
+        // Fetch from user defaults and update table
+        
+        fetchedTransactions = [];
+        displayTransactions = [];
+        
+        transactionsUpdate();
+        displayTransactions = fetchedTransactions;
+        allTransactionsTable.reloadData();
+    }
+    
+    @objc func transactionsUpdate(){
+        // Get transaction values from User defaults and sort by date
+        
+        if let data = UserDefaults.standard.value(forKey: "Transactions") as? Data {
+            fetchedTransactions = try! PropertyListDecoder().decode(Array<Transaction>.self, from: data)
+            fetchedTransactions.sort{
+                $0.date! > $1.date!;
+            }
+            print(fetchedTransactions);
+        }
+        
+    }
+
+    
     @IBAction func transactionChange(_ sender: Any) {
+        // Update list and reload table on switching type
+        
         if(transactionType.selectedSegmentIndex == 0){
                 displayTransactions = fetchedTransactions;
         }
@@ -47,38 +96,11 @@ class AllTransactionsViewController: UIViewController, UITabBarDelegate {
         allTransactionsTable.reloadData();
     }
     
-    func filterTransactions(type: String) -> [Transaction]{
-        var arr: [Transaction] = [];
-        arr = fetchedTransactions.filter{ $0.type == type};
-//        print(arr);
-        return arr;
-    }
-
-    @objc func fetchData(){
-        fetchedTransactions = [];
-        displayTransactions = [];
-        
-        transactionsUpdate();
-        displayTransactions = fetchedTransactions;
-        allTransactionsTable.reloadData();
-    }
-    
-    @objc func transactionsUpdate(){
-        if let data = UserDefaults.standard.value(forKey: "Transactions") as? Data {
-            fetchedTransactions = try! PropertyListDecoder().decode(Array<Transaction>.self, from: data)
-            fetchedTransactions.sort{
-                $0.date! > $1.date!;
-            }
-            print(fetchedTransactions);
-        }
-        
-    }
-
+   
 }
 
 extension AllTransactionsViewController: UITableViewDelegate, UITableViewDataSource{
-    
-    
+    // Extension for Table view
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return displayTransactions.count;
@@ -86,20 +108,15 @@ extension AllTransactionsViewController: UITableViewDelegate, UITableViewDataSou
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-//        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "CELL");
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "AllTransactionsCell", for: indexPath) as! AllTransactionsCell;
-        
-        let helper = Helper();
-       
-        
+ 
         let transaction = displayTransactions[indexPath.row];
-//        print(helper.extractMonth(inDate: transaction.date));
+        
         cell.id = transaction.id!;
         cell.date = transaction.date!;
-        //cell.currencyLabel?.text = transaction.currency;
         cell.amountLabel?.text = transaction.currency! + " $ " + String(transaction.amount!);
         cell.categoryLabel?.text = transaction.category;
-        //cell.typeLabel?.text = transaction.type;
         cell.dateLabel?.text = helper.dateToString(inDate: transaction.date!);
         cell.descriptionLabel?.text = transaction.description;
         
@@ -113,18 +130,12 @@ extension AllTransactionsViewController: UITableViewDelegate, UITableViewDataSou
         else{
             cell.amountLabel?.textColor = UIColor(red: 235/256, green: 87/256, blue: 87/256, alpha: 1.0)
         }
-        
-//        let name = fetchedTransactions[indexPath.row];
-        
-//        cell.textLabel?.text = name;
-//        cell.detailTextLabel?.text = "100";
-        
+
         return cell;
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let currentCell = tableView.cellForRow(at: indexPath) as! AllTransactionsCell;
-//        print(currentCell.date);
+        // Function to fire on Table cell click/select
         
         let currentTransaction = displayTransactions[indexPath.row];
         
@@ -138,6 +149,8 @@ extension AllTransactionsViewController: UITableViewDelegate, UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        // Deleting value from table
+        
         if editingStyle == .delete {
             let currentTransaction = displayTransactions[indexPath.row];
             
@@ -157,6 +170,8 @@ extension AllTransactionsViewController: UITableViewDelegate, UITableViewDataSou
 
 
 class AllTransactionsCell: UITableViewCell{
+    // Custom cell for the Transaction Table
+    
     var id: String = "";
     var date: Date = Date.init();
     
@@ -168,10 +183,6 @@ class AllTransactionsCell: UITableViewCell{
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var amountLabel: UILabel!
     @IBOutlet weak var catIcon: UIImageView!
-    
-    
-    
-    
 }
 
 

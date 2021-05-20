@@ -28,6 +28,8 @@ class HomeViewController: UIViewController{
     @IBOutlet weak var monthLabel: UILabel!
     @IBOutlet weak var monthSelector: UIView!
     
+    @IBOutlet weak var mnthContainer: UIControl!
+    
     // Variables to store lists
     var fetchedTransactions: [Transaction] = [];
     var filteredTransactions: [Transaction] = [];
@@ -130,6 +132,7 @@ class HomeViewController: UIViewController{
     
     @objc func transactionsUpdate(){
         // Fetch transactions from User defaults and fulter according to the selected month
+        
         if let data = UserDefaults.standard.value(forKey: "Transactions") as? Data {
             fetchedTransactions = try! PropertyListDecoder().decode(Array<Transaction>.self, from: data)
             
@@ -213,6 +216,7 @@ class HomeViewController: UIViewController{
                     // Set values for month with no budget
                     
                     budgetLeftLabel.text = "No budget available for this month";
+                    currBudgetLabel.text = "NA";
                     budgetLeftLabel.textColor = UIColor.red;
                     budgetLevelBar.setProgress(1, animated: false);
                     budgetLevelBar.progressTintColor = UIColor.red;

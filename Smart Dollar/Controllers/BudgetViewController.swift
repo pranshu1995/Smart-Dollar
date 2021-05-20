@@ -8,7 +8,9 @@
 import UIKit
 
 class BudgetViewController: UIViewController {
+    // Page for Budget control
 
+    // Outlet variable for page
     @IBOutlet weak var budgetLeftLabel: UILabel!
     @IBOutlet weak var budgetLevelBar: UIProgressView!
     @IBOutlet weak var budgetAmountInput: UITextField!
@@ -16,10 +18,7 @@ class BudgetViewController: UIViewController {
     @IBOutlet weak var calendarLabel: UILabel!
     @IBOutlet weak var totalBudgetLabel: UILabel!
 
-    
-    let helper = Helper();
-    
-    var budgetList: [Budget] = [];
+    // Variable for data values
     var currentMonth: String = "";
     var budgetValue: Double = 0;
     var budgetProgress: Float = 0;
@@ -27,32 +26,48 @@ class BudgetViewController: UIViewController {
     var currentExpense: Double = 0;
     var balance: Double = 0;
     
+    // Variables to store data lists
+    var budgetList: [Budget] = [];
     var fetchedTransactions: [Transaction] = [];
     var displayTransactions: [Transaction] = [];
     
-//    var currentBudget: Budget = Budget(budgetValue: 0, monthYear: "", currency: "");
+    // Helper class initialisation
+    let helper = Helper();
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        currentMonth = helper.extractMonth(inDate: Date.init());
-        calendarLabel.text = currentMonth;
-        daysLeftLabel.text = "\(helper.monthDaysLeft()) days left";
+        setCurrentMonth();
         fetchData();
         getCurrentValues();
         getCurrentBudget();
         // Do any additional setup after loading the view.
     }
     
+    @objc func setCurrentMonth(){
+        // Update values to current month
+        
+        currentMonth = helper.extractMonth(inDate: Date.init());
+        calendarLabel.text = currentMonth;
+        daysLeftLabel.text = "\(helper.monthDaysLeft()) days left";
+    }
+    
     @objc func fetchData(){
+        // Get transaction values from User defaults for current month and sort by date
+        
         if let data = UserDefaults.standard.value(forKey: "Transactions") as? Data {
             fetchedTransactions = try! PropertyListDecoder().decode(Array<Transaction>.self, from: data)
-            displayTransactions = fetchedTransactions.filter{ helper.extractMonth(inDate: $0.date!) == currentMonth};
-            print(displayTransactions);
+            
+            // Filter according to current month
+            displayTransactions = fetchedTransactions.filter{
+                helper.extractMonth(inDate: $0.date!) == currentMonth
+            }
         }
     }
     
     @objc func getCurrentValues(){
+        // Update values for Income, Expense and Balance
+        
         for transaction in displayTransactions{
             if(transaction.type == "Income"){
                 currentIncome = currentIncome + transaction.amount!;
@@ -63,21 +78,18 @@ class BudgetViewController: UIViewController {
             
         }
         balance = currentIncome - currentExpense;
-        print("income \(currentIncome)")
-        print("expense \(currentExpense)")
     }
     
     @objc func getCurrentBudget(){
-        
-//        var currentBudget: Budget;
-        
+        // Fetch budget data from user defaults
+
         if let data = UserDefaults.standard.value(forKey: "Budget") as? Data {
             budgetList = try! PropertyListDecoder().decode(Array<Budget>.self, from: data)
-            print("currentwa \(budgetList)")
+            
             for budget in budgetList{
                 if(budget.monthYear == currentMonth){
-                    print("pehle tha", budget);
-                   
+                    // Set progress and values if budget already setup for selected month
+                    
                     budgetValue = budget.budgetValue;
                     budgetAmountInput.text = String(budgetValue);
                     totalBudgetLabel.text = String(budgetValue);
@@ -107,16 +119,14 @@ class BudgetViewController: UIViewController {
                     else if(balance == budgetValue){
                         budgetLeftLabel.text = "Your budget is fulfilled";
                     }
-//                    budgetLeftLabel.text = String(budgetValue - balance);
-                    
                 }
-            }
-           
-            
+            }     
         }
     }
     
     @objc func validateTransaction() -> Bool{
+        // Validate if values for transaction are correct
+        
         var flag = true;
         if(Float(budgetAmountInput.text!) ?? 0 == 0 || String(budgetAmountInput.text!).trimmingCharacters(in: .whitespacesAndNewlines) == ""){
             helper.showToast(message: "Invalid Budget", view: self.view);
@@ -126,7 +136,7 @@ class BudgetViewController: UIViewController {
     }
  
     @IBAction func budgetUpdate(_ sender: Any) {
-        print("updating");
+        // Fetch all budget values and Add/Update current budget
         
         let validate = validateTransaction();
         
@@ -136,18 +146,14 @@ class BudgetViewController: UIViewController {
         
         if let data = UserDefaults.standard.value(forKey: "Budget") as? Data {
             budgetList = try! PropertyListDecoder().decode(Array<Budget>.self, from: data)
-            print("kitta \(budgetList)")
             for (index,budget) in budgetList.enumerated(){
                 if(budget.monthYear == currentMonth){
-                    print("pehle tha", budget);
                     budgetList.remove(at: index);
                 }
             }
         }
         
         budgetList.append(newBudget);
-        print(budgetList);
-        
         helper.showToast(message: "Budget changed", view: self.view)
         
         UserDefaults.standard.set(try? PropertyListEncoder().encode(budgetList), forKey: "Budget");
