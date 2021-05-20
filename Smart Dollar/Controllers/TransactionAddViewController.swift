@@ -45,6 +45,9 @@ class TransactionAddViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad();
+        transactionType.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18)],
+                                               for: .normal)
+        transactionType.setTitleTextAttributes([NSAttributedString.Key.foregroundColor : UIColor.white], for: .selected)
         
 //        dateFormatter.dateFormat = "MMM dd yyyy";
 //        transactionDate
