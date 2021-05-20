@@ -14,6 +14,8 @@
 		A433913D0368EE9C4C96C720 /* Pods_Smart_DollarTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CAE98BFB516EB2C9DB13AC2 /* Pods_Smart_DollarTests.framework */; };
 		ADB0669A34CBDF04290152B9 /* Pods_Smart_Dollar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E9AFE2461592FF098E3B39B /* Pods_Smart_Dollar.framework */; };
 		BA1077049B5D45D591DF62B6 /* Pods_Smart_Dollar_Smart_DollarUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D924C6D77062C5EE47D8F03 /* Pods_Smart_Dollar_Smart_DollarUITests.framework */; };
+		D68CAB192656637B00779C15 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68CAB182656637B00779C15 /* SettingsTableViewController.swift */; };
+		D68CAB1E265663A200779C15 /* ChangeCurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68CAB1D265663A200779C15 /* ChangeCurrency.swift */; };
 		EC425B542655972A003466F8 /* AppLocker.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC425B512655972A003466F8 /* AppLocker.xib */; };
 		EC425B552655972A003466F8 /* AppLocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC425B522655972A003466F8 /* AppLocker.swift */; };
 		EC425B562655972A003466F8 /* UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC425B532655972A003466F8 /* UI.swift */; };
@@ -72,6 +74,8 @@
 		875E7A37265118B0005515CF /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D4BD53083EDC4B82F318F31 /* Pods-Smart DollarTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart DollarTests.debug.xcconfig"; path = "Target Support Files/Pods-Smart DollarTests/Pods-Smart DollarTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CA87756246F4BEEDBB904362 /* Pods-Smart Dollar-Smart DollarUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Dollar-Smart DollarUITests.debug.xcconfig"; path = "Target Support Files/Pods-Smart Dollar-Smart DollarUITests/Pods-Smart Dollar-Smart DollarUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		D68CAB182656637B00779C15 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		D68CAB1D265663A200779C15 /* ChangeCurrency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeCurrency.swift; sourceTree = "<group>"; };
 		EC425AF22655850F003466F8 /* AppLocker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AppLocker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC425B512655972A003466F8 /* AppLocker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AppLocker.xib; sourceTree = "<group>"; };
 		EC425B522655972A003466F8 /* AppLocker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppLocker.swift; sourceTree = "<group>"; };
@@ -274,6 +278,8 @@
 				ECDDF810264982F8006F94A1 /* SettingsViewController.swift */,
 				EC954994264FA25C00DBD176 /* BudgetViewController.swift */,
 				EC95499E264FA3C200DBD176 /* AllTransactionsViewController.swift */,
+				D68CAB182656637B00779C15 /* SettingsTableViewController.swift */,
+				D68CAB1D265663A200779C15 /* ChangeCurrency.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -525,6 +531,8 @@
 				87041ADD2654890E00C32C81 /* StatsThirdViewController.swift in Sources */,
 				ECDDF816264983DE006F94A1 /* Transaction.swift in Sources */,
 				ECDDF7D426497BD4006F94A1 /* SceneDelegate.swift in Sources */,
+				D68CAB1E265663A200779C15 /* ChangeCurrency.swift in Sources */,
+				D68CAB192656637B00779C15 /* SettingsTableViewController.swift in Sources */,
 				ECDDF811264982F8006F94A1 /* SettingsViewController.swift in Sources */,
 				87041ADB265488FD00C32C81 /* StatsSecondViewController.swift in Sources */,
 				ECDDF81B26498A1A006F94A1 /* Budget.swift in Sources */,

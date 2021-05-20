@@ -120,11 +120,13 @@ class TransactionAddViewController: UIViewController {
         
         var flag = true;
         if(categoryLabel.text == "Select Category"){
-            helper.showToast(message: "Category not selected", view: self.view);
+            helper.showToast(message: "Category not selected", view: self.view, type: "Error");
             flag = false;
         }
         else if(Float(transactionAmount.text!) ?? 0 == 0 || String(transactionAmount.text!).trimmingCharacters(in: .whitespacesAndNewlines) == ""){
-            helper.showToast(message: "Invalid Amount", view: self.view);
+            
+            
+            helper.showToast(message: "Invalid Amount", view: self.view, type: "Error");
             flag = false;
         }
         return flag;
@@ -198,7 +200,7 @@ class TransactionAddViewController: UIViewController {
 
             UserDefaults.standard.set(try? PropertyListEncoder().encode(fetchedTransactions), forKey: "Transactions");
             
-            helper.showToast(message: "Trasaction Added", view: self.view)
+            helper.showToast(message: "Trasaction Added", view: self.view, type: "Success")
             refreshPage();
         }
     }
