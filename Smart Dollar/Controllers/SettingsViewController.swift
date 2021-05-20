@@ -22,7 +22,7 @@ class SettingsViewController: UIViewController {
 //    var opts
     @objc func lockerLoader(){
     
-//       options.image = UIImage(named: "face")!;
+       options.image = UIImage(named: "lock")!;
     
     options.title = "Smart Dollar Safe";
     options.isSensorsEnabled = true;
