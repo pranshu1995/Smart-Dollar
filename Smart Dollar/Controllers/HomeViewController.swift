@@ -15,6 +15,7 @@ class HomeViewController: UIViewController{
   
     
    
+    @IBOutlet weak var mnthContainer: UIControl!
     let dropDown = DropDown();
 
     @IBOutlet weak var InpExp: UIView!
@@ -91,6 +92,13 @@ class HomeViewController: UIViewController{
         TransactionView.layer.cornerRadius = 20
         TransactionView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         TransactionView.layer.masksToBounds = true
+        
+        mnthContainer.layer.shadowColor = UIColor.gray.cgColor
+        mnthContainer.layer.shadowOpacity = 1
+        mnthContainer.layer.shadowOffset = .zero
+        mnthContainer.layer.shadowRadius = 10
+        mnthContainer.layer.cornerRadius = 20
+        mnthContainer.layer.masksToBounds = true
         
         transactionsTable.layer.shadowColor = UIColor.gray.cgColor
         transactionsTable.layer.shadowOpacity = 1
