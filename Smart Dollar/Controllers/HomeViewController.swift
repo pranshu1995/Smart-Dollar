@@ -70,6 +70,7 @@ class HomeViewController: UIViewController{
         print("presenta?");
         var options = ALOptions();
         options.image = UIImage(named: "lock")!;
+        options.color = UIColor(red: 88/256, green: 86/256, blue: 214/256, alpha: 1.0);
         options.title = "Smart Dollar Safe";
         options.isSensorsEnabled = false;
         options.onSuccessfulDismiss = { (mode: ALMode?) in
