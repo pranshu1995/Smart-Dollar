@@ -119,7 +119,7 @@ class BudgetViewController: UIViewController {
     @objc func validateTransaction() -> Bool{
         var flag = true;
         if(Float(budgetAmountInput.text!) ?? 0 == 0 || String(budgetAmountInput.text!).trimmingCharacters(in: .whitespacesAndNewlines) == ""){
-            helper.showToast(message: "Invalid Budget", view: self.view);
+            helper.showToast(message: "Invalid Budget", view: self.view, type: "Error");
             flag = false;
         }
         return flag;
@@ -148,7 +148,7 @@ class BudgetViewController: UIViewController {
         budgetList.append(newBudget);
         print(budgetList);
         
-        helper.showToast(message: "Budget changed", view: self.view)
+        helper.showToast(message: "Budget changed", view: self.view, type: "Success")
         
         UserDefaults.standard.set(try? PropertyListEncoder().encode(budgetList), forKey: "Budget");
         getCurrentBudget();

@@ -499,7 +499,7 @@
                                 <rect key="frame" x="45" y="298" width="324" height="4"/>
                             </progressView>
                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ilg-RJ-875">
-                                <rect key="frame" x="108.5" y="645" width="197" height="50"/>
+                                <rect key="frame" x="108.5" y="605" width="197" height="50"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
                                 <state key="normal" title="Set New Budget" backgroundImage="Button"/>
                                 <connections>
@@ -542,7 +542,7 @@
                             <constraint firstItem="Uwa-bo-Hj8" firstAttribute="leading" secondItem="PEV-Cr-uTf" secondAttribute="leading" constant="45" id="HwN-wg-GEN"/>
                             <constraint firstItem="YQj-rD-Prk" firstAttribute="top" secondItem="4v3-5O-i5m" secondAttribute="bottom" constant="20" id="Iy6-d2-XSb"/>
                             <constraint firstItem="FIa-uY-H3Y" firstAttribute="leading" secondItem="4v3-5O-i5m" secondAttribute="leading" id="OjU-dD-qVB"/>
-                            <constraint firstItem="PEV-Cr-uTf" firstAttribute="bottom" secondItem="Ilg-RJ-875" secondAttribute="bottom" constant="30" id="Oqf-tV-6v4"/>
+                            <constraint firstItem="PEV-Cr-uTf" firstAttribute="bottom" secondItem="Ilg-RJ-875" secondAttribute="bottom" constant="70" id="Oqf-tV-6v4"/>
                             <constraint firstItem="Ilg-RJ-875" firstAttribute="centerX" secondItem="iUe-n5-cbN" secondAttribute="centerX" id="RAP-28-e3O"/>
                             <constraint firstItem="ATB-cI-RDc" firstAttribute="centerX" secondItem="iUe-n5-cbN" secondAttribute="centerX" id="Wga-eo-wHE"/>
                             <constraint firstItem="ATB-cI-RDc" firstAttribute="leading" secondItem="Uwa-bo-Hj8" secondAttribute="leading" id="aN1-oI-qdo"/>
