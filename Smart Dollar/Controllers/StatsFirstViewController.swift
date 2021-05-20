@@ -35,21 +35,70 @@ class StatsFirstViewController: UIViewController, ChartViewDelegate {
         
         let length = Transactions.count
         var entries = [ChartDataEntry]()
+        var shopping_Amount = 0.0
+        var restaurant_Amount = 0.0
+        var grocery_Amount = 0.0
+        var housing_Amount = 0.0
+        var transportation_Amount = 0.0
+        var vehicle_Amount = 0.0
+        var entertainment_Amount = 0.0
+        var communication_Amount = 0.0
+        
         
         for i in 0..<length {
             if(Transactions[i].type == "Expense") {
                 if(Transactions[i].category == "Shopping") {
-                    let x = Transactions[i].amount
-                    print(x!)
-                    entries.append(ChartDataEntry(x: Double(i), y: Double(x!)))
+                    shopping_Amount = shopping_Amount +  Transactions[i].amount!
+                }
+                else if(Transactions[i].category == "Restaurant") {
+                    restaurant_Amount = restaurant_Amount +  Transactions[i].amount!
+                }
+                else if(Transactions[i].category == "Grocery") {
+                    grocery_Amount = grocery_Amount +  Transactions[i].amount!
+                }
+                else if(Transactions[i].category == "Housing") {
+                    housing_Amount = housing_Amount +  Transactions[i].amount!
+                }
+                else if(Transactions[i].category == "Transportation") {
+                    transportation_Amount = transportation_Amount +  Transactions[i].amount!
+                }
+                else if(Transactions[i].category == "Vehicle") {
+                    vehicle_Amount = vehicle_Amount +  Transactions[i].amount!
+                }
+                else if(Transactions[i].category == "Entertainment") {
+                    entertainment_Amount = entertainment_Amount +  Transactions[i].amount!
+                }
+                else if(Transactions[i].category == "Communication") {
+                    communication_Amount = communication_Amount +  Transactions[i].amount!
                 }
             }
         }
         
+        print("S", shopping_Amount)
+        entries.append(ChartDataEntry(x: 1, y: Double(shopping_Amount)))
+        print("R", restaurant_Amount)
+        entries.append(ChartDataEntry(x: 2, y: Double(restaurant_Amount)))
+        print("G", grocery_Amount)
+        entries.append(ChartDataEntry(x: 3, y: Double(grocery_Amount)))
+        print("H", housing_Amount)
+        entries.append(ChartDataEntry(x: 4, y: Double(housing_Amount)))
+        print("T", transportation_Amount)
+        entries.append(ChartDataEntry(x: 5, y: Double(transportation_Amount)))
+        print("V", vehicle_Amount)
+        entries.append(ChartDataEntry(x: 6, y: Double(vehicle_Amount)))
+        print("E", entertainment_Amount)
+        entries.append(ChartDataEntry(x: 7, y: Double(entertainment_Amount)))
+        print("C", communication_Amount)
+        entries.append(ChartDataEntry(x: 8, y: Double(communication_Amount)))
+        
+//entries.append(ChartDataEntry(x: Double(i), y: Double(x!))))))
+        
         let set = PieChartDataSet(entries: entries)
-        set.colors = ChartColorTemplates.joyful();
+        set.colors = [UIColor.systemRed,UIColor.systemOrange,UIColor.systemTeal,UIColor.systemPink,UIColor.systemIndigo,UIColor.systemYellow,UIColor.systemPurple,UIColor.systemGreen]
         
         let data = PieChartData(dataSet: set)
         pieChart.data = data
+        
+
     }
 }
