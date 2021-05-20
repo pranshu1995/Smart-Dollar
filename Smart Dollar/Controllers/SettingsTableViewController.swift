@@ -1,4 +1,4 @@
-ETTINGSTableViewController.swift
+//ETTINGSTableViewController.swift
 //
 //  sETTINGSTableViewCell.swift
 //  Smart Dollar
@@ -13,7 +13,7 @@ struct Section {
     let options:[SettingsOption]
 }
 
-class sETTINGSTableViewCell: UITableViewCell {
+class SettingsTableViewCell: UITableViewCell {
      static let identifier = "SettingTableviewCell"
     
     private let iconContainer: UIView = {

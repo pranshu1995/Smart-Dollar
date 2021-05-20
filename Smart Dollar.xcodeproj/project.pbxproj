@@ -19,6 +19,7 @@
 		EC425B542655972A003466F8 /* AppLocker.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC425B512655972A003466F8 /* AppLocker.xib */; };
 		EC425B552655972A003466F8 /* AppLocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC425B522655972A003466F8 /* AppLocker.swift */; };
 		EC425B562655972A003466F8 /* UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC425B532655972A003466F8 /* UI.swift */; };
+		EC425B862656842B003466F8 /* SettingsSecurityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC425B852656842A003466F8 /* SettingsSecurityViewController.swift */; };
 		EC954988264EB3F700DBD176 /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC954987264EB3F700DBD176 /* HelperFunctions.swift */; };
 		EC954995264FA25C00DBD176 /* BudgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC954994264FA25C00DBD176 /* BudgetViewController.swift */; };
 		EC95499F264FA3C200DBD176 /* AllTransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC95499E264FA3C200DBD176 /* AllTransactionsViewController.swift */; };
@@ -80,6 +81,7 @@
 		EC425B512655972A003466F8 /* AppLocker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AppLocker.xib; sourceTree = "<group>"; };
 		EC425B522655972A003466F8 /* AppLocker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppLocker.swift; sourceTree = "<group>"; };
 		EC425B532655972A003466F8 /* UI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UI.swift; sourceTree = "<group>"; };
+		EC425B852656842A003466F8 /* SettingsSecurityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSecurityViewController.swift; sourceTree = "<group>"; };
 		EC954987264EB3F700DBD176 /* HelperFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperFunctions.swift; sourceTree = "<group>"; };
 		EC954994264FA25C00DBD176 /* BudgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetViewController.swift; sourceTree = "<group>"; };
 		EC954999264FA2D800DBD176 /* AllTransactions.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AllTransactions.storyboard; sourceTree = "<group>"; };
@@ -280,6 +282,7 @@
 				EC95499E264FA3C200DBD176 /* AllTransactionsViewController.swift */,
 				D68CAB182656637B00779C15 /* SettingsTableViewController.swift */,
 				D68CAB1D265663A200779C15 /* ChangeCurrency.swift */,
+				EC425B852656842A003466F8 /* SettingsSecurityViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -542,6 +545,7 @@
 				ECDDF8202649A12B006F94A1 /* TransactionAddViewController.swift in Sources */,
 				EC95499F264FA3C200DBD176 /* AllTransactionsViewController.swift in Sources */,
 				EC954988264EB3F700DBD176 /* HelperFunctions.swift in Sources */,
+				EC425B862656842B003466F8 /* SettingsSecurityViewController.swift in Sources */,
 				EC425B552655972A003466F8 /* AppLocker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

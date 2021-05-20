@@ -96,7 +96,7 @@ class ChangeCurrency: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
        // outputRate.text = String(input * activeCurrency)
 
         //Showing Rates on screen
-        outputRate.text = String(input * activeCurrency) + " " + activeCurrencyCode
+        outputrate.text = String(input * activeCurrency) + " " + activeCurrencyCode
     }
     
 }

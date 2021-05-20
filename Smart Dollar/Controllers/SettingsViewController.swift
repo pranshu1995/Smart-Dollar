@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import AppLocker
+
 
 
 
@@ -21,7 +21,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
 
     private let tableView: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
-        table.register(sETTINGSTableViewCell.self, forCellReuseIdentifier: sETTINGSTableViewCell.identifier)
+        table.register(SettingsTableViewCell.self, forCellReuseIdentifier: SettingsTableViewCell.identifier)
         return table
     }()
     
@@ -65,8 +65,8 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let model = models[indexPath.section].options[indexPath.row]
         guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: sETTINGSTableViewCell.identifier, for: indexPath
-        ) as? sETTINGSTableViewCell
+            withIdentifier: SettingsTableViewCell.identifier, for: indexPath
+        ) as? SettingsTableViewCell
         else {
             return UITableViewCell()
         }
@@ -92,7 +92,8 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             
         }
         else if model.title == "Security" {
-            
+            let security = SettingsSecurityViewController();
+            security.open();
         }
         
     }
@@ -102,7 +103,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
 
 
 
-  //  var options = ALOptions();
+ 
     
   //  override func viewDidLoad() {
     //    super.viewDidLoad()
@@ -112,7 +113,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     
 //    var opts
  //   @objc func lockerLoader(){
-    
+//  var options = ALOptions();
   //     options.image = UIImage(named: "lock")!;
     
   //  options.title = "Smart Dollar Safe";

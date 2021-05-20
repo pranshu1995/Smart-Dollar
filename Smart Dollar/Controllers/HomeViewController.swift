@@ -7,6 +7,7 @@
 
 import UIKit
 import DropDown
+import AppLocker
 
 
 class HomeViewController: UIViewController{
@@ -56,10 +57,37 @@ class HomeViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad();
         
+        validateLock();
+        
         // Hompage - UI setup + Dropdown + Fetch data from Userdefaults
         setupHomeUI()
         setupDropdown();
         fetchData();
+    }
+    
+    @objc func validateLock(){
+        print(UserDefaults.standard.bool(forKey: "lock"));
+        print("presenta?");
+        var options = ALOptions();
+        options.image = UIImage(named: "lock")!;
+        options.title = "Smart Dollar Safe";
+        options.isSensorsEnabled = false;
+        options.onSuccessfulDismiss = { (mode: ALMode?) in
+            if let mode = mode {
+               print("Password \(String(describing: mode))d successfully");
+            }
+            else {
+               print("User Cancelled");
+            }
+            
+        
+    }
+        
+       if((UserDefaults.standard.bool(forKey: "lock")) == true){
+            print("3?");
+            AppLocker.present(with: .validate, and: options);
+        }
+
     }
     
     @objc func setupDropdown(){
