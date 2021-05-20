@@ -94,7 +94,6 @@ class BudgetViewController: UIViewController {
                     budgetAmountInput.text = String(budgetValue);
                     totalBudgetLabel.text = String("$ \(budgetValue)");
                     budgetProgress = Float((balance)/budgetValue);
-                    print(budgetProgress);
                     budgetLevelBar.setProgress(Float(budgetProgress), animated: false);
                     
                     
@@ -154,7 +153,7 @@ class BudgetViewController: UIViewController {
         }
         
         budgetList.append(newBudget);
-        print(budgetList);
+            
         
         helper.showToast(message: "Budget changed", view: self.view, type: "Success")
         

@@ -184,7 +184,8 @@ class TransactionAddViewController: UIViewController {
             // Fetch currently available transactions
             if let data = UserDefaults.standard.value(forKey: "Transactions") as? Data {
                 fetchedTransactions = try! PropertyListDecoder().decode(Array<Transaction>.self, from: data)
-                print(fetchedTransactions);
+                
+                
             }
             
             if(newTransaction == false){
