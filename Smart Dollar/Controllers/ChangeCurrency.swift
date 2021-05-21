@@ -12,9 +12,13 @@ class ChangeCurrency: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     var myCurrency:[String] = []
     var myValues:[Double] = []
     var activeCurrency:Double = 0;
-    var activeCurrencyCode:String = "USD"
+    var activeCurrencyCode:String = "AUD"
     var input:Double = 1;
     
+    var currentCurrency: String = "AUD";
+    
+    @IBOutlet weak var exchangeInput: UITextField!
+    @IBOutlet weak var currencylabel: UILabel!
     let helper = Helper();
     
     @IBOutlet weak var ChangeButton: UIButton!
@@ -52,7 +56,7 @@ class ChangeCurrency: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
 
         // Instantiate the desired view controller from the storyboard using the view controllers identifier
         // Cast is as the custom view controller type you created in order to access it's properties and methods
-        let ChangeCurrency = storyboard.instantiateViewController(withIdentifier: "CurrencyChange") as!ChangeCurrency
+        let ChangeCurrency = storyboard.instantiateViewController(withIdentifier: "CurrencyChange") as! ChangeCurrency
         
         let topViewController = UIApplication.shared.keyWindow?.rootViewController
         topViewController?.present(ChangeCurrency, animated: true, completion: nil)
@@ -62,6 +66,12 @@ class ChangeCurrency: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
    
     override func viewDidLoad() {
         super.viewDidLoad();
+        
+        
+        if(UserDefaults.standard.value(forKey: "Currency") != nil){
+            currentCurrency = UserDefaults.standard.value(forKey: "Currency") as! String;
+        }
+        currencylabel.text = "Current currency is \(currentCurrency)"
     
     //Get Data
        let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
@@ -79,6 +89,7 @@ class ChangeCurrency: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
                             self.myValues.append((value as? Double)!)
                         }
                     }
+                    //
                 }
                 catch
                 {
@@ -87,11 +98,27 @@ class ChangeCurrency: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             }
        }
 
-        self.pickerView.reloadAllComponents()
+       
     }
     task.resume()
+        self.myCurrency.sort()
+        self.pickerView.reloadAllComponents();
     }
 
+    @objc func validateExchange() -> Bool{
+        // Validate if values for transaction are correct
+        
+        var flag = true;
+        if(Float(exchangeInput.text!) ?? 0 <= 0 || String(exchangeInput.text!).trimmingCharacters(in: .whitespacesAndNewlines) == ""){
+            helper.showToast(message: "Invalid Exchange Rate", view: self.view, type: "Error");
+            flag = false;
+        }
+        else if(currentCurrency == activeCurrencyCode){
+            helper.showToast(message: "Currency not changed", view: self.view, type: "Error");
+            flag = false;
+        }
+        return flag;
+    }
     //Button
 
     @IBAction func button(_ sender: UIButton) {
@@ -99,7 +126,13 @@ class ChangeCurrency: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
        // outputRate.text = String(input * activeCurrency)
 
         //Showing Rates on screen
-        outputrate.text = String(input * activeCurrency) + " " + activeCurrencyCode
+        if(validateExchange()){
+        let exRate = Double(exchangeInput.text!);
+            outputrate.text = "Currency updated with 1 \(currentCurrency) = \(exRate!) \(activeCurrencyCode)"
+            helper.updateCurrency(newCurrency: activeCurrencyCode, exchangeRate: exRate!);
+            
+            
+        }
     }
     
     
