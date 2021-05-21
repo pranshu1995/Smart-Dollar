@@ -31,8 +31,32 @@ class StatsThirdViewController: UIViewController,ChartViewDelegate {
         super.viewDidLayoutSubviews()
         
         // Setting up the frame for Bar Chart
-        barChart.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.width)
+        barChart.frame = CGRect(x: 0, y: 0, width: 400, height: 400)
         barChart.center = view.center
+        
+        // X-axis labeling
+        var xAxis_label: [String]!
+        xAxis_label = ["", "Income", "Expense", ""]
+        
+        // X-axis setup
+        let xaxis = barChart.xAxis
+        xaxis.drawGridLinesEnabled = false
+        xaxis.labelPosition = .bottom
+        xaxis.axisMinimum = 0
+        xaxis.axisMaximum = 3
+        xaxis.granularity = 1
+        barChart.fitBars = true
+        xaxis.valueFormatter = IndexAxisValueFormatter(values: xAxis_label)
+        
+        // Y-axis/Left axis setup
+        let yaxis = barChart.leftAxis
+        yaxis.spaceTop = 0.35
+        yaxis.axisMinimum = 0
+        yaxis.drawGridLinesEnabled = false
+        
+        // Right-axis setup
+        barChart.rightAxis.axisMinimum = 0
+        barChart.rightAxis.axisMaximum = 0
         
         view.addSubview(barChart)
         
@@ -54,6 +78,7 @@ class StatsThirdViewController: UIViewController,ChartViewDelegate {
         
         // To store chart data entries
         var entries = [BarChartDataEntry]()
+        
         
         var Income_amount_total = 0.0
         var Expense_amount_total = 0.0

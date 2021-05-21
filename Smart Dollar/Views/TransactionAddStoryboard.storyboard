@@ -67,7 +67,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bar_chart" translatesAutoresizingMaskIntoConstraints="NO" id="G3A-Rq-8GE">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="list" translatesAutoresizingMaskIntoConstraints="NO" id="G3A-Rq-8GE">
                                         <rect key="frame" x="8" y="7" width="45" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
@@ -173,8 +173,8 @@
     </scenes>
     <resources>
         <image name="Button" width="197" height="50"/>
-        <image name="bar_chart" width="24" height="24"/>
         <image name="deleteButton" width="197" height="50"/>
+        <image name="list" width="24" height="24"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
