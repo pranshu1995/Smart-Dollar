@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		621C902D265773F700601FC0 /* NameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621C902C265773F700601FC0 /* NameViewController.swift */; };
 		87041AD72654888B00C32C81 /* StatsFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87041AD62654888B00C32C81 /* StatsFirstViewController.swift */; };
 		87041ADB265488FD00C32C81 /* StatsSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87041ADA265488FD00C32C81 /* StatsSecondViewController.swift */; };
 		87041ADD2654890E00C32C81 /* StatsThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87041ADC2654890E00C32C81 /* StatsThirdViewController.swift */; };
@@ -63,6 +64,7 @@
 		0D924C6D77062C5EE47D8F03 /* Pods_Smart_Dollar_Smart_DollarUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Smart_Dollar_Smart_DollarUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		341B37A947FE92B5A1384BB3 /* Pods-Smart Dollar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Dollar.release.xcconfig"; path = "Target Support Files/Pods-Smart Dollar/Pods-Smart Dollar.release.xcconfig"; sourceTree = "<group>"; };
 		5F5EE9EE411083DBD35537B3 /* Pods-Smart Dollar-Smart DollarUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Dollar-Smart DollarUITests.release.xcconfig"; path = "Target Support Files/Pods-Smart Dollar-Smart DollarUITests/Pods-Smart Dollar-Smart DollarUITests.release.xcconfig"; sourceTree = "<group>"; };
+		621C902C265773F700601FC0 /* NameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameViewController.swift; sourceTree = "<group>"; };
 		6E9AFE2461592FF098E3B39B /* Pods_Smart_Dollar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Smart_Dollar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CAE98BFB516EB2C9DB13AC2 /* Pods_Smart_DollarTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Smart_DollarTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		87041AD62654888B00C32C81 /* StatsFirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsFirstViewController.swift; sourceTree = "<group>"; };
@@ -283,6 +285,7 @@
 				D68CAB182656637B00779C15 /* SettingsTableViewController.swift */,
 				D68CAB1D265663A200779C15 /* ChangeCurrency.swift */,
 				EC425B852656842A003466F8 /* SettingsSecurityViewController.swift */,
+				621C902C265773F700601FC0 /* NameViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -547,6 +550,7 @@
 				EC954988264EB3F700DBD176 /* HelperFunctions.swift in Sources */,
 				EC425B862656842B003466F8 /* SettingsSecurityViewController.swift in Sources */,
 				EC425B552655972A003466F8 /* AppLocker.swift in Sources */,
+				621C902D265773F700601FC0 /* NameViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

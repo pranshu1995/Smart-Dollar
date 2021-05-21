@@ -82,7 +82,8 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         model.handler()
         
         if model.title == "Name" {
-
+            let userName = NameViewController();
+            userName.setName()
             
         }
         else if model.title == "Currency" {
