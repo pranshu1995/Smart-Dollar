@@ -1,3 +1,17 @@
+# Application Information
+
+Since we are using Pods, the application requires to be opened using 'Smart Dollar.xcworkspace' file.
+
+# Features
+
+Transaction Addition - Income and Expenses
+Transaction View - Monthly, Overall
+Budget Setting - Monthly
+Pie charts and Bar graphs for Income, Expense and Cashflow trends
+Currency Selection with Exchange Rate
+Security setup using passcode
+
+
 # Group members information
 
 Member 1
