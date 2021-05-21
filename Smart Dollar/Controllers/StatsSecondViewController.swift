@@ -39,7 +39,7 @@ class StatsSecondViewController: UIViewController,ChartViewDelegate  {
         for (i,_) in helper.incomeCategories.enumerated(){
             values[i] = 0;
         }
-        
+        fetchData()
     }
     
     override func viewDidLayoutSubviews() {
@@ -83,7 +83,7 @@ class StatsSecondViewController: UIViewController,ChartViewDelegate  {
             }
         }
         
-        let set = PieChartDataSet(entries: entries);
+        let set = PieChartDataSet(entries: entries, label: "");
 
         set.colors = ChartColorTemplates.joyful();
         set.valueColors = [UIColor.black]

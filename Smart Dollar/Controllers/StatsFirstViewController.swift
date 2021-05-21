@@ -73,79 +73,6 @@ class StatsFirstViewController: UIViewController, ChartViewDelegate {
             }
         }
         
-//        // To calculate the number of Transactions
-//        let length = Transactions.count
-//        
-//        // To store chart data entries
-//        var entries = [ChartDataEntry]()
-//        
-//        var shopping_Amount = 0.0
-//        var restaurant_Amount = 0.0
-//        var grocery_Amount = 0.0
-//        var housing_Amount = 0.0
-//        var transportation_Amount = 0.0
-//        var vehicle_Amount = 0.0
-//        var entertainment_Amount = 0.0
-//        var communication_Amount = 0.0
-//        
-//        
-//        for i in 0..<length {
-//            
-//            // Condition to filter "Expense" Transactions
-//            if(Transactions[i].type == "Expense") {
-//                
-//                // Condition to filter "Shopping" category in "Expense" Transactions
-//                if(Transactions[i].category == "Shopping") {
-//                    shopping_Amount = shopping_Amount +  Transactions[i].amount!
-//                }
-//                
-//                // Condition to filter "Restaurant" category in "Expense" Transactions
-//                else if(Transactions[i].category == "Restaurant") {
-//                    restaurant_Amount = restaurant_Amount +  Transactions[i].amount!
-//                }
-//                
-//                // Condition to filter "Grocery" category in "Expense" Transactions
-//                else if(Transactions[i].category == "Grocery") {
-//                    grocery_Amount = grocery_Amount +  Transactions[i].amount!
-//                }
-//                
-//                // Condition to filter "Housing" category in "Expense" Transactions
-//                else if(Transactions[i].category == "Housing") {
-//                    housing_Amount = housing_Amount +  Transactions[i].amount!
-//                }
-//                
-//                // Condition to filter "Transportation" category in "Expense" Transactions
-//                else if(Transactions[i].category == "Transportation") {
-//                    transportation_Amount = transportation_Amount +  Transactions[i].amount!
-//                }
-//                
-//                // Condition to filter "Vehicle" category in "Expense" Transactions
-//                else if(Transactions[i].category == "Vehicle") {
-//                    vehicle_Amount = vehicle_Amount +  Transactions[i].amount!
-//                }
-//                
-//                // Condition to filter "Entertainment" category in "Expense" Transactions
-//                else if(Transactions[i].category == "Entertainment") {
-//                    entertainment_Amount = entertainment_Amount +  Transactions[i].amount!
-//                }
-//                
-//                // Condition to filter "Communication" category in "Expense" Transactions
-//                else if(Transactions[i].category == "Communication") {
-//                    communication_Amount = communication_Amount +  Transactions[i].amount!
-//                }
-//            }
-//        }
-//        
-//        // Appends chart data enteries to display the values retrieved.
-//        entries.append(ChartDataEntry(x: 1, y: Double(shopping_Amount)))
-//        entries.append(ChartDataEntry(x: 2, y: Double(restaurant_Amount)))
-//        entries.append(ChartDataEntry(x: 3, y: Double(grocery_Amount)))
-//        entries.append(ChartDataEntry(x: 4, y: Double(housing_Amount)))
-//        entries.append(ChartDataEntry(x: 5, y: Double(transportation_Amount)))
-//        entries.append(ChartDataEntry(x: 6, y: Double(vehicle_Amount)))
-//        entries.append(ChartDataEntry(x: 7, y: Double(entertainment_Amount)))
-//        entries.append(ChartDataEntry(x: 8, y: Double(communication_Amount)))
-        
         var entries = [ChartDataEntry]()
         
         for (i,_) in helper.expenseCategories.enumerated(){
@@ -154,7 +81,7 @@ class StatsFirstViewController: UIViewController, ChartViewDelegate {
             }
         }
         
-        let set = PieChartDataSet(entries: entries)
+        let set = PieChartDataSet(entries: entries, label: "")
         
         // Setting particular colors for each bar of the chart.
         

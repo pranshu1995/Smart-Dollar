@@ -9,11 +9,8 @@ import UIKit
 
 class ChangeCurrency: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
-    var myCurrency:[String] = []
-    var myValues:[Double] = []
-    var activeCurrency:Double = 0;
-    var activeCurrencyCode:String = "AUD"
-    var input:Double = 1;
+    var myCurrency:[String] = [];
+    var activeCurrencyCode:String = "AUD";
     
     var currentCurrency: String = "AUD";
     
@@ -41,12 +38,8 @@ class ChangeCurrency: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        self.activeCurrency = self.myValues[row]
+        self.activeCurrencyCode = self.myCurrency[row]
     };
-   
-//Live API key to get current exchange rate
-    let url = URL(string: "https://currencyapi.net/api/v1/rates?key=IDcaj4LBPEg0bMjzObUwwreE1RkmQoyUGXic&base=USD")
-    
 
     
     func newcurrency() {
@@ -74,34 +67,7 @@ class ChangeCurrency: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         currencylabel.text = "Current currency is \(currentCurrency)"
     
     //Get Data
-       let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
-        if error != nil {
-            print ("ERROR")
-        }
-        else {
-            if let content = data {
-                do
-                {
-                   let myJson = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
-                    if let rates = myJson["rates"] as? NSDictionary {
-                        for (key, value) in rates {
-                            self.myCurrency.append(((key as? String)!))
-                            self.myValues.append((value as? Double)!)
-                        }
-                    }
-                    //
-                }
-                catch
-                {
-                    
-                }
-            }
-       }
-
-       
-    }
-    task.resume()
-        self.myCurrency.sort()
+        self.myCurrency = helper.currencyList;
         self.pickerView.reloadAllComponents();
     }
 
