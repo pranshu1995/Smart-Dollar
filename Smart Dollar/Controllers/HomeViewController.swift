@@ -16,6 +16,7 @@ class HomeViewController: UIViewController{
     @IBOutlet weak var InpExp: UIView!
     @IBOutlet weak var MnthlyBudget: UIView!
     @IBOutlet weak var TransactionView: UIView!
+    @IBOutlet weak var nameLabel: UILabel!
     
     @IBOutlet weak var currBudgetLabel: UILabel!
     @IBOutlet weak var budgetLeftLabel: UILabel!
@@ -199,7 +200,9 @@ class HomeViewController: UIViewController{
         balance = income - expense;
         
         // Update labels
-        
+        if(UserDefaults.standard.value(forKey: "userName") != nil){
+            nameLabel.text = UserDefaults.standard.value(forKey: "userName") as? String;
+        }
         
         if(UserDefaults.standard.value(forKey: "Currency") != nil){
             currencyValue = UserDefaults.standard.value(forKey: "Currency") as! String;
