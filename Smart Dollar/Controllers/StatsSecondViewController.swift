@@ -21,6 +21,12 @@ class StatsSecondViewController: UIViewController,ChartViewDelegate  {
         viewDidLayoutSubviews()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated);
+        self.navigationController?.isNavigationBarHidden = true;
+        fetchData();
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
@@ -29,7 +35,11 @@ class StatsSecondViewController: UIViewController,ChartViewDelegate  {
         pieChart.center = view.center
         
         view.addSubview(pieChart)
+        fetchData()
         
+    }
+    
+    func fetchData(){
         // Condition to fetch the Transactions data from UserDefaults and sort it in the order of oldest to newest.
         if let data = defaults.value(forKey: "Transactions") as? Data {
             Transactions = try! PropertyListDecoder().decode(Array<Transaction>.self, from: data)

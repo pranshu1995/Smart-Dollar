@@ -18,6 +18,13 @@ class StatsFirstViewController: UIViewController, ChartViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         pieChart.delegate = self
+        fetchData();
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated);
+        self.navigationController?.isNavigationBarHidden = true;
+        fetchData();
     }
     
     override func viewDidLayoutSubviews() {
@@ -28,7 +35,12 @@ class StatsFirstViewController: UIViewController, ChartViewDelegate {
         pieChart.center = view.center
         
         view.addSubview(pieChart)
+        fetchData();
         
+
+    }
+    
+    func fetchData(){
         // Condition to fetch the Transactions data from UserDefaults and sort it in the order of oldest to newest.
         if let data = defaults.value(forKey: "Transactions") as? Data {
             Transactions = try! PropertyListDecoder().decode(Array<Transaction>.self, from: data)
@@ -118,6 +130,5 @@ class StatsFirstViewController: UIViewController, ChartViewDelegate {
         let data = PieChartData(dataSet: set)
         pieChart.data = data
         
-
     }
 }
