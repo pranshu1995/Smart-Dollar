@@ -23,7 +23,7 @@ class StatsSecondViewController: UIViewController,ChartViewDelegate  {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated);
-        self.navigationController?.isNavigationBarHidden = true;
+        self.navigationController?.isNavigationBarHidden = false;
         fetchData();
     }
     

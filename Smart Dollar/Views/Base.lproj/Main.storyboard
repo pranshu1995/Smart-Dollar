@@ -718,7 +718,7 @@
             </objects>
             <point key="canvasLocation" x="4000.0000000000005" y="1364.7321428571429"/>
         </scene>
-        <!--Stats Second View Controller-->
+        <!--Income-->
         <scene sceneID="yyH-jH-UDW">
             <objects>
                 <viewController id="LVy-zF-sSH" customClass="StatsSecondViewController" customModule="Smart_Dollar" customModuleProvider="target" sceneMemberID="viewController">
@@ -754,13 +754,13 @@
                         <viewLayoutGuide key="safeArea" id="CPn-Tn-5TT"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="RzY-1m-nDO"/>
+                    <navigationItem key="navigationItem" title="Income" largeTitleDisplayMode="never" id="RzY-1m-nDO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Bj-xj-Cc0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4000.0000000000005" y="2815.8482142857142"/>
         </scene>
-        <!--Stats First View Controller-->
+        <!--Expenses-->
         <scene sceneID="oLU-xM-JAI">
             <objects>
                 <viewController id="rYW-Mo-J2i" customClass="StatsFirstViewController" customModule="Smart_Dollar" customModuleProvider="target" sceneMemberID="viewController">
@@ -836,13 +836,13 @@
                         <viewLayoutGuide key="safeArea" id="zil-rq-w7W"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="cFk-VH-jLN"/>
+                    <navigationItem key="navigationItem" title="Expenses" largeTitleDisplayMode="never" id="cFk-VH-jLN"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nYo-dt-boG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3037.68115942029" y="2815.8482142857142"/>
         </scene>
-        <!--Stats Third View Controller-->
+        <!--Cash Flow-->
         <scene sceneID="UZT-qM-FBF">
             <objects>
                 <viewController id="bTl-sM-Kqr" customClass="StatsThirdViewController" customModule="Smart_Dollar" customModuleProvider="target" sceneMemberID="viewController">
@@ -870,7 +870,7 @@
                         <viewLayoutGuide key="safeArea" id="hAk-zK-4WU"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="Arp-7G-4U2"/>
+                    <navigationItem key="navigationItem" title="Cash Flow" largeTitleDisplayMode="never" id="Arp-7G-4U2"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bfT-jN-gxt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
