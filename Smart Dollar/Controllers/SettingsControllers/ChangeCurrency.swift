@@ -84,6 +84,10 @@ class ChangeCurrency: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             helper.showToast(message: "Invalid Exchange Rate", view: self.view, type: "Error");
             flag = false;
         }
+        else if(Float(exchangeInput.text!)! < 0){
+            helper.showToast(message: "Invalid Amount", view: self.view, type: "Error");
+            flag = false;
+        }
         else if(currentCurrency == activeCurrencyCode){
             helper.showToast(message: "Currency not changed", view: self.view, type: "Error");
             flag = false;
@@ -95,7 +99,6 @@ class ChangeCurrency: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
 
     @IBAction func button(_ sender: UIButton) {
         //Main convertion FORMULA
-       // outputRate.text = String(input * activeCurrency)
 
         //Showing Rates on screen
         if(validateExchange()){

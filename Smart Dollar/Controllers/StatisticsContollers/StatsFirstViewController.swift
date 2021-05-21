@@ -33,7 +33,7 @@ class StatsFirstViewController: UIViewController, ChartViewDelegate {
             values.append(0);
         }
         
-        fetchData();
+//        fetchData();
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -56,7 +56,7 @@ class StatsFirstViewController: UIViewController, ChartViewDelegate {
         pieChart.center = view.center
         
         view.addSubview(pieChart)
-        fetchData();
+//        fetchData();
         
 
     }
@@ -75,7 +75,6 @@ class StatsFirstViewController: UIViewController, ChartViewDelegate {
         for t in Transactions{
             for (i, val) in helper.expenseCategories.enumerated(){
                 if(val == t.category){
-                    print("\(t.category!) and \(t.amount!) at pos \(i)");
                     values[i] = values[i] + t.amount!;
                 }
             }

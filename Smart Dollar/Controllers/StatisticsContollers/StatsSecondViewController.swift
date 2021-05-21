@@ -56,7 +56,7 @@ class StatsSecondViewController: UIViewController,ChartViewDelegate  {
         pieChart.center = view.center
         
         view.addSubview(pieChart)
-        fetchData()
+//        fetchData()
         
     }
     
@@ -73,7 +73,6 @@ class StatsSecondViewController: UIViewController,ChartViewDelegate  {
             for t in Transactions{
                 for (i, val) in helper.incomeCategories.enumerated(){
                     if(val == t.category){
-                        print("\(t.category!) and \(t.amount!) at pos \(i)");
                         values[i] = values[i] + t.amount!;
                     }
                 }

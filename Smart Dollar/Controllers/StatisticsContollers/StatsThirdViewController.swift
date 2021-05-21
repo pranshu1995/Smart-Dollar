@@ -65,7 +65,7 @@ class StatsThirdViewController: UIViewController,ChartViewDelegate {
         
         view.addSubview(barChart)
         
-        fetchData();
+//        fetchData();
     }
     
     func fetchData(){
@@ -93,13 +93,11 @@ class StatsThirdViewController: UIViewController,ChartViewDelegate {
                 
                 // Calculates total amount of Income
                 Income_amount_total = Income_amount_total + Transactions[i].amount!
-                print(Income_amount_total)
             }
             if(Transactions[i].type == "Expense") {
 
                 // Calculates total amount of Expense
                 Expense_amount_total = Expense_amount_total + Transactions[i].amount!
-                print(Expense_amount_total)
             }
         }
         

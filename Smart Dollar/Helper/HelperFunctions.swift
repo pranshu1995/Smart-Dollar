@@ -68,7 +68,7 @@ struct Helper{
     func showToast(message : String, view: UIView, type : String) {
         // Show feedback on screen as a Toast message
         
-            let toastLabel = UILabel(frame: CGRect(x: view.frame.size.width/2 - 75, y: view.frame.size.height-150, width: 150, height: 35));
+            let toastLabel = UILabel(frame: CGRect(x: view.frame.size.width/2 - 125, y: view.frame.size.height-150, width: 250, height: 35));
 
             toastLabel.backgroundColor = UIColor.darkGray.withAlphaComponent(0.6);
             

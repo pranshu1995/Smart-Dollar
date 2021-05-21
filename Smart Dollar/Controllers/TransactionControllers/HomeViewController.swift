@@ -68,8 +68,8 @@ class HomeViewController: UIViewController{
     }
     
     @objc func validateLock(){
-        print(UserDefaults.standard.bool(forKey: "lock"));
-        print("presenta?");
+        // Lockscreen on Homepage
+        
         var options = ALOptions();
         options.image = UIImage(named: "lock")!;
         options.color = UIColor(red: 88/256, green: 86/256, blue: 214/256, alpha: 1.0);
@@ -82,12 +82,10 @@ class HomeViewController: UIViewController{
             else {
                print("User Cancelled");
             }
-            
-        
     }
         
        if((UserDefaults.standard.bool(forKey: "lock")) == true){
-            print("3?");
+            
             AppLocker.present(with: .validate, and: options);
         }
 

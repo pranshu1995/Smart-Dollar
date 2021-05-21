@@ -134,6 +134,10 @@ class TransactionAddViewController: UIViewController {
             helper.showToast(message: "Invalid Amount", view: self.view, type: "Error");
             flag = false;
         }
+        else if(Float(transactionAmount.text!)! < 0){
+            helper.showToast(message: "Invalid Amount", view: self.view, type: "Error");
+            flag = false;
+        }
         return flag;
     }
     
@@ -186,8 +190,6 @@ class TransactionAddViewController: UIViewController {
             if(UserDefaults.standard.value(forKey: "Currency") != nil){
                 currencyValue = UserDefaults.standard.value(forKey: "Currency") as! String;
             }
-            
-            print("Dekho ", currencyValue);
             
             let amount: Double = Double(transactionAmount.text ?? "") ?? 0;
 

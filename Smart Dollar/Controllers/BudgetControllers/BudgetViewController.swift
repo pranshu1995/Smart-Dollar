@@ -45,6 +45,15 @@ class BudgetViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated);
+        
+        setCurrentMonth();
+        fetchData();
+        getCurrentValues();
+        getCurrentBudget();
+    }
+    
     @objc func setCurrentMonth(){
         // Update values to current month
         
@@ -68,6 +77,10 @@ class BudgetViewController: UIViewController {
     
     @objc func getCurrentValues(){
         // Update values for Income, Expense and Balance
+        
+        currentIncome = 0;
+        currentExpense = 0;
+        balance = 0;
         
         for transaction in displayTransactions{
             if(transaction.type == "Income"){
@@ -136,6 +149,10 @@ class BudgetViewController: UIViewController {
         var flag = true;
         if(Float(budgetAmountInput.text!) ?? 0 == 0 || String(budgetAmountInput.text!).trimmingCharacters(in: .whitespacesAndNewlines) == ""){
             helper.showToast(message: "Invalid Budget", view: self.view, type: "Error");
+            flag = false;
+        }
+        else if(Float(budgetAmountInput.text!)! < 0){
+            helper.showToast(message: "Invalid Amount", view: self.view, type: "Error");
             flag = false;
         }
         return flag;

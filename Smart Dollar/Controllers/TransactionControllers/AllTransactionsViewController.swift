@@ -75,7 +75,6 @@ class AllTransactionsViewController: UIViewController, UITabBarDelegate {
             fetchedTransactions.sort{
                 $0.date! > $1.date!;
             }
-            print(fetchedTransactions);
         }
         
     }
