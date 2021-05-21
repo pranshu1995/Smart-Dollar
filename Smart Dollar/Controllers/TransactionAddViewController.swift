@@ -16,6 +16,7 @@ class TransactionAddViewController: UIViewController {
     @IBOutlet weak var dropDownView: UIView!;
     @IBOutlet weak var transactionDescription: UITextField!
   
+    @IBOutlet weak var catIcon: UIImageView!
     @IBOutlet weak var transactionDate: UIDatePicker!
     
     @IBOutlet weak var transactionAmount: UITextField!
@@ -97,6 +98,8 @@ class TransactionAddViewController: UIViewController {
         dropDown.anchorView = dropDownView;
         dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
         categoryLabel.text = item;
+            
+        catIcon.image = UIImage(named: item);
         }
     }
     
