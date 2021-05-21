@@ -28,21 +28,23 @@ class TransactionAddViewController: UIViewController {
     
     @IBOutlet weak var deleteBtn: UIButton!
     
+    // Helper class and Dropdown library initialisation
+    let helper = Helper();
+    let dropDown = DropDown();
+    
     // Variable for data values
     var newTransaction = true;
     var currentTransaction: Transaction = Transaction();
     var transactionId: String = UUID.init().uuidString;
     
     // Categories for Income and Expenses
-    var incomeCategories = ["Deposits", "Salary", "Savings"];
-    var expenseCategories = ["Restaurant", "Grocery", "Shopping", "Housing", "Transportation", "Vehicle", "Entertainment", "Communication"];
+//    var incomeCategories =
+//    var expenseCategories = ["Restaurant", "Grocery", "Shopping", "Housing", "Transportation", "Vehicle", "Entertainment", "Communication"];
    
     // List for storing Transactions
     var fetchedTransactions: [Transaction] = [];
     
-    // Helper class and Dropdown library initialisation
-    let helper = Helper();
-    let dropDown = DropDown();
+   
     
     override func viewDidLoad() {
         super.viewDidLoad();
@@ -55,7 +57,7 @@ class TransactionAddViewController: UIViewController {
         if(newTransaction == true){
             // Setup screen if transaction is new
             
-            dropDown.dataSource = incomeCategories;
+            dropDown.dataSource = helper.incomeCategories;
             transactionAmount.textColor = UIColor(red: 33/256, green: 150/256, blue: 30/256, alpha: 1.0);
             btnLabel.setTitle("Add", for: .normal);
             deleteBtn.isHidden = true;
@@ -74,12 +76,12 @@ class TransactionAddViewController: UIViewController {
             
             if(currentTransaction.type == "Income"){
                 transactionType.selectedSegmentIndex = 0;
-                dropDown.dataSource = incomeCategories;
+                dropDown.dataSource = helper.incomeCategories;
                 transactionAmount.textColor = UIColor(red: 33/256, green: 150/256, blue: 30/256, alpha: 1.0);
             }
             else if(currentTransaction.type == "Expense"){
                 transactionType.selectedSegmentIndex = 1;
-                dropDown.dataSource = expenseCategories;
+                dropDown.dataSource = helper.expenseCategories;
                 transactionAmount.textColor = UIColor(red: 235/256, green: 87/256, blue: 87/256, alpha: 1.0)
             }
             
@@ -143,11 +145,11 @@ class TransactionAddViewController: UIViewController {
         // Switch between Income and Expense
 
         if(transactionType.selectedSegmentIndex == 0){
-            dropDown.dataSource = incomeCategories;
+            dropDown.dataSource = helper.incomeCategories;
             transactionAmount.textColor = UIColor(red: 33/256, green: 150/256, blue: 30/256, alpha: 1.0);
         }
         else if(transactionType.selectedSegmentIndex == 1){
-            dropDown.dataSource = expenseCategories;
+            dropDown.dataSource = helper.expenseCategories;
             transactionAmount.textColor = UIColor(red: 235/256, green: 87/256, blue: 87/256, alpha: 1.0)
         }
         categoryLabel.text = "Select Category";

@@ -14,17 +14,32 @@ class StatsSecondViewController: UIViewController,ChartViewDelegate  {
     var pieChart = PieChartView()
     let defaults = UserDefaults.standard
     var Transactions: [Transaction] = []
+    
+    var values: [Double] = [];
+    
+    let helper = Helper();
 
     override func viewDidLoad() {
         super.viewDidLoad()
         pieChart.delegate = self
+        
+       
+        for _ in helper.incomeCategories{
+            values.append(0);
+        }
+
+        
         viewDidLayoutSubviews()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated);
         self.navigationController?.isNavigationBarHidden = false;
-        fetchData();
+        
+        for (i,_) in helper.incomeCategories.enumerated(){
+            values[i] = 0;
+        }
+        
     }
     
     override func viewDidLayoutSubviews() {
@@ -40,76 +55,39 @@ class StatsSecondViewController: UIViewController,ChartViewDelegate  {
     }
     
     func fetchData(){
+
         // Condition to fetch the Transactions data from UserDefaults and sort it in the order of oldest to newest.
         if let data = defaults.value(forKey: "Transactions") as? Data {
             Transactions = try! PropertyListDecoder().decode(Array<Transaction>.self, from: data)
             Transactions.sort{
                 $0.date! < $1.date!;
             }
-        }
-        
-        // To calculate the number of Transactions
-        let length = Transactions.count
-        
-        // To store chart data entries
-        var entries = [ChartDataEntry]()
-        
-        var deposits_Amount = 0.0
-        var salary_Amount = 0.0
-        var savings_Amount = 0.0
-        
-        
-        for i in 0..<length {
+            Transactions = Transactions.filter{ $0.type == "Income"};
             
-            // Condition to filter "Income" Transactions
-            if(Transactions[i].type == "Income") {
-                
-                // Condition to filter "Deposit" category in "Income" Transactions
-                if(Transactions[i].category == "Deposits") {
-                    deposits_Amount = deposits_Amount +  Transactions[i].amount!
-                }
-                
-                // Condition to filter "Salary" category in "Income" Transactions
-                else if(Transactions[i].category == "Salary") {
-                    salary_Amount = salary_Amount +  Transactions[i].amount!
-                }
-                
-                // Condition to filter "Savings" category in "Income" Transactions
-                else if(Transactions[i].category == "Savings") {
-                    savings_Amount = savings_Amount +  Transactions[i].amount!
+            for t in Transactions{
+                for (i, val) in helper.incomeCategories.enumerated(){
+                    if(val == t.category){
+                        print("\(t.category!) and \(t.amount!) at pos \(i)");
+                        values[i] = values[i] + t.amount!;
+                    }
                 }
             }
         }
         
-        
-        if (deposits_Amount == 0.0) {
-            entries.append(ChartDataEntry(x: 1, y: 0))
-        }
-        else {
-            // Appends chart data enteries to display the values retrieved if not 0.
-            entries.append(ChartDataEntry(x: 1, y: Double(deposits_Amount)))
-        }
 
-        if (salary_Amount == 0.0) {
-            entries.append(ChartDataEntry(x: 2, y: 0.0))
+        var entries = [ChartDataEntry]()
+        
+        for (i,_) in helper.incomeCategories.enumerated(){
+            if(values[i] != 0){
+                entries.append(PieChartDataEntry(value: values[i], label: helper.incomeCategories[i]))
+            }
         }
-        else {
-            // Appends chart data enteries to display the values retrieved if not 0.
-            entries.append(ChartDataEntry(x: 2, y: Double(salary_Amount)))
-        }
+        
+        let set = PieChartDataSet(entries: entries);
 
-        if (savings_Amount == 0.0) {
-            entries.append(ChartDataEntry(x: 3, y: 0.0))
-        }
-        else {
-            // Appends chart data enteries to display the values retrieved if not 0.
-            entries.append(ChartDataEntry(x: 3, y: Double(savings_Amount)))
-        }
-        
-        let set = PieChartDataSet(entries: entries)
-        // Setting particular colors for each bar of the chart.
-        set.colors = [UIColor.systemRed,UIColor.systemTeal,UIColor.systemYellow]
-        
+        set.colors = ChartColorTemplates.joyful();
+        set.valueColors = [UIColor.black]
+        set.entryLabelColor = UIColor.black
         let data = PieChartData(dataSet: set)
         pieChart.data = data
     }

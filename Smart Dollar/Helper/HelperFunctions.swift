@@ -10,6 +10,9 @@ import UIKit
 
 struct Helper{
     
+    var incomeCategories: [String] = ["Deposits", "Salary", "Savings"];
+    var expenseCategories: [String] = ["Restaurant", "Grocery", "Shopping", "Housing", "Transportation", "Vehicle", "Entertainment", "Communication"];
+    
     func dateToString(inDate: Date) -> String{
         // Convert date to a Readable format for the user
         let dateFormatterGet = DateFormatter();
