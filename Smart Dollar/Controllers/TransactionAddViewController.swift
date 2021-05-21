@@ -151,6 +151,8 @@ class TransactionAddViewController: UIViewController {
             transactionAmount.textColor = UIColor(red: 235/256, green: 87/256, blue: 87/256, alpha: 1.0)
         }
         categoryLabel.text = "Select Category";
+        
+        catIcon.image = UIImage(named: "list");
     }
     
     
