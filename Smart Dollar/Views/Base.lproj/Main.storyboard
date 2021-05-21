@@ -362,7 +362,7 @@
         <scene sceneID="5OL-DG-yRQ">
             <objects>
                 <navigationController id="BJz-8n-gZU" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Cash Flow" id="yn9-MW-pJe"/>
+                    <tabBarItem key="tabBarItem" title="Cash Flow" image="chart.bar.fill" catalog="system" id="yn9-MW-pJe"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="3Wv-Yq-wd3">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -379,7 +379,7 @@
         <scene sceneID="gdr-ut-85n">
             <objects>
                 <navigationController id="GKN-dW-iXR" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Income" id="cwO-RU-Vrw"/>
+                    <tabBarItem key="tabBarItem" title="Income" image="arrow.up.circle.fill" catalog="system" id="cwO-RU-Vrw"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="JAU-xw-hhG">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -396,7 +396,7 @@
         <scene sceneID="3d7-IB-RPd">
             <objects>
                 <navigationController id="ESu-h3-O63" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Expense" id="xhi-xj-RyB"/>
+                    <tabBarItem key="tabBarItem" title="Expense" image="arrow.up.circle.fill" catalog="system" id="xhi-xj-RyB"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="maO-hK-YeC">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -852,6 +852,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" systemColor="systemGray2Color"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="unselectedItemTintColor">
+                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
                         <segue destination="BJz-8n-gZU" kind="relationship" relationship="viewControllers" id="CPU-5g-ttK"/>
@@ -919,9 +925,11 @@
         <image name="User" width="50" height="50"/>
         <image name="User-big" width="128" height="128"/>
         <image name="User.png" width="50" height="50"/>
+        <image name="arrow.up.circle.fill" catalog="system" width="128" height="121"/>
         <image name="bar_chart.png" width="24" height="24"/>
         <image name="budget" width="24" height="24"/>
         <image name="calendar_today" width="24" height="24"/>
+        <image name="chart.bar.fill" catalog="system" width="128" height="92"/>
         <image name="currency-1" width="128" height="128"/>
         <image name="deleteButton" width="197" height="50"/>
         <image name="home.png" width="24" height="24"/>
@@ -932,6 +940,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray5Color">
             <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
