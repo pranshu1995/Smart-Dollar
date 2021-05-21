@@ -10,14 +10,14 @@ import AppLocker
 
 class SettingsSecurityViewController: UIViewController {
 
-    
+    // Outlet variables
     @IBOutlet weak var setPasscodeButton: UIButton!
     @IBOutlet weak var updatePasscodeBtn: UIButton!
     @IBOutlet weak var deactivatePasscodeBtn: UIButton!
     
+    // Option variable for Applocker
     var options = ALOptions();
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         screenSetup();
@@ -32,13 +32,15 @@ class SettingsSecurityViewController: UIViewController {
   
         let securityPage = storyboard.instantiateViewController(withIdentifier: "SecurityPage") as! SettingsSecurityViewController
         
-        let topViewController = UIApplication.shared.keyWindow?.rootViewController
-        topViewController?.present(securityPage, animated: true, completion: nil)
+//        let topViewController = UIApplication.shared.keyWindow?.rootViewController
+//        topViewController?.present(securityPage, animated: true, completion: nil)
+        self.navigationController?.pushViewController(securityPage, animated: true)
 
     }
     
     @objc func screenSetup(){
-        print(UserDefaults.standard.bool(forKey: "lock"));
+        // Screen setup according to Passcode enabled/disabled
+        
         if((UserDefaults.standard.bool(forKey: "lock")) == false){
             updatePasscodeBtn.isHidden = true;
             deactivatePasscodeBtn.isHidden = true;
@@ -52,6 +54,8 @@ class SettingsSecurityViewController: UIViewController {
     }
     
     @objc func passcodeSetup(){
+        // Applocker options properties
+        
         options.image = UIImage(named: "lock")!;
         options.color = UIColor(red: 88/256, green: 86/256, blue: 214/256, alpha: 1.0)
         options.title = "Smart Dollar Safe";
@@ -73,14 +77,14 @@ class SettingsSecurityViewController: UIViewController {
     }
     
     func validateMode(mode: ALMode){
+        // Update values globally according to user actio n
+        
         if(mode == ALMode.create){
             UserDefaults.standard.set(true, forKey: "lock");
         }
         else if(mode == ALMode.deactive){
             UserDefaults.standard.set(false, forKey: "lock");
         }
-        
-        print(UserDefaults.standard.bool(forKey: "lock"));
     }
 
     

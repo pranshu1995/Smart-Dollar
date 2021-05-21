@@ -9,9 +9,12 @@ import UIKit
 
 class NameViewController: UIViewController {
 
+    // Outlet vaiables
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var nameButton: UIButton!
     
+    
+    // Helper class initialisation
     let helper = Helper();
     
     override func viewDidLoad() {
@@ -21,15 +24,19 @@ class NameViewController: UIViewController {
     }
     
     func setName(){
+        // Open Name Editing view
+        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let NameView = storyboard.instantiateViewController(withIdentifier: "NameView") as! NameViewController
         
-        let topViewController = UIApplication.shared.keyWindow?.rootViewController
-        topViewController?.present(NameView, animated: true, completion: nil)
+//        let topViewController = UIApplication.shared.keyWindow?.rootViewController
+//        topViewController?.present(NameView, animated: true, completion: nil)
+        self.navigationController?.pushViewController(NameView, animated: true)
     }
     
     @IBAction func nameButtonPressed(_ sender: Any) {
-        if(nameField.text == "") {
+        
+        if(nameField.text!.trimmingCharacters(in: .whitespacesAndNewlines) == "") {
             helper.showToast(message: "Username Empty", view: self.view, type: "Error");
         }
         else{

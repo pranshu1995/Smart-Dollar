@@ -11,19 +11,24 @@ import Charts
 
 class StatsSecondViewController: UIViewController,ChartViewDelegate  {
     
+    // Pie chart variable
     var pieChart = PieChartView()
-    let defaults = UserDefaults.standard
-    var Transactions: [Transaction] = []
     
+    // Variable for UD
+    let defaults = UserDefaults.standard
+    
+    // Variables to store data lists
+    var Transactions: [Transaction] = []
     var values: [Double] = [];
     
+    // Helper class initialisation
     let helper = Helper();
 
     override func viewDidLoad() {
         super.viewDidLoad()
         pieChart.delegate = self
         
-       
+        // Append amount 0 to all the incomes
         for _ in helper.incomeCategories{
             values.append(0);
         }
@@ -36,6 +41,7 @@ class StatsSecondViewController: UIViewController,ChartViewDelegate  {
         super.viewWillAppear(animated);
         self.navigationController?.isNavigationBarHidden = false;
         
+        // Update amount to 0 for all the incomes
         for (i,_) in helper.incomeCategories.enumerated(){
             values[i] = 0;
         }

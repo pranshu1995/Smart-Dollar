@@ -11,8 +11,13 @@ import Charts
 
 class StatsThirdViewController: UIViewController,ChartViewDelegate {
 
+    // Pie chart variable
     var barChart = BarChartView()
+    
+    // Variable for UD
     let defaults = UserDefaults.standard
+    
+    // Variables to store data lists
     var Transactions: [Transaction] = []
     
     override func viewDidLoad() {

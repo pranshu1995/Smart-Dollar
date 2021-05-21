@@ -8,22 +8,27 @@
 import UIKit
 
 class ChangeCurrency: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
-
+    // Currency Exchange controller
+    
+    // Helper class initialisation
+    let helper = Helper();
+    
+    // Variable for data values
     var myCurrency:[String] = [];
     var activeCurrencyCode:String = "AUD";
-    
     var currentCurrency: String = "AUD";
     
+    // Outlet variable for page
     @IBOutlet weak var exchangeInput: UITextField!
     @IBOutlet weak var currencylabel: UILabel!
-    let helper = Helper();
+    
     
     @IBOutlet weak var ChangeButton: UIButton!
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var outputrate: UILabel!
     
  
-    //Currency Picker with country list
+    // UI Picker with currency list
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -51,28 +56,28 @@ class ChangeCurrency: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         // Cast is as the custom view controller type you created in order to access it's properties and methods
         let ChangeCurrency = storyboard.instantiateViewController(withIdentifier: "CurrencyChange") as! ChangeCurrency
         
-        let topViewController = UIApplication.shared.keyWindow?.rootViewController
-        topViewController?.present(ChangeCurrency, animated: true, completion: nil)
-        //self.present(ChangeCurrency, animated: true, completion: nil)
-        
+//        let topViewController = UIApplication.shared.keyWindow?.rootViewController
+//        topViewController?.present(ChangeCurrency, animated: true, completion: nil)
+//        
+        self.navigationController?.pushViewController(ChangeCurrency, animated: true)
     }
    
     override func viewDidLoad() {
         super.viewDidLoad();
         
-        
+        // Load current currency
         if(UserDefaults.standard.value(forKey: "Currency") != nil){
             currentCurrency = UserDefaults.standard.value(forKey: "Currency") as! String;
         }
         currencylabel.text = "Current currency is \(currentCurrency)"
     
-    //Get Data
+        // Get and Set Data
         self.myCurrency = helper.currencyList;
         self.pickerView.reloadAllComponents();
     }
 
     @objc func validateExchange() -> Bool{
-        // Validate if values for transaction are correct
+        // Validate if values for Exchange are correct
         
         var flag = true;
         if(Float(exchangeInput.text!) ?? 0 <= 0 || String(exchangeInput.text!).trimmingCharacters(in: .whitespacesAndNewlines) == ""){
@@ -85,6 +90,7 @@ class ChangeCurrency: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         }
         return flag;
     }
+    
     //Button
 
     @IBAction func button(_ sender: UIButton) {
@@ -95,6 +101,8 @@ class ChangeCurrency: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         if(validateExchange()){
         let exRate = Double(exchangeInput.text!);
             outputrate.text = "Currency updated with 1 \(currentCurrency) = \(exRate!) \(activeCurrencyCode)"
+            
+            // Update currency globally using Helper function
             helper.updateCurrency(newCurrency: activeCurrencyCode, exchangeRate: exRate!);
             
             

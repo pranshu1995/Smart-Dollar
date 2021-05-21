@@ -14,6 +14,8 @@ struct Section {
 }
 
 class SettingsTableViewCell: UITableViewCell {
+    // Custom cell for Settings Table View
+    
      static let identifier = "SettingTableviewCell"
     
     private let iconContainer: UIView = {
@@ -74,6 +76,8 @@ class SettingsTableViewCell: UITableViewCell {
     }
     
     public func configure(with model: SettingsOption){
+        // Cell configuration
+        
         label.text = model.title
         iconImageView.image = model.icon
         iconContainer.backgroundColor = model.iconBackgroundColor

@@ -102,7 +102,7 @@
 		ECDDF7EF26497BDA006F94A1 /* Smart DollarUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Smart DollarUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECDDF7F326497BDA006F94A1 /* Smart_DollarUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Smart_DollarUITests.swift; sourceTree = "<group>"; };
 		ECDDF7F526497BDA006F94A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		ECDDF80B264982D1006F94A1 /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StatisticsViewController.swift; path = "Smart Dollar/Controllers/StatisticsViewController.swift"; sourceTree = SOURCE_ROOT; };
+		ECDDF80B264982D1006F94A1 /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StatisticsViewController.swift; path = "Smart Dollar/Controllers/StatisticsContollers/StatisticsViewController.swift"; sourceTree = SOURCE_ROOT; };
 		ECDDF810264982F8006F94A1 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		ECDDF815264983DE006F94A1 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		ECDDF81A26498A1A006F94A1 /* Budget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Budget.swift; sourceTree = "<group>"; };
@@ -184,6 +184,47 @@
 				EC425B522655972A003466F8 /* AppLocker.swift */,
 			);
 			path = AppLocker;
+			sourceTree = "<group>";
+		};
+		EC425B95265797D7003466F8 /* StatisticsContollers */ = {
+			isa = PBXGroup;
+			children = (
+				ECDDF80B264982D1006F94A1 /* StatisticsViewController.swift */,
+				87041AD62654888B00C32C81 /* StatsFirstViewController.swift */,
+				87041ADA265488FD00C32C81 /* StatsSecondViewController.swift */,
+				87041ADC2654890E00C32C81 /* StatsThirdViewController.swift */,
+			);
+			path = StatisticsContollers;
+			sourceTree = "<group>";
+		};
+		EC425B96265797F8003466F8 /* SettingsControllers */ = {
+			isa = PBXGroup;
+			children = (
+				ECDDF810264982F8006F94A1 /* SettingsViewController.swift */,
+				D68CAB182656637B00779C15 /* SettingsTableViewController.swift */,
+				D68CAB1D265663A200779C15 /* ChangeCurrency.swift */,
+				EC425B852656842A003466F8 /* SettingsSecurityViewController.swift */,
+				621C902C265773F700601FC0 /* NameViewController.swift */,
+			);
+			path = SettingsControllers;
+			sourceTree = "<group>";
+		};
+		EC425B972657982D003466F8 /* TransactionControllers */ = {
+			isa = PBXGroup;
+			children = (
+				ECDDF7D526497BD4006F94A1 /* HomeViewController.swift */,
+				ECDDF81F2649A12B006F94A1 /* TransactionAddViewController.swift */,
+				EC95499E264FA3C200DBD176 /* AllTransactionsViewController.swift */,
+			);
+			path = TransactionControllers;
+			sourceTree = "<group>";
+		};
+		EC425B9826579851003466F8 /* BudgetControllers */ = {
+			isa = PBXGroup;
+			children = (
+				EC954994264FA25C00DBD176 /* BudgetViewController.swift */,
+			);
+			path = BudgetControllers;
 			sourceTree = "<group>";
 		};
 		EC954983264EA52A00DBD176 /* Helper */ = {
@@ -273,19 +314,10 @@
 		ECDDF80726498025006F94A1 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				ECDDF80B264982D1006F94A1 /* StatisticsViewController.swift */,
-				87041AD62654888B00C32C81 /* StatsFirstViewController.swift */,
-				87041ADA265488FD00C32C81 /* StatsSecondViewController.swift */,
-				87041ADC2654890E00C32C81 /* StatsThirdViewController.swift */,
-				ECDDF7D526497BD4006F94A1 /* HomeViewController.swift */,
-				ECDDF81F2649A12B006F94A1 /* TransactionAddViewController.swift */,
-				ECDDF810264982F8006F94A1 /* SettingsViewController.swift */,
-				EC954994264FA25C00DBD176 /* BudgetViewController.swift */,
-				EC95499E264FA3C200DBD176 /* AllTransactionsViewController.swift */,
-				D68CAB182656637B00779C15 /* SettingsTableViewController.swift */,
-				D68CAB1D265663A200779C15 /* ChangeCurrency.swift */,
-				EC425B852656842A003466F8 /* SettingsSecurityViewController.swift */,
-				621C902C265773F700601FC0 /* NameViewController.swift */,
+				EC425B9826579851003466F8 /* BudgetControllers */,
+				EC425B972657982D003466F8 /* TransactionControllers */,
+				EC425B96265797F8003466F8 /* SettingsControllers */,
+				EC425B95265797D7003466F8 /* StatisticsContollers */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";

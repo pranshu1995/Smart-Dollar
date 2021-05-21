@@ -18,7 +18,8 @@ struct SettingsOption {
 }
 
 class SettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+    // Settigns page table controller
+    
     private let tableView: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
         table.register(SettingsTableViewCell.self, forCellReuseIdentifier: SettingsTableViewCell.identifier)
@@ -39,6 +40,8 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func configure() {
+        // Options on Settings page
+        
         models.append(Section(title: "Settings", options: [
             SettingsOption(title: "Name", icon: UIImage(named: "name.png"), iconBackgroundColor: .systemBlue) {
         },
@@ -102,50 +105,3 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
 }
 
 
-
-
- 
-    
-  //  override func viewDidLoad() {
-    //    super.viewDidLoad()
-    //    lockerLoader();
-        // Do any additional setup after loading the view.
-   // }
-    
-//    var opts
- //   @objc func lockerLoader(){
-//  var options = ALOptions();
-  //     options.image = UIImage(named: "lock")!;
-    
-  //  options.title = "Smart Dollar Safe";
-  //  options.isSensorsEnabled = true;
-       
-  //  options.onSuccessfulDismiss = { (mode: ALMode?) in
-   //     print("dekhba");
-  //         if let mode = mode {
-  //  print("Password \(String(describing: mode))d successfully");
-  //         } else {
- //   print("User Cancelled");
-  //         }
-  //     }
-  //     options.onFailedAttempt = { (mode: ALMode?) in
-  //      print("naa dekhba");
- //   print("Failed to \(String(describing: mode))");
-//       }
-        
- //       AppLocker.present(with: .create, and: options)
- //   }
-    
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-//}

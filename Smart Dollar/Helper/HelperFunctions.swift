@@ -10,11 +10,14 @@ import UIKit
 
 struct Helper{
     
+    // Variables for Category Lists and Currencies
     var incomeCategories: [String] = ["Deposits", "Salary", "Savings"];
     var expenseCategories: [String] = ["Restaurant", "Grocery", "Shopping", "Housing", "Transportation", "Vehicle", "Entertainment", "Communication"];
+    var currencyList: [String] = ["ALL","AFN","ARS","AWG","AUD","AZN","BSD","BBD","BDT","BYR","BZD","BMD","BOB","BAM","BWP","BGN","BRL","BND","KHR","CAD","KYD","CLP","CNY","COP","CRC","HRK","CUP","CZK","DKK","DOP","XCD","EGP","SVC","EEK","EUR","FKP","FJD","GHC","GIP","GTQ","GGP","GYD","HNL","HKD","HUF","ISK","INR","IDR","IRR","IMP","ILS","JMD","JPY","JEP","KZT","KPW","KRW","KGS","LAK","LVL","LBP","LRD","LTL","MKD","MYR","MUR","MXN","MNT","MZN","NAD","NPR","ANG","NZD","NIO","NGN","NOK","OMR","PKR","PAB","PYG","PEN","PHP","PLN","QAR","RON","RUB","SHP","SAR","RSD","SCR","SGD","SBD","SOS","ZAR","LKR","SEK","CHF","SRD","SYP","TWD","THB","TTD","TRY","TRL","TVD","UAH","GBP","USD","UYU","UZS","VEF","VND","YER","ZWD"];
     
     func dateToString(inDate: Date) -> String{
         // Convert date to a Readable format for the user
+        
         let dateFormatterGet = DateFormatter();
         dateFormatterGet.dateFormat = "MMM dd, yyyy HH:mm";
         let returnDate: String = dateFormatterGet.string(from: inDate);
@@ -23,6 +26,7 @@ struct Helper{
     
     func extractMonth(inDate: Date) -> String{
         // Extract month and year string from the current date
+        
         let dateFormatterGet = DateFormatter();
         dateFormatterGet.dateFormat = "MMM yyyy";
         let returnDate: String = dateFormatterGet.string(from: inDate);
@@ -31,6 +35,7 @@ struct Helper{
     
     func extractDate(inDate: Date) -> String{
         // Extract date value string from the current date
+        
         let dateFormatterGet = DateFormatter();
         dateFormatterGet.dateFormat = "dd";
         let returnDate: String = dateFormatterGet.string(from: inDate);
@@ -39,6 +44,7 @@ struct Helper{
     
     func getMonths() -> [String]{
         // Extract 4 months before and after the current month
+        
         var monthArr: [String] = [];
         for i in -4...4{
             let value = extractMonth(inDate: Calendar.current.date(byAdding: .month, value: i, to: Date())!);
@@ -49,6 +55,7 @@ struct Helper{
     
     func monthDaysLeft() -> String{
         // Calculate the number of day left in the month
+        
         let calendar = Calendar.current
         let date = Date.init()
         let interval = calendar.dateInterval(of: .month, for: date)!
@@ -59,6 +66,8 @@ struct Helper{
     }
     
     func showToast(message : String, view: UIView, type : String) {
+        // Show feedback on screen as a Toast message
+        
             let toastLabel = UILabel(frame: CGRect(x: view.frame.size.width/2 - 75, y: view.frame.size.height-150, width: 150, height: 35));
 
             toastLabel.backgroundColor = UIColor.darkGray.withAlphaComponent(0.6);
@@ -69,6 +78,8 @@ struct Helper{
             else if(type == "Success"){
                 toastLabel.backgroundColor = UIColor(red: 33/256, green: 150/256, blue: 30/256, alpha: 1.0)
             }
+        
+        // Toast notification properties
             toastLabel.textColor = UIColor.white;
             toastLabel.font = UIFont.systemFont(ofSize: 15.0);
             toastLabel.textAlignment = .center;
@@ -88,6 +99,7 @@ struct Helper{
 
     func deleteTransaction(id: String){
         // Delete a transaction from the UserDefaults
+        
         var fetchedTransactions: [Transaction] = [];
         if let data = UserDefaults.standard.value(forKey: "Transactions") as? Data {
             fetchedTransactions = try! PropertyListDecoder().decode(Array<Transaction>.self, from: data);
@@ -103,6 +115,8 @@ struct Helper{
     }
     
     func updateCurrency(newCurrency: String, exchangeRate: Double){
+        // Update currency values for Transactions and Budget and set in User Defaults
+        
         UserDefaults.standard.setValue(newCurrency,forKey: "Currency");
         
         var fetchedTransactions: [Transaction] = [];
@@ -130,6 +144,4 @@ struct Helper{
             budgetList = [];
         }
     }
-    
-    var currencyList: [String] = ["ALL","AFN","ARS","AWG","AUD","AZN","BSD","BBD","BDT","BYR","BZD","BMD","BOB","BAM","BWP","BGN","BRL","BND","KHR","CAD","KYD","CLP","CNY","COP","CRC","HRK","CUP","CZK","DKK","DOP","XCD","EGP","SVC","EEK","EUR","FKP","FJD","GHC","GIP","GTQ","GGP","GYD","HNL","HKD","HUF","ISK","INR","IDR","IRR","IMP","ILS","JMD","JPY","JEP","KZT","KPW","KRW","KGS","LAK","LVL","LBP","LRD","LTL","MKD","MYR","MUR","MXN","MNT","MZN","NAD","NPR","ANG","NZD","NIO","NGN","NOK","OMR","PKR","PAB","PYG","PEN","PHP","PLN","QAR","RON","RUB","SHP","SAR","RSD","SCR","SGD","SBD","SOS","ZAR","LKR","SEK","CHF","SRD","SYP","TWD","THB","TTD","TRY","TRL","TVD","UAH","GBP","USD","UYU","UZS","VEF","VND","YER","ZWD"];
 }

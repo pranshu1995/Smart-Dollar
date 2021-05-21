@@ -139,7 +139,6 @@ extension AllTransactionsViewController: UITableViewDelegate, UITableViewDataSou
         
         let currentTransaction = displayTransactions[indexPath.row];
         
-        print("Selected \(currentTransaction) on \(indexPath.row)")
         let transactionView: UIStoryboard = UIStoryboard(name: "TransactionAddStoryboard", bundle: nil)
         let vc = transactionView.instantiateViewController(identifier: "TransactionAddViewController") as! TransactionAddViewController;
         self.navigationController?.pushViewController(vc, animated: true)

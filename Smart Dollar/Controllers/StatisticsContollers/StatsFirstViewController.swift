@@ -11,17 +11,24 @@ import Charts
 
 class StatsFirstViewController: UIViewController, ChartViewDelegate {
     
+    // Pie chart variable
     var pieChart = PieChartView()
+    
+    // Variable for UD
     let defaults = UserDefaults.standard
+    
+    // Variables to store data lists
     var Transactions: [Transaction] = []
     var values: [Double] = [];
     
+    // Helper class initialisation
     let helper = Helper();
 
     override func viewDidLoad() {
         super.viewDidLoad()
         pieChart.delegate = self
         
+        // Append amount 0 to all the expenses
         for _ in helper.expenseCategories{
             values.append(0);
         }
@@ -33,6 +40,7 @@ class StatsFirstViewController: UIViewController, ChartViewDelegate {
         super.viewWillAppear(animated);
         self.navigationController?.isNavigationBarHidden = false;
         
+        // Update amount to 0 for all the expenses
         for (i,_) in helper.expenseCategories.enumerated(){
             values[i] = 0;
         }
