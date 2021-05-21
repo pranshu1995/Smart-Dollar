@@ -64,10 +64,10 @@ struct Helper{
             toastLabel.backgroundColor = UIColor.darkGray.withAlphaComponent(0.6);
             
             if(type == "Error"){
-                toastLabel.backgroundColor = UIColor.red.withAlphaComponent(0.6);
+                toastLabel.backgroundColor = UIColor(red: 235/256, green: 87/256, blue: 87/256, alpha: 1.0)
             }
             else if(type == "Success"){
-                toastLabel.backgroundColor = UIColor.green.withAlphaComponent(0.6);
+                toastLabel.backgroundColor = UIColor(red: 33/256, green: 150/256, blue: 30/256, alpha: 1.0)
             }
             toastLabel.textColor = UIColor.white;
             toastLabel.font = UIFont.systemFont(ofSize: 15.0);
