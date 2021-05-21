@@ -53,7 +53,7 @@ class StatsSecondViewController: UIViewController,ChartViewDelegate  {
         
         // To store chart data entries
         var entries = [ChartDataEntry]()
-        
+        var display_Amounts: [Double] = []
         var deposits_Amount = 0.0
         var salary_Amount = 0.0
         var savings_Amount = 0.0
@@ -81,29 +81,26 @@ class StatsSecondViewController: UIViewController,ChartViewDelegate  {
             }
         }
         
+        // To check if the amount is 0.
+        if (deposits_Amount != 0.0) {
+            display_Amounts.append(deposits_Amount)
+        }
+
+        if (salary_Amount != 0.0) {
+            display_Amounts.append(salary_Amount)
+        }
+
+        if (savings_Amount != 0.0) {
+            display_Amounts.append(savings_Amount)
+        }
         
-        if (deposits_Amount == 0.0) {
-            entries.append(ChartDataEntry(x: 1, y: 0))
-        }
-        else {
-            // Appends chart data enteries to display the values retrieved if not 0.
-            entries.append(ChartDataEntry(x: 1, y: Double(deposits_Amount)))
-        }
-
-        if (salary_Amount == 0.0) {
-            entries.append(ChartDataEntry(x: 2, y: 0.0))
-        }
-        else {
-            // Appends chart data enteries to display the values retrieved if not 0.
-            entries.append(ChartDataEntry(x: 2, y: Double(salary_Amount)))
-        }
-
-        if (savings_Amount == 0.0) {
-            entries.append(ChartDataEntry(x: 3, y: 0.0))
-        }
-        else {
-            // Appends chart data enteries to display the values retrieved if not 0.
-            entries.append(ChartDataEntry(x: 3, y: Double(savings_Amount)))
+        // To calculate length of the array
+        let display_length = display_Amounts.count
+        
+        // To append the values of amounts in the chart data entries.
+        for j in 0..<display_length {
+            let k = j + 1
+            entries.append(ChartDataEntry(x: Double(k), y: display_Amounts[j]))
         }
         
         let set = PieChartDataSet(entries: entries)
