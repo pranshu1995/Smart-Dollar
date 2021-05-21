@@ -56,10 +56,10 @@ class ChangeCurrency: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         // Cast is as the custom view controller type you created in order to access it's properties and methods
         let ChangeCurrency = storyboard.instantiateViewController(withIdentifier: "CurrencyChange") as! ChangeCurrency
         
-//        let topViewController = UIApplication.shared.keyWindow?.rootViewController
-//        topViewController?.present(ChangeCurrency, animated: true, completion: nil)
+        let topViewController = UIApplication.shared.keyWindow?.rootViewController
+        topViewController?.present(ChangeCurrency, animated: true, completion: nil)
 //        
-        self.navigationController?.pushViewController(ChangeCurrency, animated: true)
+//        self.navigationController?.pushViewController(ChangeCurrency, animated: true)
     }
    
     override func viewDidLoad() {

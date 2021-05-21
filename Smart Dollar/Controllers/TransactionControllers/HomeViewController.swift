@@ -197,7 +197,11 @@ class HomeViewController: UIViewController{
                 expense = expense + t.amount!;
             }
         }
+        income = Double(round(100*income)/100)
+        expense = Double(round(100*expense)/100)
         balance = income - expense;
+        
+        balance = Double(round(100*balance)/100)
         
         // Update labels
         if(UserDefaults.standard.value(forKey: "userName") != nil){
@@ -240,11 +244,15 @@ class HomeViewController: UIViewController{
                     }
                     
                     if(balance < budgetValue){
-                        let amt = budgetValue - balance;
+                        var amt = budgetValue - balance;
+                        
+                        amt = Double(round(100*amt)/100)
                         budgetLeftLabel.text = "You need \(currencyValue) \(amt) more to reach your budget";
                     }
                     else if(balance > budgetValue){
-                        let amt = balance - budgetValue;
+                        var amt = balance - budgetValue;
+                        
+                        amt = Double(round(100*amt)/100)
                         budgetLeftLabel.text = "You have \(currencyValue) \(amt) surplus on your budget";
                     }
                     else if(balance == budgetValue){

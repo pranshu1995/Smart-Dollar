@@ -32,9 +32,9 @@ class SettingsSecurityViewController: UIViewController {
   
         let securityPage = storyboard.instantiateViewController(withIdentifier: "SecurityPage") as! SettingsSecurityViewController
         
-//        let topViewController = UIApplication.shared.keyWindow?.rootViewController
-//        topViewController?.present(securityPage, animated: true, completion: nil)
-        self.navigationController?.pushViewController(securityPage, animated: true)
+        let topViewController = UIApplication.shared.keyWindow?.rootViewController
+        topViewController?.present(securityPage, animated: true, completion: nil)
+//        self.navigationController?.pushViewController(securityPage, animated: true)
 
     }
     

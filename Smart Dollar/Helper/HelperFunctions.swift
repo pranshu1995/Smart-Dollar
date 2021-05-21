@@ -126,6 +126,7 @@ struct Helper{
             fetchedTransactions = try! PropertyListDecoder().decode(Array<Transaction>.self, from: data);
             for (index,_) in fetchedTransactions.enumerated(){
                 fetchedTransactions[index].amount = fetchedTransactions[index].amount! * exchangeRate;
+                fetchedTransactions[index].amount = Double(round(100*fetchedTransactions[index].amount!)/100)
                 fetchedTransactions[index].currency = newCurrency;
             }
             UserDefaults.standard.set(try? PropertyListEncoder().encode(fetchedTransactions), forKey: "Transactions");
@@ -137,6 +138,8 @@ struct Helper{
             
             for (index,_) in budgetList.enumerated(){
                 budgetList[index].budgetValue = budgetList[index].budgetValue * exchangeRate;
+                
+                budgetList[index].budgetValue = Double(round(100*budgetList[index].budgetValue)/100)
                 budgetList[index].currency = newCurrency;
             }
             

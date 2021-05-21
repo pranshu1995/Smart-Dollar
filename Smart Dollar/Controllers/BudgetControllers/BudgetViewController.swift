@@ -113,11 +113,13 @@ class BudgetViewController: UIViewController {
                     }
                     
                     if(balance < budgetValue){
-                        let amt = budgetValue - balance;
+                        var amt = budgetValue - balance;
+                        amt = Double(round(100*amt)/100)
                         budgetLeftLabel.text = "You need \(currencyValue) \(amt) more";
                     }
                     else if(balance > budgetValue){
-                        let amt = balance - budgetValue;
+                        var amt = balance - budgetValue;
+                        amt = Double(round(100*amt)/100)
                         budgetLeftLabel.text = "You have \(currencyValue) \(amt) surplus";
                     }
                     else if(balance == budgetValue){

@@ -29,9 +29,9 @@ class NameViewController: UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let NameView = storyboard.instantiateViewController(withIdentifier: "NameView") as! NameViewController
         
-//        let topViewController = UIApplication.shared.keyWindow?.rootViewController
-//        topViewController?.present(NameView, animated: true, completion: nil)
-        self.navigationController?.pushViewController(NameView, animated: true)
+        let topViewController = UIApplication.shared.keyWindow?.rootViewController
+        topViewController?.present(NameView, animated: true, completion: nil)
+//        self.navigationController?.pushViewController(NameView, animated: true)
     }
     
     @IBAction func nameButtonPressed(_ sender: Any) {
