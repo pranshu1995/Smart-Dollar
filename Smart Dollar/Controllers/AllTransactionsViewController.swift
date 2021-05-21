@@ -115,7 +115,7 @@ extension AllTransactionsViewController: UITableViewDelegate, UITableViewDataSou
         
         cell.id = transaction.id!;
         cell.date = transaction.date!;
-        cell.amountLabel?.text = transaction.currency! + " $ " + String(transaction.amount!);
+        cell.amountLabel?.text = transaction.currency! + " " + String(transaction.amount!);
         cell.categoryLabel?.text = transaction.category;
         cell.dateLabel?.text = helper.dateToString(inDate: transaction.date!);
         cell.descriptionLabel?.text = transaction.description;

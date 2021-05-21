@@ -43,6 +43,7 @@ class HomeViewController: UIViewController{
     var selectedMonth = "";
     var budgetValue: Double = 0;
     var budgetProgress: Float = 0;
+    var currencyValue: String = "AUD";
     
     // Helper class and Dropdown library initialisation
     let helper = Helper();
@@ -70,6 +71,7 @@ class HomeViewController: UIViewController{
         print("presenta?");
         var options = ALOptions();
         options.image = UIImage(named: "lock")!;
+        options.color = UIColor(red: 88/256, green: 86/256, blue: 214/256, alpha: 1.0);
         options.title = "Smart Dollar Safe";
         options.isSensorsEnabled = false;
         options.onSuccessfulDismiss = { (mode: ALMode?) in
@@ -197,9 +199,15 @@ class HomeViewController: UIViewController{
         balance = income - expense;
         
         // Update labels
-        balanceLabel.text = String("$ \(balance)");
-        incomeLabel.text = String("$ \(income)");
-        expenseLabel.text = String("$ \(expense)");
+        
+        
+        if(UserDefaults.standard.value(forKey: "Currency") != nil){
+            currencyValue = UserDefaults.standard.value(forKey: "Currency") as! String;
+        }
+        
+        balanceLabel.text = String("\(currencyValue) \(balance)");
+        incomeLabel.text = String("\(currencyValue) \(income)");
+        expenseLabel.text = String("\(currencyValue) \(expense)");
     }
 
     @objc func getCurrentBudget(){
@@ -212,7 +220,7 @@ class HomeViewController: UIViewController{
                 if(budget.monthYear == selectedMonth){
                     // Set progress and values if budget already setup for selected month
                     
-                    currBudgetLabel.text = "$ \(String(budget.budgetValue))" ;
+                    currBudgetLabel.text = "\(currencyValue) \(String(budget.budgetValue))" ;
                     budgetValue = budget.budgetValue;
                     budgetProgress = Float((balance)/budgetValue);
                     budgetLevelBar.setProgress(Float(budgetProgress), animated: false);
@@ -230,11 +238,11 @@ class HomeViewController: UIViewController{
                     
                     if(balance < budgetValue){
                         let amt = budgetValue - balance;
-                        budgetLeftLabel.text = "You need $\(amt) more to reach your budget";
+                        budgetLeftLabel.text = "You need \(currencyValue) \(amt) more to reach your budget";
                     }
                     else if(balance > budgetValue){
                         let amt = balance - budgetValue;
-                        budgetLeftLabel.text = "You have $\(amt) surplus on your budget";
+                        budgetLeftLabel.text = "You have \(currencyValue) \(amt) surplus on your budget";
                     }
                     else if(balance == budgetValue){
                         budgetLeftLabel.text = "Your budget is fulfilled";
@@ -279,7 +287,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
         
         cell.id = transaction.id!;
         cell.date = transaction.date!;
-        cell.amountLabel?.text = transaction.currency! + " $ " + String(transaction.amount!);
+        cell.amountLabel?.text = transaction.currency! + " " + String(transaction.amount!);
         cell.categoryLabel?.text = transaction.category;
         cell.dateLabel?.text = helper.dateToString(inDate: transaction.date!);
         

@@ -175,10 +175,17 @@ class TransactionAddViewController: UIViewController {
                 type = "Expense";
             }
             
+            var currencyValue: String = "AUD";
+            if(UserDefaults.standard.value(forKey: "Currency") != nil){
+                currencyValue = UserDefaults.standard.value(forKey: "Currency") as! String;
+            }
+            
+            print("Dekho ", currencyValue);
+            
             let amount: Double = Double(transactionAmount.text ?? "") ?? 0;
 
             // Transaction object creation
-            let addTransaction = Transaction(id: transactionId, amount: amount, description: transactionDescription.text ?? "", type: type, category: categoryLabel.text ?? "", date: transactionDate.date, currency: "AUD");
+            let addTransaction = Transaction(id: transactionId, amount: amount, description: transactionDescription.text ?? "", type: type, category: categoryLabel.text ?? "", date: transactionDate.date, currency: currencyValue);
             
             
             // Fetch currently available transactions
